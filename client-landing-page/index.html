@@ -13,12 +13,12 @@
     <!-- Start Header Section -->
     <section class="header">
         <!-- Header tab -->
-        <div class="header-tab navy flex white-font">
+        <div class="header-tab navy flex white-font padding">
             <img src="./images/logo.png" alt="logo" class="logo">
             <button type="button" class="signin-button button">Sign in / Sign up</button>
         </div>
         <!-- Search tab -->
-        <div class="search flex light-navy white-font">
+        <div class="search flex light-navy white-font padding">
             <!-- Title -->
             <h1>Electro Estate</h1>
             <!-- Search bar -->
@@ -29,7 +29,7 @@
                 <label for="searchButton"></label>
             </form>
             <!-- Wishlist/Cart icons -->
-            <div class="flex">
+            <div class="search-bar-icons flex">
                 <div class="wishlist-icon">
                     <span class="material-symbols-outlined header-svg">favorite</span>
                     <p>Wishlist</p>
@@ -41,9 +41,9 @@
             </div>
         </div>
         <!-- Navigation -->
-        <nav class="nav-bar flex">
+        <nav class="nav-bar flex padding">
             <ul class="nav-items flex">
-                <li>Home</li>
+                <li class="current">Home</li>
                 <li>Categories</li>
                 <li>Wishlist</li>
                 <li>Favourites</li>
@@ -51,7 +51,10 @@
                 <li>Chat Page</li>
                 <li>Account</li>
             </ul>
-            <p>Send Voucher</p>
+            <div class="send-voucher flex">
+                <span class="material-symbols-outlined">add_box</span>
+                <p>Send Voucher</p>
+            </div>
         </nav>
     </section>
     <!-- End Header Section -->

@@ -1,33 +1,36 @@
+/* Header */
 .header-tab {
 	justify-content: space-between;
 	align-items: center;
 }
 
+/* Header logo */
 .logo {
-	margin-left: 20px;
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
 }
 
+/* Signin / Signup button */
 .signin-button {
-	margin: 10px 20px 10px;
 	width: 150px !important;
 }
 
+/* Search bar */
 .search {
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 20px;
 	height: 7vh;
 	min-height: 80px;
 	border-bottom: solid 3px #18a0fb;
 }
 
+/* Page title */
 .search h1 {
 	font-size: 30px;
 }
 
+/* Search input */
 #searchInput {
 	width: 20vw;
 	border-top-right-radius: 0;
@@ -35,11 +38,17 @@
 	border: none;
 }
 
+/* Search button */
 .search-button {
 	border-top-left-radius: 0 !important;
 	border-bottom-left-radius: 0 !important;
 }
 
+.search-bar-icons {
+	gap: 50px;
+}
+
+/* Wishlist / Cart icons */
 .wishlist-icon,
 .cart-icon {
 	display: flex;
@@ -47,8 +56,26 @@
 	justify-content: center;
 	gap: 2px;
 	align-items: center;
-	width: 100px;
 	font-size: 12px;
+	cursor: pointer;
+	user-select: none;
+}
+
+/* Navigation bar */
+.nav-bar {
+	justify-content: space-between;
+	border-bottom: solid 2px rgb(212, 212, 212);
+	align-items: center;
+}
+
+.nav-items {
+	gap: 3vw;
+	cursor: pointer;
+	user-select: none;
+}
+
+.send-voucher {
+	align-items: center;
 	cursor: pointer;
 	user-select: none;
 }
