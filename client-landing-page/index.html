@@ -22,25 +22,27 @@
             <!-- Title -->
             <h1>Electro Estate</h1>
             <!-- Search bar -->
-            <form>
-                <input type="text" id="searchInput" class="flex round" placeholder="Search here...">
+            <form class="flex">
+                <input type="text" id="searchInput" class="flex round input" placeholder="Search here...">
                 <label for="search-input"></label>
-                <button class="search-button button" id="searchButton">Search</button>
+                <button type="button" class="search-button button" id="searchButton">Search</button>
                 <label for="searchButton"></label>
             </form>
             <!-- Wishlist/Cart icons -->
-            <div class="wishlist-icon">
-                <span class="material-symbols-outlined header-svg">favorite</span>
-                <p>Wishlist</p>
-            </div>
-            <div class="cart-icon">
-                <span class="material-symbols-outlined header-svg">shopping_cart</span>
-                <p>Your Cart</p>
+            <div class="flex">
+                <div class="wishlist-icon">
+                    <span class="material-symbols-outlined header-svg">favorite</span>
+                    <p>Wishlist</p>
+                </div>
+                <div class="cart-icon">
+                    <span class="material-symbols-outlined header-svg">shopping_cart</span>
+                    <p>Your Cart</p>
+                </div>
             </div>
         </div>
         <!-- Navigation -->
         <nav class="nav-bar flex">
-            <ul class="nav-items">
+            <ul class="nav-items flex">
                 <li>Home</li>
                 <li>Categories</li>
                 <li>Wishlist</li>
