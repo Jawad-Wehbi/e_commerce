@@ -34,13 +34,3 @@ Utilities
     margin: auto;
     width: 100%;
 }
-.seller-flex {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-.seller-column-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-center;
-}
