@@ -1,0 +1,12 @@
+.header {
+    width: 72%;
+    height: 15%;
+    background-color: #001743;
+    color: #ffffff;
+    position: fixed;
+    left: 15%;
+    font-size: 36px;
+}
+.header p {
+    padding-left: 3.5%;
+}
