@@ -13,7 +13,7 @@
     font-size: 36px;
 }
 .header h2 {
-    margin:3.5%;
+    margin: 3.5%;
 }
 
 /* Title */
@@ -25,7 +25,7 @@
     justify-content: center;
     align-items: center;
 }
-.title div{
+.title div {
     width: 100%;
     height: 50%;
     justify-content: space-around;
@@ -54,7 +54,7 @@
     position: fixed;
     top: 15%;
 }
-.panel ul{
+.panel ul {
     width: 100%;
     height: 100%;
     display: flex;
@@ -74,7 +74,7 @@
     justify-content: center;
     align-items: center;
 }
-.nav-tab:hover{
+.nav-tab:hover {
     width: 102%;
     height: 13.5%;
 }
