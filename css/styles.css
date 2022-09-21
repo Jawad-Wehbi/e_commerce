@@ -1,0 +1,24 @@
+/* 
+Reset 
+*/
+
+.seller * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: robo;
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+}
+.seller img {
+    height: 100%;
+}
+.seller a {
+    text-decoration: none;
+    color: inherit;
+}
+.seller ul {
+    list-style: none;
+}
+
+
