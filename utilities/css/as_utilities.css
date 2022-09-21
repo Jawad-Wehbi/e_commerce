@@ -11,7 +11,7 @@
     left: 15%;
     font-size: 36px;
 }
-.header p {
+.header h2 {
     padding-left: 3.5%;
 }
 
@@ -34,4 +34,29 @@
 .title img {
     width: 62px;
     height: 62px;
+}
+
+/* Left Panel */
+.panel {
+    width: 28%;
+    height: 85%;
+    background-color: #767687;
+    position: fixed;
+    top: 15%;
+}
+.nav-tab {
+    width: 28%;
+    height: 11%;
+    background-color: #2a3143;
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+}
+.nav-tab-selected {
+    background-color: #007aff;
+}
+.sub-nav-tab {
+    background-color: #905fd7;
+}
+.sub-nav-tab-selected {
+    background-color: #6b6ced;
 }
