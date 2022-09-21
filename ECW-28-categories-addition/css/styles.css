@@ -34,6 +34,31 @@ Utilities
     margin: auto;
     width: 100%;
 }
+.seller-popup {
+    background-color: #ffffff;
+    width: 72%;
+    position: fixed;
+    min-height: 85%;
+    top: 15%;
+    left: 28%;
+    overflow: scroll;
+}
+.seller-btn {
+    width: 150px;
+    height: 110px;
+    border-radius: 20px;
+    background-color: #007aff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.seller-btn-discard {
+    background-color: #ee2222;
+}
+.seller-popup-hidden {
+    visibility: hidden;
+}
 
 /* 
 Categories
@@ -55,7 +80,7 @@ Categories
     border-radius: 20px;
     margin-top: 5%;
 }
-.seller-category img{
+.seller-category img {
     width: 100%;
     height: 80%;
 }
@@ -64,4 +89,42 @@ Categories
     font-weight: 600;
     color: black;
     text-align: center;
+}
+
+/* 
+New categories
+*/
+.seller-categories-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5%;
+}
+.seller-categories-add-img {
+    height: 73vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.seller-categories-info div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.seller-categories-info label {
+    margin-bottom: 10px;
+}
+.seller-categories-info input {
+    border-radius: 15px;
+    width: 100%;
+    height: 50px;
+}
+.seller-categories-info textarea {
+    border-radius: 15px;
+}
+.seller-categories-btns {
+    flex-direction: row !important;
+    justify-content: space-between;
 }

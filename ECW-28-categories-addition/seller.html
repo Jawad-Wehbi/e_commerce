@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="/develop/utilities/css/as_utilities.css" />
-        <link rel="stylesheet" href="" />
         <link
             href="https://fonts.googleapis.com/css?family=Roboto"
             rel="stylesheet" />
@@ -61,23 +60,25 @@
         <!-- 
             New category popup
          -->
-        <section>
-            <a href="">
-                <p>Add image</p>
+        <section class="seller-categories seller-popup seller-popup-hidden">
+            <a href="" class="seller-category seller-categories-add-img">
+                <p class="seller-category-name">Add image</p>
                 <img src="assets/plus.svg" alt="" />
             </a>
-            <div>
+            <div class="seller-categories-info">
                 <div>
-                    <label for="">Name:</label>
-                    <input id="" type="text" />
+                    <label class="seller-category-name" for="name">Name:</label>
+                    <input id="name" type="text" />
                 </div>
                 <div>
-                    <label for="">Description:</label>
-                    <textarea id="" cols="30" rows="10"></textarea>
+                    <label class="seller-category-name" for="description">
+                        Description:
+                    </label>
+                    <textarea id="descriptipon" cols="30" rows="6"></textarea>
                 </div>
-                <div>
-                    <a href="">Save</a>
-                    <a href="">Discard</a>
+                <div class="seller-categories-btns">
+                    <a class="seller-btn" href="">Save</a>
+                    <a class="seller-btn seller-btn-discard" href="">Discard</a>
                 </div>
             </div>
         </section>
