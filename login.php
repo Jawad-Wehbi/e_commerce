@@ -1,8 +1,9 @@
-<?phpheader('Access-Control-Allow-Origin: *');
+<?php
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
 
-include("connection.php");
+include("connections.php");
 
 $email = $_POST["client_email"];
 $password = hash("sha256", $_POST["client_password"]);
