@@ -1,0 +1,43 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.navy {
+	background-color: #001743;
+}
+
+.light-navy {
+	background-color: #535d77;
+}
+
+.blue {
+	background-color: #18a0fb;
+}
+
+.round {
+	border-radius: 100px;
+}
+
+.button {
+	background-color: #18a0fb;
+	border-radius: 10px;
+	height: 40px;
+	width: 100px;
+	border: none;
+	color: white;
+	font-size: 14px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.white-font {
+	color: white;
+}
+
+.flex {
+	display: flex;
+}
