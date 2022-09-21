@@ -1,12 +1,37 @@
+/*  */
+* {
+    color: #ffffff;
+}
+/* Header */
 .header {
     width: 72%;
     height: 15%;
     background-color: #001743;
-    color: #ffffff;
     position: fixed;
     left: 15%;
     font-size: 36px;
 }
 .header p {
     padding-left: 3.5%;
+}
+
+/* Title */
+.title {
+    width: 28%;
+    height: 15%;
+    background-color: #808dac;
+    position: fixed;
+}
+.title h1 {
+    font-size: 44px;
+    font-weight: 700;
+}
+.title p {
+    font-size: 26px;
+    font-weight: 400;
+    text-align: center;
+}
+.title img {
+    width: 62px;
+    height: 62px;
 }
