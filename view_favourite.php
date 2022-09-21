@@ -5,18 +5,10 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connections.php");
 
-$client = $_POST["client_id"];
-$product = $_POST["product_id"]
+$client = $_POST["client_user_id"];
 
 $query = $mysqli->prepare("SELECT name, image, price, nb_of_views, rating, category
- FROM products,users_view_products WHERE client_id = ?, product_id = ?");
-$query->bind_param("ss", $client , $product);
+ FROM products INNER JOIN client_favorite_products ON products.id = client_favorite_products.product_id , client_id = ?");
+$query->bind_param("s", $client );
 $query->execute();
-
-$return = $query -> get_result();
-$result = $return -> fetch_assoc();
-
-$response = [];
-$response["success"] = true;
-echo json_encode($result);
 ?>
