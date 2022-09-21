@@ -42,6 +42,8 @@
 .search-button {
 	border-top-left-radius: 0 !important;
 	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 100px !important;
+	border-top-right-radius: 100px !important;
 }
 
 .search-bar-icons {
@@ -78,4 +80,27 @@
 	align-items: center;
 	cursor: pointer;
 	user-select: none;
+}
+
+.nav-items li {
+	position: relative;
+}
+
+.nav-items li::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	width: 0;
+	height: 2px;
+	background-color: var(--blue);
+	transition: 300ms;
+}
+
+.nav-items li:hover::after {
+	width: 100%;
+}
+
+.nav-items li:hover {
+	color: #18a0fb;
 }
