@@ -59,8 +59,6 @@
 	gap: 2px;
 	align-items: center;
 	font-size: 12px;
-	cursor: pointer;
-	user-select: none;
 }
 
 /* Navigation bar */
@@ -70,18 +68,16 @@
 	align-items: center;
 }
 
+/* Navigation items */
 .nav-items {
 	gap: 3vw;
-	cursor: pointer;
-	user-select: none;
 }
 
 .send-voucher {
 	align-items: center;
-	cursor: pointer;
-	user-select: none;
 }
 
+/* Navigation items' animation */
 .nav-items li {
 	position: relative;
 }
@@ -94,7 +90,7 @@
 	width: 0;
 	height: 2px;
 	background-color: var(--blue);
-	transition: 300ms;
+	transition: 400ms;
 }
 
 .nav-items li:hover::after {
@@ -103,4 +99,72 @@
 
 .nav-items li:hover {
 	color: #18a0fb;
+}
+
+/* Ads' slider */
+.ads-container {
+	position: relative;
+	margin: 5vh auto;
+}
+
+.ad-slides {
+	display: none;
+	width: 100%;
+	height: 25vw;
+	background-color: rgb(83, 93, 119, .1);
+}
+
+.ad {
+	margin: auto;
+	display: block;
+	width: 100%;
+	height: 25vw;
+	object-fit: contain;
+}
+
+/* Previous and next button styling */
+.slider-btn {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 8px 16px;
+	margin-top: -22px;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 50%;
+}
+
+.previous {
+	left: 60px;
+}
+
+.next {
+	right: 60px;
+}
+
+.previous:hover,
+.next:hover {
+	color: rgb(255, 253, 253);
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Fade animation */
+.fade {
+	animation-name: fade;
+	animation-duration: .5s;
+}
+
+@keyframes fade {
+	from {
+		opacity: .4;
+	}
+	to {
+		opacity: 1;
+	}
 }

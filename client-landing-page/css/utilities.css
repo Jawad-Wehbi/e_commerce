@@ -8,6 +8,7 @@
 /* Colors */
 :root {
 	--blue: #18a0fb;
+	--light-navy: #535d77;
 }
 
 /* Lists */
@@ -22,7 +23,7 @@ ul {
 
 /* Light navy backgrounds */
 .light-navy {
-	background-color: #535d77;
+	background-color: var(--light-navy);
 }
 
 /* Blue backgrounds */
@@ -70,7 +71,7 @@ ul {
 
 /* Section padding */
 .padding {
-	padding: 10px 40px;
+	padding: 10px 60px;
 }
 
 /* Current navigation page */
@@ -88,4 +89,9 @@ ul {
 	width: 100%;
 	height: 2px;
 	background-color: var(--blue);
+}
+
+.pointer {
+	cursor: pointer;
+	user-select: none;
 }

@@ -30,11 +30,11 @@
             </form>
             <!-- Wishlist/Cart icons -->
             <div class="search-bar-icons flex">
-                <div class="wishlist-icon">
+                <div class="wishlist-icon pointer">
                     <span class="material-symbols-outlined header-svg">favorite</span>
                     <p>Wishlist</p>
                 </div>
-                <div class="cart-icon">
+                <div class="cart-icon pointer">
                     <span class="material-symbols-outlined header-svg">shopping_cart</span>
                     <p>Your Cart</p>
                 </div>
@@ -42,7 +42,7 @@
         </div>
         <!-- Navigation -->
         <nav class="nav-bar flex padding">
-            <ul class="nav-items flex">
+            <ul class="nav-items flex pointer">
                 <li class="current">Home</li>
                 <li>Categories</li>
                 <li>Wishlist</li>
@@ -53,13 +53,31 @@
             </ul>
             <div class="send-voucher flex">
                 <span class="material-symbols-outlined">add_box</span>
-                <p>Send Voucher</p>
+                <p class="pointer">Send Voucher</p>
             </div>
         </nav>
     </section>
     <!-- End Header Section -->
 
     <!-- Start Body Section -->
+    <section class="body">
+        <!-- Ads slider container -->
+        <div class="ads-container padding">
+            <!-- Ads -->
+            <div class="ad-slides fade">
+                <img src="./images/fb0f1404-1710-4c3e-90d0-c0b6559fb7de_rw_1200.png" class="ad">
+            </div>
+            <div class="ad-slides fade">
+                <img src="./images/Main-Bannre-1-915x420.jpg" class="ad">
+            </div>
+            <div class="ad-slides fade">
+                <img src="./images/YMUet27111.jpg" class="ad">
+            </div>
+            <!-- Previous & Next buttons -->
+            <a class="slider-btn previous" onclick="setSlides(-1)">❮</a>
+            <a class="slider-btn next" onclick="setSlides(1)">❯</a>
+    </div>
+    </section>
     <!-- End Body Section -->
 </body>
 <script src="./scripts/script.js"></script>
