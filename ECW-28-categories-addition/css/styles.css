@@ -147,8 +147,10 @@ Category page
 }
 .seller-categories-subheader {
     color: #000000;
-    padding: 2% 0 2% 3.5%;
+    padding: 2% 2% 2% 3.5%;
     background-color: #535d77;
+    display: flex;
+    justify-content: space-between;
 }
 .seller-category-page {
     display: flex;
