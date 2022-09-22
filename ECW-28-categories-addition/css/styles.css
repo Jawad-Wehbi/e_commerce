@@ -135,3 +135,52 @@ New categories
     flex-direction: row !important;
     justify-content: space-between;
 }
+/* 
+Category page
+*/
+.seller-categories-product {
+    width: 30%;
+    height: 55vh;
+    border-radius: 20px;
+    margin-top: 5%;
+    background-color: #535d77;
+    text-align: center;
+    margin-bottom: 4%;
+}
+.seller-categories-product-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.seller-categories-product-info * {
+    padding: 1%;
+}
+.seller-product-img {
+    width: 100%;
+}
+.seller-categories-product-views {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9d9d9;
+}
+.seller-categories-product-views * {
+    color: #000000;
+    padding: 1%;
+}
+.seller-categories-product-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+.seller-categories-product-btns * {
+    flex: 1 0 50%;
+    padding: 1.5%;
+}
+.seller-edit-btn {
+    background-color: #007aff;
+    border-radius: 0 0 0 15px;
+}
+.seller-delete-btn {
+    background-color: #ee2222;
+    border-radius: 0 0 15px 0;
+}
