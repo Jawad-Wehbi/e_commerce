@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="/develop/utilities/css/as_utilities.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto"
+            rel="stylesheet" />
+        <title>Seller Page</title>
+    </head>
+
+    <body class="seller">
+        <!-- 
+            Title section
+         -->
+        <section class="title">
+            <div>
+                <img src="assets/logo.png" alt="" />
+                <h1>Electro Estate</h1>
+            </div>
+            <p>Seller Name</p>
+        </section>
+        <!-- 
+            Header section
+         -->
+        <section class="header">
+            <h2>Categories</h2>
+        </section>
+        <!-- 
+            Left Panel
+         -->
+        <section class="panel">
+            <ul>
+                <a class="nav-tab" href=""><li>Revenue</li></a>
+                <a class="nav-tab nav-tab-selected" href="">
+                    <li>Categories</li>
+                </a>
+                <a class="nav-tab" href=""><li>Top 5 Products Viewed</li></a>
+                <a class="nav-tab" href=""><li>Discount Codes</li></a>
+                <a class="nav-tab" href=""><li>Messages</li></a>
+                <a class="nav-tab" href=""><li>Ads</li></a>
+            </ul>
+        </section>
+        <!-- 
+            Categories
+         -->
+        <section class="seller-categories">
+            <a href="" class="seller-category">
+                <p class="seller-category-name">Collection Name</p>
+                <img src="assets/Laptop-collection.webp" alt="" />
+            </a>
+            <a href="" class="seller-category">
+                <p class="seller-category-name">Add New Category</p>
+                <img src="assets/plus.svg" alt="" />
+            </a>
+        </section>
+        <!-- 
+            New category popup
+         -->
+        <section class="seller-popup seller-popup-hidden">
+            <div class="seller-categories-subheader">
+                <h3>New Category</h3>
+                <a href=""><img src="assets/x.svg" alt="" /></a>
+            </div>
+            <div class="seller-categories">
+                <a href="" class="seller-category seller-categories-add-img">
+                    <p class="seller-category-name">Add image</p>
+                    <img src="assets/plus.svg" alt="" />
+                </a>
+                <div class="seller-categories-info">
+                    <div>
+                        <label class="seller-category-name" for="name">
+                            Name:
+                        </label>
+                        <input id="name" type="text" />
+                    </div>
+                    <div>
+                        <label class="seller-category-name" for="description">
+                            Description:
+                        </label>
+                        <textarea
+                            id="descriptipon"
+                            cols="30"
+                            rows="5"></textarea>
+                    </div>
+                    <div class="seller-categories-btns">
+                        <a class="seller-btn" href="">Save</a>
+                        <a class="seller-btn seller-btn-discard" href="">
+                            Discard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 
+            Category page popup
+         -->
+        <section class="seller-category-page-popup seller-popup-hidden">
+            <div class="seller-categories-subheader">
+                <h3>Category 1</h3>
+                <a href=""><img src="assets/x.svg" alt="" /></a>
+            </div>
+            <div class="seller-category-page">
+                <div class="seller-categories-product">
+                    <div class="seller-categories-product-info">
+                        <img
+                            class="seller-product-img"
+                            src="assets/Laptop-collection.webp"
+                            alt="" />
+                        <p>Category Name</p>
+                        <p>Product Name</p>
+                        <p>Price</p>
+                    </div>
+                    <div class="seller-categories-product-views">
+                        <p>10</p>
+                        <img src="assets/heart.svg" alt="" />
+                        <p>20</p>
+                        <img src="assets/eye.svg" alt="" />
+                    </div>
+                    <div class="seller-categories-product-btns">
+                        <a class="seller-edit-btn" href="">Edit</a>
+                        <a class="seller-delete-btn" href="">Delete</a>
+                    </div>
+                </div>
+                <a href="" class="seller-categories-add-product">
+                    <p>Add New Product</p>
+                    <img src="assets/plus.svg" alt="" />
+                </a>
+            </div>
+        </section>
+        <!-- 
+            New Product popup
+         -->
+        <section class="seller-popup seller-popup-hidden">
+            <div class="seller-categories-subheader">
+                <h3>Add new product</h3>
+                <a href=""><img src="assets/x.svg" alt="" /></a>
+            </div>
+            <div class="seller-products">
+                <a href="" class="seller-category seller-categories-add-img">
+                    <p class="seller-category-name">Add image</p>
+                    <img src="assets/plus.svg" alt="" />
+                </a>
+                <div class="seller-products-info">
+                    <p class="seller-products-name">
+                        Category:
+                        <span class="seller-products-name">Category Name</span>
+                    </p>
+                    <div>
+                        <label
+                            class="seller-products-name"
+                            for="product-name-input">
+                            Name of product:
+                        </label>
+                        <input id="product-name-input" type="text" />
+                    </div>
+                    <div>
+                        <label
+                            class="seller-products-name"
+                            for="product-price-input">
+                            Price:
+                        </label>
+                        <input id="product-price-input" type="text" />
+                    </div>
+                    <div>
+                        <label class="seller-products-name" for="description">
+                            Description:
+                        </label>
+                        <textarea
+                            id="product-descriptipon-input"
+                            cols="30"
+                            rows="5"></textarea>
+                    </div>
+                    <div class="seller-products-btns">
+                        <a class="seller-btn" href="">Save</a>
+                        <a class="seller-btn seller-btn-discard" href="">
+                            Discard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 
+            Edit Product popup
+         -->
+        <section class="seller-popup seller-popup-hidden">
+            <div class="seller-categories-subheader">
+                <h3>Edit product</h3>
+                <a href=""><img src="assets/x.svg" alt="" /></a>
+            </div>
+            <div class="seller-products">
+                <a href="" class="seller-category seller-categories-add-img">
+                    <p class="seller-category-name">Edit image</p>
+                    <img src="" alt="" />
+                </a>
+                <div class="seller-products-info">
+                    <p class="seller-products-name">
+                        Category:
+                        <span class="seller-products-name">Category Name</span>
+                    </p>
+                    <div>
+                        <label class="seller-products-name">
+                            Edit name of product:
+                        </label>
+                        <input type="text" placeholder="Name of product" />
+                    </div>
+                    <div>
+                        <label class="seller-products-name">Edit price:</label>
+                        <input type="text" placeholder="Price" />
+                    </div>
+                    <div>
+                        <label class="seller-products-name">
+                            Edit description:
+                        </label>
+                        <textarea
+                            placeholder="Description"
+                            cols="30"
+                            rows="5"></textarea>
+                    </div>
+                    <div class="seller-products-btns">
+                        <a class="seller-btn" href="">Save</a>
+                        <a class="seller-btn seller-btn-discard" href="">
+                            Discard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
