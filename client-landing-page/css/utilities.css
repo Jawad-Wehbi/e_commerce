@@ -46,6 +46,11 @@ ul {
 	color: white;
 	font-size: 14px;
 	cursor: pointer;
+	transition: 300ms;
+}
+
+.button:hover {
+	background-color: #1184d1;
 }
 
 /* Bold texts */
