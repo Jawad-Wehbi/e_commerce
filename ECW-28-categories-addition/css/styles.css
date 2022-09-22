@@ -140,7 +140,7 @@ Category page
 */
 .seller-categories-product {
     width: 30%;
-    height: 55vh;
+    height: 50%;
     border-radius: 20px;
     margin-top: 5%;
     background-color: #535d77;
@@ -183,4 +183,24 @@ Category page
 .seller-delete-btn {
     background-color: #ee2222;
     border-radius: 0 0 15px 0;
+}
+
+.seller-categories-add-product {
+    width: 30%;
+    height: 50%;
+    border-radius: 20px;
+    margin-top: 5%;
+    text-align: center;
+    margin-bottom: 4%;
+    border: #000000 1px solid;
+}
+.seller-categories-add-product p {
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    margin: 15px 0;
+}
+.seller-categories-add-product img {
+    width: 100%;
+    height: 70%;
 }
