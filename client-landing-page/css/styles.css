@@ -343,14 +343,14 @@
 }
 
 .footer h2 {
-	margin-bottom: 14px;
+	margin-bottom: 20px;
 	text-transform: uppercase;
 	font-size: 20px !important;
 }
 
 .footer li,
-p {
-	margin-bottom: 10px;
+.footer p {
+	margin-bottom: 15px;
 	color: rgb(190, 190, 190) !important;
 }
 
@@ -360,6 +360,8 @@ p {
 
 .footer-subsection {
 	gap: 10vw;
+	padding-top: 5vh !important;
+	padding-bottom: 5vh !important;
 }
 
 .about-us {
@@ -387,4 +389,24 @@ p {
 
 .social-media-items:hover path {
 	fill: black;
+}
+
+.credit-cards {
+	width: 100%;
+	justify-content: center;
+	gap: 15px;
+	padding: 15px 0;
+}
+
+.credit-cards img {
+	width: 50px;
+	height: 30px;
+	object-fit: cover;
+}
+
+.footer-second-subsection p {
+	text-align: center;
+	padding-bottom: 10px;
+	font-size: 12px;
+	margin-bottom: 0 !important;
 }
