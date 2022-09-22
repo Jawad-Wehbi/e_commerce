@@ -25,8 +25,8 @@ let slider = tns({
 	controlsContainer: '#newProductsControls',
 	prevButton: '.product-right',
 	nextButton: '.product-left',
-	autoWidth: true,
-	gutter: 60
+	gutter: 60,
+	items: 4
 });
 
 // Top selling slider
@@ -38,8 +38,8 @@ let topSellingSlider = tns({
 	controlsContainer: '#topSellingControl',
 	prevButton: '.top-product-right',
 	nextButton: '.top-product-left',
-	autoWidth: true,
-	gutter: 60
+	gutter: 60,
+	items: 4
 });
 
 // Ads slider
