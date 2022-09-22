@@ -20,6 +20,10 @@ Reset
 .seller ul {
     list-style: none;
 }
+.seller input,
+.seller textarea {
+    color: #000000;
+}
 
 /* 
 Utilities

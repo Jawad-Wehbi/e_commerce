@@ -85,7 +85,7 @@
         <!-- 
             Category page popup
          -->
-        <section class="seller-category-page-popup">
+        <section class="seller-category-page-popup seller-popup-hidden">
             <div class="seller-categories-subheader">
                 <h3>Category 1</h3>
                 <a href=""><img src="assets/x.svg" alt="" /></a>
@@ -116,6 +116,58 @@
                     <p>Add New Product</p>
                     <img src="assets/plus.svg" alt="" />
                 </a>
+            </div>
+        </section>
+        <!-- 
+            New Product popup
+         -->
+        <section class="seller-popup">
+            <div class="seller-categories-subheader">
+                <h3>Add new product</h3>
+                <a href=""><img src="assets/x.svg" alt="" /></a>
+            </div>
+            <div class="seller-products">
+                <a href="" class="seller-category seller-categories-add-img">
+                    <p class="seller-category-name">Add image</p>
+                    <img src="assets/plus.svg" alt="" />
+                </a>
+                <div class="seller-products-info">
+                    <p class="seller-products-name">
+                        Category:
+                        <span class="seller-products-name">Category Name</span>
+                    </p>
+                    <div>
+                        <label
+                            class="seller-products-name"
+                            for="product-name-input">
+                            Name of product:
+                        </label>
+                        <input id="product-name-input" type="text" />
+                    </div>
+                    <div>
+                        <label
+                            class="seller-products-name"
+                            for="product-price-input">
+                            Price:
+                        </label>
+                        <input id="product-price-input" type="text" />
+                    </div>
+                    <div>
+                        <label class="seller-products-name" for="description">
+                            Description:
+                        </label>
+                        <textarea
+                            id="product-descriptipon-input"
+                            cols="30"
+                            rows="5"></textarea>
+                    </div>
+                    <div class="seller-products-btns">
+                        <a class="seller-btn" href="">Save</a>
+                        <a class="seller-btn seller-btn-discard" href="">
+                            Discard
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </body>
