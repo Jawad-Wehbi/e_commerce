@@ -138,6 +138,23 @@ New categories
 /* 
 Category page
 */
+.seller-category-page-popup {
+    width: 72%;
+    position: fixed;
+    min-height: 85%;
+    top: 15%;
+    left: 28%;
+}
+.seller-categories-subheader {
+    color: #000000;
+    padding: 2% 0 2% 3.5%;
+    background-color: #535d77;
+}
+.seller-category-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .seller-categories-product {
     width: 30%;
     height: 50%;
