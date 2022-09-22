@@ -11,7 +11,7 @@ $name = $_POST["name"];
 
 
 //Check if category name exists before adding
-$query = $mysqli->prepare("SELECT name FROM categories WHERE name=?");
+$query = $mysqli->prepare("SELECT name FROM categories WHERE name=? ");
 $query->bind_param("s", $name);
 $query->execute();
 
