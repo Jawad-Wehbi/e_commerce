@@ -298,3 +298,8 @@ Seller revenue
     padding: 4%;
     padding-left: 20%;
 }
+
+.seller-revenue svg{
+    align-self: center;
+    margin-top: 5%;
+}
