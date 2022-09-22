@@ -1,0 +1,45 @@
+.admin * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: robo;
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+}
+.admin img {
+    height: 100%;
+}
+.admin a {
+    text-decoration: none;
+    color: inherit;
+}
+.admin ul {
+    list-style: none;
+}
+.admin input,
+.admin textarea {
+    color: #000000;
+}
+/*
+Utilities
+*/
+.admin {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* *{
+    left:0;
+    top: 0;
+    box-sizing: border-box;
+}
+.title h1 {
+    margin: 20 20px;
+}
+
+.title img {
+    margin-top: 30px;
+
+} */

@@ -13,7 +13,7 @@
     font-size: 36px;
 }
 .header h2 {
-    margin: 3.5%;
+    margin: 2.5% 2.5%;
 }
 
 /* Title */
@@ -32,7 +32,7 @@
     height: 50%;
     display: flex;
     justify-content: space-around;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 .title h1 {
     font-size: 44px;
@@ -84,3 +84,26 @@
 .nav-tab-selected {
     background-color: #007aff;
 }
+
+/* .sellersList{
+    margin-top: 15vh;
+    margin-left: 27vw;
+    height: auto;
+    width: auto;
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    grid-template-rows: 200px 200px 200px;
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+.sellersList > div {
+    background-color: rgba(200, 200, 200, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.seller > img {
+
+} */
