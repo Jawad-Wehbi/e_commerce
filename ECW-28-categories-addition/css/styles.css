@@ -233,7 +233,7 @@ Category page
 }
 
 /* 
-Add new product Popup
+Add new product Popup / Edit product
 */
 .seller-products {
     display: flex;
@@ -276,4 +276,7 @@ Add new product Popup
 .seller-products-btns {
     flex-direction: row !important;
     justify-content: space-between;
+}
+.seller-products ::placeholder {
+    padding-left: 10px;
 }
