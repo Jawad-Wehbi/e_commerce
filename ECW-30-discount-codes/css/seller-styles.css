@@ -273,3 +273,43 @@ Add new product Popup / Edit product
 .seller-products ::placeholder {
     padding-left: 10px;
 }
+
+/* 
+Seller Discount codes page
+*/
+
+.header-discount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-discount a {
+    margin: 3.5%;
+    padding: 1% 2%;
+    border-radius: 15px;
+    background-color: #007aff;
+}
+.seller-discount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.seller-discount table {
+    margin-top: 5%;
+    color: #000000;
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid #000000;
+}
+.seller-discount th {
+    padding: 3%;
+}
+.seller-discount tr,
+th,
+td {
+    border: 1px solid #000000;
+    text-align: center;
+}
+.seller-discount table * {
+    color: black;
+}
