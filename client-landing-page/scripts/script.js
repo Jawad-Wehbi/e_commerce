@@ -2,18 +2,21 @@ const product = document.querySelectorAll('.product');
 const productModal = document.getElementById('productModal');
 const quit = document.getElementById('quit');
 
+// Show product modal on click
 product[0].addEventListener('click', () => {
 	productModal.showModal();
 	document.body.style.overflow = 'hidden';
 	document.body.style.userSelect = 'none';
 });
 
+// Close product modal on click
 quit.addEventListener('click', () => {
 	productModal.close();
 	document.body.style.overflow = 'auto';
 	document.body.style.userSelect = 'auto';
 });
 
+// New items slider
 let slider = tns({
 	container: '.new-products',
 	slideBy: 1,
@@ -26,6 +29,7 @@ let slider = tns({
 	gutter: 60
 });
 
+// Top selling slider
 let topSellingSlider = tns({
 	container: '.top-products',
 	slideBy: 1,
@@ -38,6 +42,7 @@ let topSellingSlider = tns({
 	gutter: 60
 });
 
+// Ads slider
 let currentIndex = 1;
 displaySlides(currentIndex);
 
