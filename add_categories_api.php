@@ -6,17 +6,19 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
-
+//prepare seller inputs and insert their values
 $name = $_POST["name"];
 $description = $_POST["description"];
 $seller_user_id = $_POST["seller_user_id"];
 
+
+//insert category into the  categories table
 $query = $mysqli->prepare("INSERT INTO categories(name, description,seller_user_id) VALUE (?,?,?)");
 $query->bind_param("sss", $name , $description,$seller_user_id);
 $query->execute();
 
 
-
+//display success output in case the category was added
 $response = [];
 $response["success"] = true;
 
