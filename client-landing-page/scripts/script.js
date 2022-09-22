@@ -14,6 +14,30 @@ quit.addEventListener('click', () => {
 	document.body.style.userSelect = 'auto';
 });
 
+let slider = tns({
+	container: '.new-products',
+	slideBy: 1,
+	speed: 400,
+	nav: false,
+	controlsContainer: '#newProductsControls',
+	prevButton: '.product-right',
+	nextButton: '.product-left',
+	autoWidth: true,
+	gutter: 60
+});
+
+let topSellingSlider = tns({
+	container: '.top-products',
+	slideBy: 1,
+	speed: 400,
+	nav: false,
+	controlsContainer: '#topSellingControl',
+	prevButton: '.top-product-right',
+	nextButton: '.top-product-left',
+	autoWidth: true,
+	gutter: 60
+});
+
 let currentIndex = 1;
 displaySlides(currentIndex);
 
