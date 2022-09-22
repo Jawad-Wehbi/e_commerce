@@ -628,17 +628,27 @@
             </tr>
             <tr>
                 <td class="table-product-name flex">
-                    <i class="fa-solid fa-trash"></i>
+                    <i class="fa-solid fa-trash fa-lg fa"></i>
                     <img src="./images/a3f039fb-6370-4f7e-9561-49ca878bbef7_rw_600.png" alt="Product image">
                     <h3>Product name</h3>
                 </td>
                 <td class="bold">899$</td>
-                <td><input type="number" name="quantity" id="productQuantity" value="1" class="input round"></td>
+                <td><input type="number" name="quantity" id="productQuantity" value="1" class="input"></td>
                 <td>
-                    <input type="text" id="productCode" class="input round"></td>
+                    <input type="text" id="productCode" class="input"></td>
                 <td class="bold">Subtotal</td>
             </tr>
         </table>
+        <div class="add-voucher">
+            <input type="text" class="input voucher-input">
+            <button type="button" class="voucher-button button">Add Voucher</button>
+        </div>
+        <div class="cart-checkout flex">
+            <div class="cash-total flex white-font">
+                <h3>Cash Total:</h3>
+            </div>
+            <button class="checkout-button button">Proceed to Checkout</button>
+        </div>
     </section>
     <!-- End Cart Section -->
 

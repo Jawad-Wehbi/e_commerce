@@ -802,6 +802,11 @@ ul {
 	gap: 30px;
 }
 
+.fa:hover {
+	color: red;
+	transition: 300ms;
+}
+
 .cart-table td img {
 	width: 100px;
 	height: 100px;
@@ -814,4 +819,24 @@ ul {
 
 #productQuantity {
 	width: 80px;
+}
+
+.add-voucher {
+	margin: 30px 0;
+}
+
+.cart-checkout {
+	width: 100%;
+	justify-content: space-between;
+}
+
+.cash-total {
+	width: 15vw;
+	background-color: #535d77;
+	justify-content: center;
+	align-items: center;
+}
+
+.checkout-button {
+	width: 160px !important;
 }
