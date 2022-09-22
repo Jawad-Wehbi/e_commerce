@@ -30,10 +30,6 @@ Utilities
     padding: 0;
     box-sizing: border-box;
 }
-.seller-container {
-    margin: auto;
-    width: 100%;
-}
 .seller-popup {
     background-color: #ffffff;
     width: 72%;
@@ -52,6 +48,10 @@ Utilities
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.seller-btn:hover {
+    width: 155px;
+    height: 115px;
 }
 .seller-btn-discard {
     background-color: #ee2222;
@@ -80,6 +80,10 @@ Categories
     border-radius: 20px;
     margin-top: 5%;
 }
+.seller-category:hover {
+    width: 40%;
+    height: 40vh;
+}
 .seller-category img {
     width: 100%;
     height: 80%;
@@ -105,6 +109,9 @@ New categories
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.seller-categories-add-img:hover {
+    height: 75vh;
 }
 .seller-categories-info div {
     display: flex;
