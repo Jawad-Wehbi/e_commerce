@@ -651,3 +651,15 @@
 	justify-content: space-between;
 	row-gap: 30px;
 }
+
+/* Category Items Section */
+.category-items-body {
+	margin: 195px 0 30px;
+}
+
+.category-items-grid {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	justify-content: space-between;
+	row-gap: 30px;
+}
