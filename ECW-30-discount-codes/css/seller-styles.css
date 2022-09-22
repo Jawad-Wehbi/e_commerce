@@ -313,3 +313,9 @@ td {
 .seller-discount table * {
     color: black;
 }
+.seller-add-discount-code {
+    width: 50%;
+    border-radius: 20px;
+    margin: 15% auto;
+    padding: 5% 5% 3%;
+}
