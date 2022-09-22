@@ -1,3 +1,19 @@
+const product = document.querySelectorAll('.product');
+const productModal = document.getElementById('productModal');
+const quit = document.getElementById('quit');
+
+product[0].addEventListener('click', () => {
+	productModal.showModal();
+	document.body.style.overflow = 'hidden';
+	document.body.style.userSelect = 'none';
+});
+
+quit.addEventListener('click', () => {
+	productModal.close();
+	document.body.style.overflow = 'auto';
+	document.body.style.userSelect = 'auto';
+});
+
 let currentIndex = 1;
 displaySlides(currentIndex);
 
