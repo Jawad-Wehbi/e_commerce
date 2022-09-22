@@ -227,3 +227,49 @@ Category page
     width: 100%;
     height: 70%;
 }
+
+/* 
+Add new product Popup
+*/
+.seller-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.seller-products-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5%;
+}
+.seller-products-info > p {
+    margin-bottom: 2%;
+}
+.seller-products-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+}
+.seller-products-info div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.seller-products-info label {
+    margin-bottom: 10px;
+}
+.seller-products-info input {
+    border-radius: 15px;
+    width: 100%;
+    height: 40px;
+}
+.seller-products-info textarea {
+    border-radius: 15px;
+}
+.seller-products-btns {
+    flex-direction: row !important;
+    justify-content: space-between;
+}
