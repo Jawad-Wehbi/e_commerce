@@ -320,7 +320,8 @@
 	padding-bottom: 10px;
 }
 
-.product {
+.product,
+.wishlist-body-product {
 	border-radius: 10px;
 	width: 16vw;
 	min-width: 250px;
