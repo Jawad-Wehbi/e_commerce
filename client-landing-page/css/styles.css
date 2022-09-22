@@ -1,4 +1,12 @@
 /* Header */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+}
+
 .header-tab {
 	justify-content: space-between;
 	align-items: center;
@@ -63,6 +71,7 @@
 
 /* Navigation bar */
 .nav-bar {
+	background-color: white;
 	justify-content: space-between;
 	border-bottom: solid 2px rgb(212, 212, 212);
 	align-items: center;
@@ -99,6 +108,11 @@
 
 .nav-items li:hover {
 	color: #18a0fb;
+}
+
+/* Body section */
+.body {
+	margin-top: 195px;
 }
 
 /* Ads' slider */
