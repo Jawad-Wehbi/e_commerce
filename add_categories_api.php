@@ -9,10 +9,10 @@ include("connection.php");
 
 $name = $_POST["name"];
 $description = $_POST["description"];
-$seller_id = $_POST["seller_id"];
+$seller_user_id = $_POST["seller_user_id"];
 
-$query = $mysqli->prepare("INSERT INTO categories(name, description,seller_id) VALUE (?,?,?)");
-$query->bind_param("sss", $name , $description,$seller_id);
+$query = $mysqli->prepare("INSERT INTO categories(name, description,seller_user_id) VALUE (?,?,?)");
+$query->bind_param("sss", $name , $description,$seller_user_id);
 $query->execute();
 
 
