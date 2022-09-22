@@ -53,6 +53,11 @@ ul {
 	background-color: #1184d1;
 }
 
+.button:active {
+	transform: scale(0.95);
+	transition: transform 200ms;
+}
+
 /* Bold texts */
 .bold {
 	font-weight: bold;
