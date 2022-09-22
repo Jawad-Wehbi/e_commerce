@@ -37,11 +37,11 @@ Utilities
 .seller-popup {
     background-color: #ffffff;
     width: 72%;
-    position: fixed;
+    position: absolute;
     min-height: 85%;
     top: 15%;
     left: 28%;
-    overflow: scroll;
+    z-index: -1;
 }
 .seller-btn {
     width: 150px;
@@ -82,7 +82,7 @@ Categories
     height: 38vh;
     border: 1px solid #000000;
     border-radius: 20px;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .seller-category:hover {
     width: 40%;
@@ -106,16 +106,16 @@ New categories
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .seller-categories-add-img {
-    height: 73vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .seller-categories-add-img:hover {
-    height: 75vh;
+    height: 67vh;
 }
 .seller-categories-info div {
     display: flex;
@@ -155,11 +155,15 @@ Category page
     background-color: #535d77;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    width: 72%;
+    z-index: 1;
 }
 .seller-category-page {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-top: 5%;
 }
 .seller-categories-product {
     width: 30%;
@@ -240,7 +244,7 @@ Add new product Popup
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 .seller-products-info > p {
     margin-bottom: 2%;
