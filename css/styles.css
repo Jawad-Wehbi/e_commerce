@@ -51,7 +51,7 @@ ul {
 }
 
 .button:hover {
-	background-color: #1184d1;
+	background-color: #0060b2;
 }
 
 .button:active {
@@ -280,14 +280,14 @@ ul {
 }
 
 /* Body section */
-.body {
-	margin-top: 195px;
-}
+/* .body {
+	margin-top: 5vh;
+} */
 
 /* Ads' slider */
 .ads-container {
 	position: relative;
-	margin: 5vh auto;
+	margin: 0 auto 5vh;
 }
 
 .ad-slides {
@@ -842,53 +842,47 @@ ul {
 }
 
 /* Account Setting */
+.account-body {
+	margin-bottom: 10vw;
+}
+
 .account-page {
 	margin-top: 20px;
-	width: 50%;
+	/* width: 50%; */
 }
 
 .profile-div {
-	margin: 0 auto;
+	/* margin: 0 auto; */
+	width: 30%;
 }
 
 .profile-picture {
+	display: block;
+	margin: 0 auto;
 	width: 15vw;
 	height: 15vw;
 	border-radius: 50%;
 	object-fit: cover;
 }
 
-.account-options {
-	flex-direction: column;
-	align-items: center;
-	margin: 5vw auto;
-
-	border-radius: 5px;
-	width: 10vw;
+.logout-button,
+.save-button {
+	display: block;
+	margin: 30px 0 0 auto;
+	background-color: #da0000;
+	width: 150px !important;
 }
 
-.account-options p {
-	font-size: 15px;
+.save-button {
+	background-color: #18a0fb !important;
 }
 
-.account-options div {
-	padding: 15px;
+.save-button:hover {
+	background-color: #0060b2 !important;
 }
 
-.account-details {
-	background-color: rgb(220, 220, 220);
-	width: 100%;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	text-align: center;
-}
-
-.logout {
-	background-color: rgb(255, 85, 85) !important;
-	text-align: center;
-	width: 100%;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+.logout-button:hover {
+	background-color: #750000 !important;
 }
 
 .account-input {
@@ -902,3 +896,10 @@ ul {
 .account-input input {
 	height: 35px;
 }
+
+.account-input-tab {
+	width: 25vw !important;
+	border: #001743 solid 1px;
+}
+
+/* Chat Page */
