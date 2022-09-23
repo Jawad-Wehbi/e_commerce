@@ -142,13 +142,6 @@ New categories
 /* 
 Category page
 */
-.seller-category-page-popup {
-    width: 72%;
-    position: fixed;
-    min-height: 85%;
-    top: 15%;
-    left: 28%;
-}
 .seller-categories-subheader {
     color: #000000;
     padding: 2% 2% 2% 3.5%;
