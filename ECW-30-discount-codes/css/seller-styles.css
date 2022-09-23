@@ -300,9 +300,13 @@ Seller Discount codes page
     width: 60%;
     border-collapse: collapse;
     border: 2px solid #000000;
+    background-color: #d9d9d9;
 }
 .seller-discount th {
     padding: 3%;
+}
+.seller-discount tr * {
+    padding: 7px;
 }
 .seller-discount tr,
 th,
