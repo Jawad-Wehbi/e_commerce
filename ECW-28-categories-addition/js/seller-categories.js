@@ -14,6 +14,10 @@ window.onload = () => {
     const newCategoryDescriptionInput = document.getElementById(
         "new-category-descriptipon-input"
     );
+    const saveNewCategoryBtn = document.getElementById("save-new-category-btn");
+    const discardNewCategoryBtn = document.getElementById(
+        "discard-new-category-btn"
+    );
 
     //
     // Functions
@@ -22,6 +26,7 @@ window.onload = () => {
         categoriesPage.classList.add("seller-popup-hidden");
         newCategoryPage.classList.remove("seller-popup-hidden");
     };
+
     const closeNewCategoryPage = () => {
         newCategoryNameInput.value = "";
         newCategoryDescriptionInput.value = "";
@@ -29,6 +34,15 @@ window.onload = () => {
         newCategoryPage.classList.add("seller-popup-hidden");
     };
 
+    const saveNewCategory = () => {
+        if (
+            newCategoryNameInput.value != "" &&
+            newCategoryDescriptionInput != ""
+        ) {
+            // send to database
+            location.reload();
+        }
+    };
     //
     //
     //
@@ -39,5 +53,9 @@ window.onload = () => {
     closeNewCategoryBtn.addEventListener("click", e => {
         e.preventDefault();
         closeNewCategoryPage();
+    });
+    saveNewCategoryBtn.addEventListener("click", e => {
+        e.preventDefault();
+        saveNewCategory();
     });
 };
