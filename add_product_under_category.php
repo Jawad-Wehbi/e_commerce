@@ -7,12 +7,12 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 include("connection.php");
 
 //prepare category_id from the user
-$$categories_id = $_POST["categories_id"];
-
+$categories_id = $_POST["categories_id"];
+$id = $_POST["id"];
 
 //insert category_id into the products table to add the product to the category
-$query = $mysqli->prepare("INSERT INTO products(categories_id) VALUE (?)");
-$query->bind_param("s", $categories_id);
+$query = $mysqli->prepare("UPDATE  products SET categories_id =? WHERE id=?");
+$query->bind_param("ss",$categories_id, $id );
 $query->execute();
 
 
