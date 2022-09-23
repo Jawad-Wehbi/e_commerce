@@ -43,6 +43,12 @@ window.onload = () => {
             location.reload();
         }
     };
+
+    const discardNewCategory = () => {
+        newCategoryNameInput.value != "";
+        newCategoryDescriptionInput != "";
+    };
+    
     //
     //
     //
@@ -57,5 +63,9 @@ window.onload = () => {
     saveNewCategoryBtn.addEventListener("click", e => {
         e.preventDefault();
         saveNewCategory();
+    });
+    discardNewCategoryBtn.addEventListener("click", e => {
+        e.preventDefault();
+        discardNewCategory();
     });
 };
