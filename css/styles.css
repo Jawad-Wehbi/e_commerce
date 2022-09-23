@@ -840,3 +840,56 @@ ul {
 .checkout-button {
 	width: 160px !important;
 }
+
+/* Account Setting */
+.account-page {
+	margin-top: 20px;
+	width: 50%;
+}
+
+.profile-div {
+	margin: 0 auto;
+}
+
+.profile-picture {
+	width: 15vw;
+	height: 15vw;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.account-options {
+	flex-direction: column;
+	align-items: center;
+	margin: 5vw 0;
+	border: #001743 3px solid;
+	border-radius: 10px;
+}
+
+.account-options p {
+	font-size: 20px;
+}
+
+.account-options div {
+	padding: 15px;
+}
+
+.account-details {
+	background-color: rgb(220, 220, 220);
+	width: 100%;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+}
+
+.logout {
+	background-color: rgb(255, 85, 85) !important;
+	text-align: center;
+	width: 100%;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.account-input {
+	flex-direction: column;
+}
