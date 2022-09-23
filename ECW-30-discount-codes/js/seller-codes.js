@@ -9,6 +9,7 @@ window.onload = () => {
     const saveNewCodeBtn = document.getElementById("save-new-code");
     const discardNewCodeBtn = document.getElementById("discard-new-code");
     const newCodeInput = document.getElementById("new-code-input");
+    
     //
     // Functions
     //
@@ -29,6 +30,10 @@ window.onload = () => {
         }
     };
 
+    const discardNewCode = () => {
+        newCodeInput.value = "";
+    };
+
     //
     //
     //
@@ -43,5 +48,9 @@ window.onload = () => {
     saveNewCodeBtn.addEventListener("click", e => {
         e.preventDefault();
         saveNewCode();
+    });
+    discardNewCodeBtn.addEventListener("click", e => {
+        e.preventDefault();
+        discardNewCode();
     });
 };
