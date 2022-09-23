@@ -11,24 +11,29 @@ $name = $_POST["name"];
 
 
 //DELETE product from the view products table
-$query = $mysqli->prepare("DELETE  FROM users_view_products WHERE (SELECT from products(product_id) WHERE name=?) ");
-$query->bind_param("s",$name);
+$query = $mysqli->prepare("DELETE  FROM users_view_products WHERE (SELECT product_id FROM products WHERE name = ?) ");
+$query->bind_param("s", $name);
 $query->execute();
 
 //DELETE product from the client favorite table
-$query = $mysqli->prepare("DELETE  FROM client_favorite_products WHERE (SELECT from products(product_id) WHERE name=?) ");
+$query = $mysqli->prepare("DELETE  FROM client_favorite_products  WHERE (SELECT product_id FROM products WHERE name = ?) ");
 $query->bind_param("s",$name);
 $query->execute();
 
 //DELETE product from the products wishlist
-$query = $mysqli->prepare("DELETE  FROM client_add_products_to_wishlist WHERE (SELECT from products(product_id) WHERE name=?) ");
+$query = $mysqli->prepare("DELETE  FROM client_add_products_to_wishlist  WHERE (SELECT product_id FROM products WHERE name = ?) ");
 $query->bind_param("s",$name);
 $query->execute();
 
-// //DELETE product from the products table
-// $query = $mysqli->prepare("DELETE  FROM products WHERE name=?");
-// $query->bind_param("s",$name);
-// $query->execute();
+//DELETE product from the products cart
+$query = $mysqli->prepare("DELETE  FROM carts_has_products  WHERE (SELECT product_id FROM products WHERE name = ?) ");
+$query->bind_param("s",$name);
+$query->execute();
+
+//DELETE product from the products table
+$query = $mysqli->prepare("DELETE  FROM products WHERE name=?");
+$query->bind_param("s",$name);
+$query->execute();
 
 
 
