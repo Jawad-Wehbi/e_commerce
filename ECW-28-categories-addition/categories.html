@@ -47,7 +47,9 @@
         <!-- 
             Categories
          -->
-        <section id="seller-categories-page" class="seller-categories">
+        <section
+            id="seller-categories-page"
+            class="seller-categories seller-popup-hidden">
             <a href="" class="seller-category">
                 <p class="seller-category-name">Collection Name</p>
                 <img src="assets/Laptop-collection.webp" alt="" />
@@ -114,9 +116,10 @@
         <!-- 
             Category page popup
          -->
-        <section class="seller-popup seller-popup-hidden">
+        <section class="seller-popup">
             <div class="seller-categories-subheader">
                 <h3>Category 1</h3>
+                <a id="" class="seller-add-new-btn" href="">Add new product</a>
                 <a href=""><img src="assets/x.svg" alt="" /></a>
             </div>
             <div class="seller-category-page">
@@ -129,6 +132,14 @@
                         <p>Category Name</p>
                         <p>Product Name</p>
                         <p>Price</p>
+                        <p>
+                            Quantity sold:
+                            <span>56</span>
+                        </p>
+                        <p>
+                            Quantity left:
+                            <span>95</span>
+                        </p>
                     </div>
                     <div class="seller-categories-product-views">
                         <p>10</p>
@@ -141,10 +152,6 @@
                         <a class="seller-delete-btn" href="">Delete</a>
                     </div>
                 </div>
-                <a href="" class="seller-categories-add-product">
-                    <p>Add New Product</p>
-                    <img src="assets/plus.svg" alt="" />
-                </a>
             </div>
         </section>
         <!-- 
