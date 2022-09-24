@@ -6,8 +6,11 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
 // get seller name
-$seller_user_id = $_POST["seller_user_id"];
+$seller_user_id = $data["seller_user_id"];
 $checkout_date = date('y:m:d',strtotime('-30 days'));
 
 //Sum product of products prices after 1 Month for the seller
