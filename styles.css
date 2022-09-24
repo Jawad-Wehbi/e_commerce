@@ -40,24 +40,19 @@ Utilities
     padding: 8px;
     border-radius: 20px;
 }
-
-
 #customers th {
     width: 24vh;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    height: fit-content;
+    padding-inline: 5px;
+    padding-top: 5px;
     text-align: center;
     background-color: #535D77;
     color: white;
 }
 
-.seller > img {
-
-}
-
 @media screen and (max-width: 1280px) {
     .title h1 {
-        font-size: 35px;
+        font-size: 30px;
         font-weight: 700;
     }
 }
