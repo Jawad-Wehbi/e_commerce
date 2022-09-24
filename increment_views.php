@@ -6,9 +6,12 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
 //prepare category_id from the user
 
-$id = $_POST["id"];
+$id = $data["id"];
 
 //Query and increment the number of views for the product
 $query = $mysqli->prepare("UPDATE  products SET  nb_of_views=nb_of_views+1 WHERE id=?");
