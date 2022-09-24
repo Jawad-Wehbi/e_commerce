@@ -903,3 +903,32 @@ ul {
 }
 
 /* Chat Page */
+.chat-users {
+	width: 20vw;
+	background-color: #001743;
+	height: calc(100vh - 196px);
+	padding: 10px 10px;
+	overflow-y: auto;
+}
+
+.user-chat-element {
+	width: 90%;
+	height: 50px;
+	gap: 10px;
+	align-items: center;
+	background-color: white;
+	margin: 20px auto;
+	border-radius: 10px;
+}
+
+.user-chat-element img {
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	margin-left: 10px;
+	object-fit: cover;
+}
+
+.user-chat-element h1 {
+	font-size: 16px;
+}
