@@ -6,10 +6,10 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 include("connections.php");
 
 $client = $_POST["client_user_id"];
-$product = $_POST["product_id"];
+$product = $_POST["products_id"];
 $price = $_POST["price"];
 
-$query = $mysqli->prepare("INSERT INTO client_add_products_to_wishlist (client_user_id , product_id , price) VALUES(?,?,?)");
+$query = $mysqli->prepare("INSERT INTO client_add_products_to_wishlist (client_user_id , products_id , price) VALUES(?,?,?)");
 $query->bind_param("sss", $client, $product, $price);
 $query->execute();
 

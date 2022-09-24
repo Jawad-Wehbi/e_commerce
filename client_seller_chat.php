@@ -9,9 +9,9 @@ $client = $_POST["client_id"];
 $seller = $_POST["seller_id"];
 $text = $_POST["text"];
 
-$query = $mysqli->prepare("INSERT INTO clients_sellers_chat(text)");
-VALUE (?) WHERE client_id = ?, seller_id = ?");
-$query->bind_param("sss",$text , $client , $seller);
+$query = $mysqli->prepare("INSERT INTO clients_sellers_chat(text)
+VALUE (?) WHERE client_user_id = ?, seller_user_id = ?");
+$query->bind_param("sii",$text , $client , $seller);
 $query->execute();
 
 $return = $query -> get_result();
