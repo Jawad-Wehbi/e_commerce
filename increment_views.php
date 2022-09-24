@@ -16,7 +16,7 @@ $query->bind_param("s", $id );
 $query->execute();
 
 
-//display success output in case teh query execution was successful and send the result
+//display success output in case the query execution was successful and send the result
 $response = [];
 $response["success"] = true;
 
