@@ -79,13 +79,15 @@ Categories
 */
 .seller-categories {
     width: 72%;
-    position: fixed;
+    position: absolute;
     min-height: 85%;
     top: 15%;
     left: 28%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    z-index: -1;
+    margin-top: -2%;
 }
 .seller-category {
     width: 38%;
@@ -112,6 +114,10 @@ Categories
 /* 
 New categories
 */
+.seller-new-category-page {
+    position: fixed;
+    z-index: -1;
+}
 .seller-categories-info {
     display: flex;
     flex-direction: column;
@@ -343,6 +349,13 @@ td {
     border-radius: 20px;
     margin: 15% auto;
     padding: 5% 5% 3%;
+}
+
+/* 
+Top5 
+*/
+.seller-top5-page{
+margin-top: 1%;
 }
 
 /* 
