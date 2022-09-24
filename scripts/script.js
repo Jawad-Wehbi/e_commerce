@@ -17,6 +17,8 @@ const wishlistIcon = document.getElementById('wishlistIcon');
 const cartIcon = document.getElementById('cartIcon'); */
 
 const chatContainer = document.querySelector('.chat-container');
+const wishlistIcon = document.getElementById('wishlistIcon');
+const cartIcon = document.getElementById('cartIcon');
 
 // Show product modal on click
 product[0].addEventListener('click', () => {
@@ -101,6 +103,7 @@ navItems[1].addEventListener('click', () => {
 	footer.classList.remove('display');
 });
 
+// Wishlist
 navItems[2].addEventListener('click', () => {
 	navItems.forEach((element) => element.classList.remove('current'));
 	navItems[2].classList.add('current');
@@ -109,6 +112,7 @@ navItems[2].addEventListener('click', () => {
 	footer.classList.remove('display');
 });
 
+// Favourites
 navItems[3].addEventListener('click', () => {
 	navItems.forEach((element) => element.classList.remove('current'));
 	navItems[3].classList.add('current');
@@ -117,6 +121,7 @@ navItems[3].addEventListener('click', () => {
 	footer.classList.remove('display');
 });
 
+// Cart
 navItems[4].addEventListener('click', () => {
 	navItems.forEach((element) => element.classList.remove('current'));
 	navItems[4].classList.add('current');
@@ -125,6 +130,7 @@ navItems[4].addEventListener('click', () => {
 	footer.classList.remove('display');
 });
 
+// Chat Page
 navItems[5].addEventListener('click', () => {
 	navItems.forEach((element) => element.classList.remove('current'));
 	navItems[5].classList.add('current');
@@ -134,10 +140,29 @@ navItems[5].addEventListener('click', () => {
 	footer.classList.add('display');
 });
 
+// Account
 navItems[6].addEventListener('click', () => {
 	navItems.forEach((element) => element.classList.remove('current'));
 	navItems[6].classList.add('current');
 	sections.forEach((element) => element.classList.add('display'));
 	sections[6].classList.remove('display');
+	footer.classList.remove('display');
+});
+
+// Wishlist header icon
+wishlistIcon.addEventListener('click', () => {
+	navItems.forEach((element) => element.classList.remove('current'));
+	navItems[2].classList.add('current');
+	sections.forEach((element) => element.classList.add('display'));
+	sections[2].classList.remove('display');
+	footer.classList.remove('display');
+});
+
+// Cart header icon
+cartIcon.addEventListener('click', () => {
+	navItems.forEach((element) => element.classList.remove('current'));
+	navItems[4].classList.add('current');
+	sections.forEach((element) => element.classList.add('display'));
+	sections[4].classList.remove('display');
 	footer.classList.remove('display');
 });
