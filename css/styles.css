@@ -591,6 +591,19 @@ ul {
 	background-color: rgb(223, 223, 223);
 }
 
+/* Search section */
+/* Favourites Section */
+.search-body {
+	margin: 0 0 30px;
+}
+
+.search-items {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	justify-content: space-between;
+	row-gap: 30px;
+}
+
 /* Footer first section */
 .footer h2 {
 	margin-bottom: 20px;
