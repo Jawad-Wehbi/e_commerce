@@ -20,6 +20,8 @@ const chatContainer = document.querySelector('.chat-container');
 const wishlistIcon = document.getElementById('wishlistIcon');
 const cartIcon = document.getElementById('cartIcon');
 const signinButton = document.getElementById('signinButton');
+const searchButton = document.getElementById('searchButton');
+const searchInput = document.getElementById('searchInput');
 
 // Show product modal on click
 product[0].addEventListener('click', () => {
@@ -166,6 +168,16 @@ cartIcon.addEventListener('click', () => {
 	sections.forEach((element) => element.classList.add('display'));
 	sections[4].classList.remove('display');
 	footer.classList.remove('display');
+});
+
+// Search button
+searchButton.addEventListener('click', () => {
+	if (searchInput.value) {
+		navItems.forEach((element) => element.classList.remove('current'));
+		sections.forEach((element) => element.classList.add('display'));
+		sections[7].classList.remove('display');
+		footer.classList.remove('display');
+	}
 });
 
 // Sign in Button
