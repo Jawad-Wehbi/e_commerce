@@ -111,6 +111,10 @@ ul {
 .display {
 	display: none;
 }
+
+.column {
+	flex-direction: column;
+}
 /* Utilities */
 
 /*  */
@@ -1024,9 +1028,50 @@ ul {
 }
 
 .signin-block {
+	display: flex;
+	flex-direction: column;
 	margin: 0 20vw;
 	background-color: white;
 	border-radius: 10px;
 	height: 500px;
 	width: 450px;
+	padding-top: 40px;
+	gap: 20px;
+}
+
+.signin-header {
+	font-size: 30px;
+	color: #535d77;
+}
+
+.signin-subheader {
+	font-size: 20px;
+	margin: 20px 0;
+}
+
+.signin-email,
+.signin-password {
+	border-radius: 5px;
+	height: 30px;
+	border: #535d77 1px solid;
+	font-size: 14px;
+}
+
+.signin-page-button {
+	display: block;
+	margin: 20px auto 0;
+}
+
+.signin-block p {
+	font-size: 14px;
+	text-align: center;
+}
+
+.signup-link {
+	text-decoration: none;
+	color: #18a0fb;
+}
+
+.signup-link:hover {
+	text-decoration: underline;
 }
