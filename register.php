@@ -22,7 +22,7 @@ $returned_id= "SELECT id from users where email=$email";
 
 
 
-$query2= $mysqli->prepare("INSERT INTO clients (clients.user_id,cart_id, client_name, client_email,client_password)  VALUE(?,?,?,?,?)"); 
+$query2= $mysqli->prepare("INSERT INTO clients (user_id,cart_id, client_name, client_email,client_password)  VALUE(?,?,?,?,?)"); 
 $query2->bind_param("sssss",$returned_id,$cart,$name , $email, $pass);
 $query2->execute();
 
