@@ -5,20 +5,20 @@
 
 /* Header */
 .header {
-    width: 72%;
-    height: 15%;
+    width: 72vw;
+    height: 15vh;
     background-color: #001743;
     position: fixed;
     left: 28%;
     font-size: 36px;
 }
 .header h2 {
-    margin: 2.5% 2.5%;
+    margin: 3.5% 3%;
 }
 
 /* Title */
 .title {
-    width: 28%;
+    width: 28vw;
     height: 15%;
     background-color: #808dac;
     position: fixed;
@@ -31,7 +31,6 @@
     width: 100%;
     height: 50%;
     display: flex;
-    /* justify-content: space-around; */
     margin-top: 1%;
 }
 .title h1 {
@@ -48,12 +47,13 @@
     height: 62px;
     border-radius: 60px;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 /* Left Panel */
 .panel {
-    width: 28%;
-    height: 85%;
+    width: 28vw;
+    height: 100%;
     background-color: #767687;
     position: fixed;
     top: 15%;

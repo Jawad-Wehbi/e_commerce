@@ -1,3 +1,6 @@
+/*
+Utilities
+*/
 .admin * {
     margin: 0;
     padding: 0;
@@ -18,7 +21,7 @@
     color: #000000;
 }
 /*
-Utilities
+Table structure
 */
 .admin {
     width: 100%;
@@ -26,21 +29,19 @@ Utilities
     padding: 0;
     box-sizing: border-box;
 }
-
-#customers {
+#sellers {
     width: 72vw;
     height: 85vh;
     padding-top: 15vh;
     margin-left: 28vw;
     
 }
-
-#customers th {
+#sellers th {
     border: 1px solid #ddd;
     padding: 8px;
     border-radius: 20px;
 }
-#customers th {
+#sellers th {
     width: 24vh;
     height: fit-content;
     padding-inline: 5px;
@@ -50,12 +51,12 @@ Utilities
     color: white;
 }
 
-@media screen and (max-width: 1280px) {
-    .title h1 {
-        font-size: 30px;
-        font-weight: 700;
-    }
-}
+
+
+/* 
+Seller card
+ */
+
 .card{
     display: grid;
     grid-template-columns: auto auto ;
@@ -90,3 +91,9 @@ Utilities
     background-color: #FB1818;
 }
 
+@media screen and (max-width: 1280px) {
+    .title h1 {
+        font-size: 30px;
+        font-weight: 700;
+    }
+}
