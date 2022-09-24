@@ -824,7 +824,7 @@
     <!-- Start Product Modal Section -->
     <dialog class="product-modal" id="productModal">
         <!-- Quit icon -->
-        <span class="material-symbols-outlined modal-quit pointer" id="quit">close</span>
+        <span class="material-symbols-outlined modal-quit pointer" id="productQuit">close</span>
         <!-- Product info -->
         <div class="modal-info flex">
             <img src="./images/a3f039fb-6370-4f7e-9561-49ca878bbef7_rw_600.png" alt="product image" class="product-modal-image">
@@ -845,6 +845,26 @@
         </div>
     </dialog>
     <!-- End Product Modal Section -->
+
+    <!-- Start Voucher Modal Section -->
+    <dialog class="voucher-modal">
+        <!-- Quit icon -->
+        <span class="material-symbols-outlined modal-quit pointer" id="voucherQuit">close</span>
+        <div class="voucher flex">
+            <h1 class="voucher-header">Send Voucher</h1>
+            <div class="flex column">
+                <label for="">User Email</label>
+                <input type="email" class="voucher-email input">
+            </div>
+            <!-- Sign in password -->
+            <div class="flex column">
+                <label for="">Value ($)</label>
+                <input type="number" class="voucher-value input">
+            </div> 
+            <button class="voucher-send-button button">Send</button>
+        </div>
+    </dialog>
+    <!-- End Voucher Modal Section -->
 </body>
 <script src="./scripts/script.js"></script>
 </html>

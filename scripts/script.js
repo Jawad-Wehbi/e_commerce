@@ -1,8 +1,9 @@
+// Product modal
 const product = document.querySelectorAll('.product');
 const productModal = document.getElementById('productModal');
-const quit = document.getElementById('quit');
+const productQuit = document.getElementById('productQuit');
 
-// Header buttons
+// Nav elements and body sections
 const navItems = document.querySelectorAll('.nav-items-element');
 const sections = document.querySelectorAll('.section');
 const footer = document.querySelector('.footer');
@@ -16,6 +17,7 @@ const account = document.getElementById('accout');
 const wishlistIcon = document.getElementById('wishlistIcon');
 const cartIcon = document.getElementById('cartIcon'); */
 
+// Buttons and inputs
 const chatContainer = document.querySelector('.chat-container');
 const wishlistIcon = document.getElementById('wishlistIcon');
 const cartIcon = document.getElementById('cartIcon');
