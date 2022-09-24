@@ -6,9 +6,11 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+//prepare variables
+$product_id = $_POST["product_id"];
 
 //query and get the maximum number of views
-$query = $mysqli->prepare("SELECT nb_of_views ,name,product_id FROM  products ORDER BY nb_of_views DESC LIMIT 5" );
+$query = $mysqli->prepare("SELECT product_id ,name,image,price,nb_of_views,rating FROM  product WHERE seller_user_id=?" );
 $query->execute();
 $array = $query->get_result();
 
@@ -20,7 +22,7 @@ while($a = $array->fetch_assoc())
 }
 
 
-// Display top 5 views
+// Display all products with details
 $json = json_encode($response);
 echo $json;
 
