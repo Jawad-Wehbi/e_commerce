@@ -8,22 +8,30 @@ include("connections.php");
 $name = $_POST["client_name"];
 $email = $_POST["client_email"];
 // $id = $_POST["client_id"];
-$pass = hash("sha256" ,$_POST["client_name"]);
-$image = $_POST["img"];
+$pass = hash("sha256" ,$_POST["client_password"]);
+// $img = $_POST["img"];
 $cart = $_POST["cart_id"];
 $type = "client";
 
-$query1 = $mysqli->prepare("INSERT INTO users (email, password , user_type) 
-VALUES (?, ? ,?)");
-$query1->bind_param("sss", $email, $pass, $type);
-$query1->execute();
+// $query1 = $mysqli->prepare("INSERT INTO users (email, password , user_type) 
+// VALUES (?, ? ,?)");
+// $query1->bind_param("sss", $email, $pass, $type);
+// $query1->execute();
+
+$returned_id= "SELECT id from users where email=$email";
 
 
 
-$query2 = $mysqli->prepare("INSERT INTO clients (user_id , cart_id, client_name, client_email , client_password , img ) 
-VALUES (?, ?, ?, ?) FROM users INNER JOIN clients ON users.id = clients.user_id ");
-$query2->bind_param("ssss", $cart, $name, $email, $pass, $image);
+$query2= $mysqli->prepare("INSERT INTO clients (clients.user_id,cart_id, client_name, client_email,client_password)  VALUE(?,?,?,?,?)"); 
+$query2->bind_param("sssss",$returned_id,$cart,$name , $email, $pass);
 $query2->execute();
+
+
+
+// $query2 = $mysqli->prepare("INSERT INTO clients (user_id , cart_id, client_name, client_email , client_password , img ) 
+// VALUES (?, ?, ?, ?) FROM users INNER JOIN clients ON users.id = clients.user_id ");
+// $query2->bind_param("ssss", $cart, $name, $email, $pass, $image);
+// $query2->execute();
 
 ?>
 
