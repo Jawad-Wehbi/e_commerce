@@ -1380,17 +1380,6 @@ ul {
 	}
 }
 
-/* @media screen and (max-width: 600px) {
-	.categories-container {
-		grid-template-columns: auto;
-		justify-content: center;
-	}
-	.category-background-container {
-		width: 400px;
-		min-height: 220px;
-	}
-} */
-
 .nav-items.active {
 	display: flex;
 }
