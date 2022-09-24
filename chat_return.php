@@ -14,9 +14,14 @@ $query->bind_param("ii",$client , $seller);
 $query->execute();
 
 
-$return = $query -> get_result();
-$result = $return -> fetch_assoc();
+$array = $product->get_result();
 
+$response = [];
 
-echo json_encode($result);
+while($a = $array->fetch_assoc()){
+    $response[] = $a;
+}
+
+$json = json_encode($response);
+echo $json;
 ?>
