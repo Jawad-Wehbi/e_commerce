@@ -6,9 +6,13 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
+
 //prepare category_id from the user
-$categories_id = $_POST["categories_id"];
-$product_id = $_POST["product_id"];
+$categories_id = $data["categories_id"];
+$product_id = $data["product_id"];
 
 //insert category_id into the products table to add the product to the category
 $query = $mysqli->prepare("UPDATE  products SET categories_id =? WHERE product_id=?");
