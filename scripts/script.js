@@ -19,6 +19,7 @@ const cartIcon = document.getElementById('cartIcon'); */
 const chatContainer = document.querySelector('.chat-container');
 const wishlistIcon = document.getElementById('wishlistIcon');
 const cartIcon = document.getElementById('cartIcon');
+const signinButton = document.getElementById('signinButton');
 
 // Show product modal on click
 product[0].addEventListener('click', () => {
@@ -165,4 +166,9 @@ cartIcon.addEventListener('click', () => {
 	sections.forEach((element) => element.classList.add('display'));
 	sections[4].classList.remove('display');
 	footer.classList.remove('display');
+});
+
+// Sign in Button
+signinButton.addEventListener('click', () => {
+	window.location.href = 'signin.html';
 });
