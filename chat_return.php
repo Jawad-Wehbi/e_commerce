@@ -5,9 +5,13 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connections.php");
 
-$client = $_POST["client_id"];
-$seller = $_POST["seller_id"];
-// $text = $_POST["text"];
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
+
+$client = $data["client_id"];
+$seller = $data["seller_id"];
+// $text = $data["text"];
 
 $query = $mysqli->prepare("SELECT text ,FROM clients_sellers_chat WHERE client_user_id = ?, seller_user_id = ?");
 $query->bind_param("ii",$client , $seller);
