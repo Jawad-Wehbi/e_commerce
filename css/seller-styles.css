@@ -70,7 +70,7 @@ Utilities
     color: #ffffff !important;
     font-size: 25px;
 }
-.seller-add-new-btn:hover{
+.seller-add-new-btn:hover {
     cursor: pointer;
 }
 
@@ -460,4 +460,36 @@ Seller messages Page
 }
 .seller-message-header p {
     font-size: 33px;
+}
+
+/* 
+Add Ads
+*/
+.seller-ads {
+    width: 72%;
+    position: fixed;
+    height: 85%;
+    top: 15%;
+    left: 28%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.seller-ads * {
+    font-size: 40px;
+}
+.seller-ads-hidden {
+    display: none;
+}
+.seller-display-img {
+    width: 30vw;
+    height: 30vh;
+    margin: 10px 0;
+}
+.seller-ads-btns {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    width: 30vw;
 }
