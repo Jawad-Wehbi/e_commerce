@@ -10,7 +10,8 @@ include("connection.php");
 $seller_user_id = $_POST["seller_user_id"];
 
 //query and get the maximum number of views
-$query = $mysqli->prepare("SELECT product_id ,name,image,price,nb_of_views,rating FROM  product WHERE seller_user_id=?" );
+$query = $mysqli->prepare("SELECT id,name,description,seller_user_id,category_image FROM categories WHERE seller_user_id = ?  " );
+$query->bind_param("s",$seller_user_id);
 $query->execute();
 $array = $query->get_result();
 
