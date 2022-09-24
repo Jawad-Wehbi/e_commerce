@@ -6,8 +6,9 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
-//prepare category_id from the user
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
 
 
 //query and get the maximum number of views
