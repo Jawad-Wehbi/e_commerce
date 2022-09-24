@@ -4,13 +4,16 @@ header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
 
 include("connections.php");
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
 
-$name = $_POST["client_name"];
-$email = $_POST["client_email"];
-// $id = $_POST["client_id"];
-$pass = hash("sha256" ,$_POST["client_password"]);
-// $img = $_POST["img"];
-// $cart = $_POST["cart_id"];
+
+$name = $data["client_name"];
+$email = $data["client_email"];
+// $id = $data["client_id"];
+$pass = hash("sha256" ,$data["client_password"]);
+// $img = $data["img"];
+// $cart = $data["cart_id"];
 $type = "client";
 
 // $query = $mysqli->prepare("INSERT INTO `carts` (`id`) VALUES (NULL);");
