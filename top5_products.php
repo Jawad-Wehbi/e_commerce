@@ -6,10 +6,12 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
-
+$seller_user_id = $_POST["seller_user_id"];
 //query and get the maximum number of views
-$query = $mysqli->prepare("SELECT nb_of_views ,name,product_id FROM  products ORDER BY nb_of_views DESC LIMIT 5" );
+$query = $mysqli->prepare("SELECT nb_of_views ,name,product_id FROM  products WHERE seller_user_id=? ORDER BY nb_of_views DESC LIMIT 5  " );
+$query->bind_param("s",$seller_user_id);
 $query->execute();
+
 $array = $query->get_result();
 
 
