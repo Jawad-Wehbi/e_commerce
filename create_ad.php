@@ -6,11 +6,15 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
+
 //prepare values
-$ad_id = $_POST["ad_id"];
-$date_of_release = $_POST["date_of_release"];
-$date_of_expiration = $_POST["date_of_expiration"];
-$product_id = $_POST["product_id"];
+$ad_id = $data["ad_id"];
+$date_of_release = $data["date_of_release"];
+$date_of_expiration = $data["date_of_expiration"];
+$product_id = $data["product_id"];
 // $name = $_POST["name"];
 // $img = $_POST["img"];
 // $description = $_POST["description"];
