@@ -6,11 +6,15 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
+
 // get discount_id from the user
-$id = $_POST["id"];
-$discount_code_id = $_POST["discount_code_id"];
-$seller_user_id = $_POST["seller_user_id"];
-// discount_code_id
+$id = $data["id"];
+$discount_code_id = $data["discount_code_id"];
+$seller_user_id = $data["seller_user_id"];
+
 
 //DELETE discount code from discount code tables from the products table
 $query = $mysqli->prepare("DELETE  FROM discount_codes WHERE id=? and seller_user_id=?");
