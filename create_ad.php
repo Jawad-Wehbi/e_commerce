@@ -7,13 +7,13 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 include("connection.php");
 
 //prepare values
-$ad_id = $_POST["id"];
+$ad_id = $_POST["ad_id"];
 $date_of_release = $_POST["date_of_release"];
 $date_of_expiration = $_POST["date_of_expiration"];
 $product_id = $_POST["product_id"];
-$name = $_POST["name"];
-$img = $_POST["img"];
-$description = $_POST["description"];
+// $name = $_POST["name"];
+// $img = $_POST["img"];
+// $description = $_POST["description"];
 $seller_user_id = $_POST["seller_user_id"];
 
 
@@ -28,7 +28,7 @@ $query->bind_param("sss", $ad_id ,$date_of_release,$date_of_expiration);
 $query->execute();
 
 // assign the ad to product
-$query = $mysqli->prepare("UPDATE  products SET ads_id=? WHERE id=? ");
+$query = $mysqli->prepare("UPDATE  products SET ads_id=? WHERE product_id=? ");
 $query->bind_param("ss",$ad_id,$product_id);
 $query->execute();
 
