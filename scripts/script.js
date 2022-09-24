@@ -33,7 +33,7 @@ product[0].addEventListener('click', () => {
 });
 
 // Close product modal on click
-quit.addEventListener('click', () => {
+productQuit.addEventListener('click', () => {
 	productModal.close();
 	document.body.style.overflow = 'auto';
 	document.body.style.userSelect = 'auto';

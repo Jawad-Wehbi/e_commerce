@@ -681,7 +681,8 @@ ul {
 }
 
 /* Product popup modal */
-.product-modal {
+.product-modal,
+.voucher-modal {
 	background-color: white;
 	border-radius: 15px;
 	margin: auto auto;
@@ -690,7 +691,8 @@ ul {
 }
 
 /* Background page while product modal is active */
-.product-modal::backdrop {
+.product-modal::backdrop,
+.voucher-modal::backdrop {
 	background: black;
 	opacity: 0.4;
 	overflow: hidden;
@@ -766,6 +768,30 @@ ul {
 .contact-modal-button:hover {
 	background-color: white !important;
 	color: black !important;
+}
+
+/* Voucher modal */
+
+/* Voucher modal inner container */
+.voucher {
+	padding: 3vw;
+	gap: 1vw;
+}
+
+.voucher-header {
+	font-size: 30px;
+	color: #535d77;
+}
+
+.voucher-email {
+	border-radius: 5px;
+	height: 30px;
+	border: #535d77 1px solid;
+	font-size: 14px;
+}
+
+.voucher-amount {
+	width: 80px;
 }
 
 /* Wishlist Section */
