@@ -1,6 +1,6 @@
 window.onload = () => {
     //
-    // Variables
+    // Variables for navigation (left panel)
     //
     const revenueTab = document.getElementById("revenue-tab");
     const categoriesTab = document.getElementById("categories-tab");
@@ -10,7 +10,7 @@ window.onload = () => {
     const addAdsTab = document.getElementById("add-ads-tab");
 
     //
-    // Listeners
+    // Navigation
     //
     revenueTab.addEventListener("click", e => {
         e.preventDefault();
