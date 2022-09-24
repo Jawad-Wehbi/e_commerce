@@ -10,16 +10,16 @@ include("connection.php");
 
 
 
-//insert category_id into the products table to add the product to the category
+//query and get the maximum number of views
 $query = $mysqli->prepare("SELECT max(nb_of_views)as maxviews,id FROM  products ");
 $query->execute();
 
 
-//display success output in case the product was added to the category
+// Get the result
 $return = $query -> get_result();
 $result = $return -> fetch_assoc();
 
-
+// Display max views
 $response = [];
 $response["success"] = true;
 echo json_encode($result['maxviews']);
