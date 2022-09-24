@@ -263,6 +263,36 @@ Add new product Popup / Edit product
 }
 
 /* 
+Seller revenue
+*/
+.seller-revenue {
+    display: flex;
+    flex-direction: column;
+}
+.seller-revenue * {
+    color: #000000;
+}
+.seller-statistics {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 10%;
+}
+.seller-statistics-item {
+    width: 30%;
+    border-radius: 20px;
+    background-color: #adceff;
+}
+.seller-statistics-item * {
+    padding: 4%;
+    padding-left: 20%;
+}
+
+.seller-revenue svg{
+    align-self: center;
+    margin-top: 5%;
+}
+
+/* 
 Seller Discount codes page
 */
 
