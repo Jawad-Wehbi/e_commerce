@@ -6,8 +6,11 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
 // get product name from the user
-$name = $_POST["name"];
+$name = $data["name"];
 
 
 //DELETE product from the view products table
