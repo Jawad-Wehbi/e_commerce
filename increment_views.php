@@ -10,13 +10,13 @@ include("connection.php");
 
 $id = $_POST["id"];
 
-//insert category_id into the products table to add the product to the category
+//Query and increment the number of views for the product
 $query = $mysqli->prepare("UPDATE  products SET  nb_of_views=nb_of_views+1 WHERE id=?");
 $query->bind_param("s", $id );
 $query->execute();
 
 
-//display success output in case the product was added to the category
+//display success output in case teh query execution was successful and send the result
 $response = [];
 $response["success"] = true;
 
