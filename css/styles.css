@@ -985,7 +985,6 @@ ul {
 	height: calc(100vh - 196px);
 	padding: 10px 10px;
 	overflow-y: auto;
-	min-width: 250px;
 }
 
 /* Each user inside the chat users block */
@@ -1274,6 +1273,16 @@ ul {
 	.cash-total {
 		width: 200px !important;
 	}
+	.chat-hamburger {
+		display: block !important;
+		color: white;
+	}
+	.user-chat-element {
+		display: none;
+	}
+	.chat-users {
+		width: 60px !important;
+	}
 }
 
 @media screen and (max-width: 710px) {
@@ -1388,4 +1397,16 @@ ul {
 
 .send-voucher.active {
 	display: flex;
+}
+
+.user-chat-element.active {
+	display: flex;
+}
+
+.chat-users.active {
+	width: 50% !important;
+}
+
+.main-chat.active {
+	display: none;
 }

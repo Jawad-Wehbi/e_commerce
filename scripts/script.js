@@ -33,6 +33,11 @@ const searchInput = document.getElementById('searchInput');
 const searchIcon = document.querySelector('.search-icon');
 const searchForm = document.querySelector('.search-form');
 const hamburger = document.querySelector('.hamburger');
+const chatHamburger = document.querySelector('.chat-hamburger');
+
+const chatUser = document.querySelectorAll('.user-chat-element');
+const usersBlock = document.querySelector('.chat-users');
+const mainChat = document.querySelector('.main-chat');
 
 // Show product modal on click
 product[0].addEventListener('click', () => {
@@ -258,4 +263,11 @@ searchIcon.addEventListener('click', () => {
 hamburger.addEventListener('click', () => {
 	nav.classList.toggle('active');
 	sendVoucher.classList.toggle('active');
+});
+
+// Chat hamburger
+chatHamburger.addEventListener('click', () => {
+	chatUser.forEach((user) => user.classList.toggle('active'));
+	usersBlock.classList.toggle('active');
+	mainChat.classList.toggle('active');
 });
