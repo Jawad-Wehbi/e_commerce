@@ -12,6 +12,7 @@ const voucherQuit = document.getElementById('voucherQuit');
 const navItems = document.querySelectorAll('.nav-items-element');
 const sections = document.querySelectorAll('.section');
 const footer = document.querySelector('.footer');
+const nav = document.querySelector('.nav-items');
 /* const home = document.getElementById('home');
 const categories = document.getElementById('categories');
 const favourites = document.getElementById('favourites');
@@ -29,6 +30,9 @@ const cartIcon = document.getElementById('cartIcon');
 const signinButton = document.getElementById('signinButton');
 const searchButton = document.getElementById('searchButton');
 const searchInput = document.getElementById('searchInput');
+const searchIcon = document.querySelector('.search-icon');
+const searchForm = document.querySelector('.search-form');
+const hamburger = document.querySelector('.hamburger');
 
 // Show product modal on click
 product[0].addEventListener('click', () => {
@@ -68,7 +72,23 @@ let slider = tns({
 	prevButton: '.product-right',
 	nextButton: '.product-left',
 	gutter: 10,
-	items: 5
+	responsive: {
+		1480: {
+			items: 5
+		},
+		1200: {
+			items: 4
+		},
+		930: {
+			items: 3
+		},
+		670: {
+			items: 2
+		},
+		250: {
+			items: 1
+		}
+	}
 });
 
 // Top selling slider
@@ -81,7 +101,23 @@ let topSellingSlider = tns({
 	prevButton: '.top-product-right',
 	nextButton: '.top-product-left',
 	gutter: 10,
-	items: 5
+	responsive: {
+		1480: {
+			items: 5
+		},
+		1200: {
+			items: 4
+		},
+		930: {
+			items: 3
+		},
+		670: {
+			items: 2
+		},
+		250: {
+			items: 1
+		}
+	}
 });
 
 // Ads slider
@@ -204,4 +240,22 @@ searchButton.addEventListener('click', () => {
 // Sign in Button
 signinButton.addEventListener('click', () => {
 	window.location.href = 'signin.html';
+});
+
+// Search icon on small screens
+searchIcon.addEventListener('click', () => {
+	wishlistIcon.classList.toggle('display');
+	cartIcon.classList.toggle('display');
+	if (searchForm.style.display != 'flex') {
+		searchForm.style.display = 'flex';
+	} else if (searchForm.style.display == 'flex') {
+		searchForm.style.display = 'none';
+	}
+	searchButton.classList.toggle('display');
+});
+
+// Hamburger menu
+hamburger.addEventListener('click', () => {
+	nav.classList.toggle('active');
+	sendVoucher.classList.toggle('active');
 });

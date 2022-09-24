@@ -1093,7 +1093,8 @@ ul {
 	display: flex;
 	flex-direction: column;
 	margin: 0 20vw;
-	background-color: white;
+	/* background-color: white; */
+	background: rgba(255, 255, 255, 0.8);
 	border-radius: 10px;
 	height: 500px;
 	width: 450px;
@@ -1158,4 +1159,134 @@ ul {
 
 .signup-back:hover {
 	background-color: rgb(0, 0, 0, 0.3);
+}
+
+/* Media Queries */
+@media screen and (max-width: 960px) {
+	.categories-container {
+		display: grid;
+		grid-template-columns: auto auto;
+		row-gap: 30px;
+	}
+	.category-background-container {
+		width: 40vw;
+		min-height: 220px;
+	}
+	.body-header {
+		font-size: 25px;
+	}
+	.product-image-container {
+		max-height: 150px;
+		object-fit: contain;
+	}
+	.product img {
+		object-fit: contain;
+	}
+}
+
+@media screen and (max-width: 860px) {
+	.padding {
+		padding: 10px;
+	}
+
+	.ad-slides {
+		min-height: 300px;
+	}
+
+	.ads-container img {
+		min-height: 300px;
+	}
+	.previous {
+		left: 10px;
+	}
+	.next {
+		right: 10px;
+	}
+	.slider-btn {
+		padding: 3px 11px;
+	}
+}
+
+@media screen and (max-width: 710px) {
+	.search-form {
+		display: none;
+	}
+	.search-icon {
+		display: block !important;
+		width: 25px;
+	}
+	.cart-icon {
+		width: 60px;
+	}
+	#searchInput {
+		border-radius: 50px;
+		width: 200px;
+	}
+	.product {
+		margin: 0 auto;
+	}
+	.nav-bar {
+		flex-direction: column;
+		gap: 10px;
+	}
+	.nav-items {
+		flex-direction: column;
+		text-align: center;
+		display: none;
+	}
+
+	.send-voucher {
+		display: none;
+	}
+	.header {
+		position: relative;
+	}
+	.margin {
+		height: 10px;
+	}
+	.hamburger {
+		display: inline-block !important;
+		color: black;
+		align-self: flex-start;
+	}
+	.footer-subsection {
+		flex-direction: column;
+	}
+	.about-us {
+		width: 100%;
+		text-align: center;
+	}
+	.social-media {
+		justify-content: center;
+	}
+	.information {
+		width: 100%;
+		text-align: center;
+	}
+	.services {
+		width: 100%;
+		text-align: center;
+	}
+	.category-items-grid {
+		grid-template-columns: auto auto;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.categories-container {
+		grid-template-columns: auto;
+		justify-content: center;
+	}
+	.category-background-container {
+		width: 400px;
+		min-height: 220px;
+	}
+}
+
+.nav-items.active {
+	display: flex;
+}
+
+.send-voucher.active {
+	display: flex;
 }
