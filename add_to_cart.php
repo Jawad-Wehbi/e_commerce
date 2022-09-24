@@ -5,9 +5,10 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connections.php");
 
-$client = $_POST["client_id"];
-$cart = $_POST["cart_id"];
-$product = $_POST["product_id"];
+
+$client = $data["client_id"];
+$cart = $data["cart_id"];
+$product = $data["product_id"];
 
 $query = $mysqli->prepare("INSERT INTO carts_has_products ( cart_id, client_id, product_id) VALUES(?,?,?)");
 $query->bind_param("sss", $cart, $client, $product);
