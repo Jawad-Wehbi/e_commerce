@@ -6,11 +6,11 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
-// get product name from the user
+// get seller name
 $seller_user_id = $_POST["seller_user_id"];
 $checkout_date = date('y:m:d',strtotime('-30 days'));
 
-//Sum product from products prices after 1 week
+//Sum product from products prices after 1 Month
 $query = $mysqli->prepare("SELECT  SUM(checkout_history.price) as revenue , products.seller_user_id  FROM checkout_history,products  WHERE (checkout_history.product_id= products.id and products.seller_user_id=? and checkout_history.checkout_date >= ?)");
 $query->bind_param("ss", $seller_user_id,$checkout_date);
 $query->execute();
