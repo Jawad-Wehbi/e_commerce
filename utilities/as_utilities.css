@@ -31,7 +31,7 @@
     width: 100%;
     height: 50%;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin-top: 1%;
 }
 .title h1 {
@@ -47,6 +47,7 @@
     width: 62px;
     height: 62px;
     border-radius: 60px;
+    margin-right: 20px;
 }
 
 /* Left Panel */
@@ -84,26 +85,3 @@
 .nav-tab-selected {
     background-color: #007aff;
 }
-
-/* .sellersList{
-    margin-top: 15vh;
-    margin-left: 27vw;
-    height: auto;
-    width: auto;
-    display: grid;
-    grid-template-columns: auto auto auto ;
-    grid-template-rows: 200px 200px 200px;
-    gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
-}
-.sellersList > div {
-    background-color: rgba(200, 200, 200, 0.8);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-}
-
-.seller > img {
-
-} */
