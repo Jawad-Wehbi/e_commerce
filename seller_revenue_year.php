@@ -11,7 +11,7 @@ $seller_user_id = $_POST["seller_user_id"];
 $checkout_date = date('y:m:d',strtotime('-1 year'));
 
 //Sum product of products prices for 1 year for the seller
-$query = $mysqli->prepare("SELECT  SUM(checkout_history.price*checkout_history.quantity_sold) as revenue , products.seller_user_id  FROM checkout_history,products  WHERE (checkout_history.product_id= products.id and products.seller_user_id=? and checkout_history.checkout_date >= ?)");
+$query = $mysqli->prepare("SELECT  SUM(checkout_history.price*checkout_history.quantity_sold) as revenue , products.seller_user_id  FROM checkout_history,products  WHERE (checkout_history.product_id= products.product_id and products.seller_user_id=? and checkout_history.checkout_date >= ?)");
 $query->bind_param("ss", $seller_user_id,$checkout_date);
 $query->execute();
 

@@ -8,11 +8,11 @@ include("connection.php");
 
 //prepare category_id from the user
 $categories_id = $_POST["categories_id"];
-$id = $_POST["id"];
+$product_id = $_POST["product_id"];
 
 //insert category_id into the products table to add the product to the category
-$query = $mysqli->prepare("UPDATE  products SET categories_id =? WHERE id=?");
-$query->bind_param("ss",$categories_id, $id );
+$query = $mysqli->prepare("UPDATE  products SET categories_id =? WHERE product_id=?");
+$query->bind_param("ss",$categories_id, $product_id );
 $query->execute();
 
 
