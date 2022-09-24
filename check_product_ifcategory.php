@@ -6,9 +6,12 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
 //prepare category_id and product_id from the user
-$categories_id = $_POST["categories_id"];
-$name = $_POST["name"];
+$categories_id = $data["categories_id"];
+$name = $data["name"];
 
 
 
