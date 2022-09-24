@@ -109,7 +109,7 @@ ul {
 }
 
 .display {
-	display: none;
+	display: none !important;
 }
 
 .column {
@@ -1027,7 +1027,8 @@ ul {
 	align-items: center;
 }
 
-.signin-block {
+.signin-block,
+.signup-block {
 	display: flex;
 	flex-direction: column;
 	margin: 0 20vw;
@@ -1039,30 +1040,37 @@ ul {
 	gap: 20px;
 }
 
-.signin-header {
+.signin-header,
+.signup-header {
 	font-size: 30px;
 	color: #535d77;
 }
 
-.signin-subheader {
+.signin-subheader,
+.signup-subheader {
 	font-size: 20px;
 	margin: 20px 0;
 }
 
 .signin-email,
-.signin-password {
+.signin-password,
+.signup-username,
+.signup-email,
+.signup-password {
 	border-radius: 5px;
 	height: 30px;
 	border: #535d77 1px solid;
 	font-size: 14px;
 }
 
-.signin-page-button {
+.signin-page-button,
+.signup-page-button {
 	display: block;
 	margin: 20px auto 0;
 }
 
-.signin-block p {
+.signin-block p,
+.signup-block p {
 	font-size: 14px;
 	text-align: center;
 }
