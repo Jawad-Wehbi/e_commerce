@@ -3,6 +3,11 @@ const product = document.querySelectorAll('.product');
 const productModal = document.getElementById('productModal');
 const productQuit = document.getElementById('productQuit');
 
+// Voucher modal
+const voucherModal = document.querySelector('.voucher-modal');
+const sendVoucher = document.querySelector('.send-voucher');
+const voucherQuit = document.getElementById('voucherQuit');
+
 // Nav elements and body sections
 const navItems = document.querySelectorAll('.nav-items-element');
 const sections = document.querySelectorAll('.section');
@@ -35,6 +40,20 @@ product[0].addEventListener('click', () => {
 // Close product modal on click
 productQuit.addEventListener('click', () => {
 	productModal.close();
+	document.body.style.overflow = 'auto';
+	document.body.style.userSelect = 'auto';
+});
+
+// Show voucher modal
+sendVoucher.addEventListener('click', () => {
+	voucherModal.showModal();
+	document.body.style.overflow = 'hidden';
+	document.body.style.userSelect = 'none';
+});
+
+// Close voucher modal on click
+voucherQuit.addEventListener('click', () => {
+	voucherModal.close();
 	document.body.style.overflow = 'auto';
 	document.body.style.userSelect = 'auto';
 });

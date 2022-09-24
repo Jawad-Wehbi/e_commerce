@@ -773,9 +773,14 @@ ul {
 /* Voucher modal */
 
 /* Voucher modal inner container */
+.voucher-modal {
+	width: 30vw !important;
+	min-width: 320px;
+}
+
 .voucher {
 	padding: 3vw;
-	gap: 1vw;
+	gap: 3vw;
 }
 
 .voucher-header {
@@ -792,6 +797,10 @@ ul {
 
 .voucher-amount {
 	width: 80px;
+}
+
+.voucher-send-button {
+	align-self: flex-end;
 }
 
 /* Wishlist Section */
