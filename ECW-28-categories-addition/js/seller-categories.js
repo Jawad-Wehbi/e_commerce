@@ -45,10 +45,10 @@ window.onload = () => {
     };
 
     const discardNewCategory = () => {
-        newCategoryNameInput.value != "";
-        newCategoryDescriptionInput != "";
+        newCategoryNameInput.value = "";
+        newCategoryDescriptionInput = "";
     };
-    
+
     //
     //
     //
