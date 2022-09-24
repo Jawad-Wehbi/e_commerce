@@ -5,9 +5,11 @@ header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
 
 include("connection.php");
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
 
 //prepare check category name
-$name = $_POST["name"];
+$name = $data["name"];
 
 
 //Check if category name exists before adding
