@@ -6,10 +6,13 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
 //prepare seller inputs and insert their values
-$value = $_POST["value"];
-$code = $_POST["code"];
-$seller_user_id = $_POST["seller_user_id"];
+$value = $data["value"];
+$code = $data["code"];
+$seller_user_id = $data["seller_user_id"];
 
 
 //insert code and value into the  discount_codes table
