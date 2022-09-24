@@ -924,6 +924,8 @@ ul {
 }
 
 /* Chat Page */
+
+/* Block containing chat users */
 .chat-users {
 	width: 20vw;
 	background-color: #001743;
@@ -932,6 +934,7 @@ ul {
 	overflow-y: auto;
 }
 
+/* Each user inside the chat users block */
 .user-chat-element {
 	width: 90%;
 	height: 50px;
@@ -947,6 +950,7 @@ ul {
 	background-color: rgb(184, 184, 184);
 }
 
+/* Image inside chat user */
 .user-chat-element img {
 	border-radius: 50%;
 	width: 40px;
@@ -955,15 +959,18 @@ ul {
 	object-fit: cover;
 }
 
+/* Username of chat user */
 .user-chat-element h1 {
 	font-size: 16px;
 }
 
+/* Chat block */
 .main-chat {
 	flex-grow: 1;
 	position: relative;
 }
 
+/* Chat input message and send message icon */
 .chat-input-container {
 	width: 100%;
 	justify-content: space-evenly;
@@ -974,6 +981,7 @@ ul {
 	align-items: center;
 }
 
+/* Chat input message */
 .chat-input {
 	font-size: 18px;
 	padding: 0 20px;
@@ -982,6 +990,7 @@ ul {
 	width: 90%;
 }
 
+/* Chat send message icon */
 .send {
 	border-radius: 50%;
 	padding: 6px 5px 6px 5px;
@@ -992,6 +1001,7 @@ ul {
 	background-color: rgb(223, 223, 223);
 }
 
+/* Chat messages block */
 .chat-container {
 	display: grid;
 	grid-template-columns: auto;
@@ -1004,6 +1014,7 @@ ul {
 	overflow-y: auto;
 }
 
+/* Seller message */
 .user-message {
 	justify-self: end;
 	background-color: #535d77;
@@ -1011,6 +1022,7 @@ ul {
 	padding: 10px;
 }
 
+/* Client message */
 .my-message {
 	background-color: #535d77;
 	width: fit-content;
