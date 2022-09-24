@@ -36,4 +36,24 @@ window.onload = () => {
         e.preventDefault();
         location.replace("./add-ads.html");
     });
+
+    localStorage.setItem("sellerId", "2");
+    const sellerId = localStorage.getItem("sellerId");
+    const get5Products = () => {
+        let data = {
+            seller_user_id: 1,
+        };
+        axios
+            .post("http://localhost/electrostate/top5_products.php", {
+                seller_user_id: 1,
+            })
+            .then(response => {
+                console.log(response);
+            });
+        // .catch(error => {
+        //     console.log(error);
+        // Code for handling the error
+        // });
+    };
+    get5Products();
 };
