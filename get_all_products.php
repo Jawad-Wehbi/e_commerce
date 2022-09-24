@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 include("connection.php");
 
 //prepare variables
-$product_id = $_POST["product_id"];
+$seller_user_id = $_POST["seller_user_id"];
 
 //query and get the maximum number of views
 $query = $mysqli->prepare("SELECT product_id ,name,image,price,nb_of_views,rating FROM  product WHERE seller_user_id=?" );
