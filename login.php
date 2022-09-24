@@ -5,9 +5,12 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connections.php");
 
-$email = $_POST["email"];
+$request_body = file_get_contents('php://input');
+$data = json_decode($request_body, true);
+
+$email = $data["email"];
 // $password = hash("sha256", $_POST["password"]);
-$password = $_POST["password"];
+$password = $data["password"];
 
 $query = $mysqli->prepare("SELECT * FROM users WHERE email = ? and password = ? LIMIT 1");
 $query->bind_param("ss", $email, $password);
