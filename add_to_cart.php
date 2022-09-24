@@ -16,5 +16,5 @@ $query->execute();
 $response = [];
 $response["success"] = true;
 
-echo json_encode($response)
+echo json_encode($response);
 ?>
