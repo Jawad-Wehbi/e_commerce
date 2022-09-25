@@ -107,7 +107,6 @@ window.onload = () => {
                 inputData
             )
             .then(response => {
-                console.log(response.data);
                 let categoryCard = ``;
                 response.data.map(values => {
                     localStorage.setItem("categoryName", values.name);
@@ -116,8 +115,7 @@ window.onload = () => {
                     <img src="assets/Laptop-collection.webp" alt="" />
                 </a>`;
                 });
-                sellerTop5Page.innerHTML = categoryCard;
-
+                categoriesPage.innerHTML = categoryCard;
                 const openCategoryBtn = document.querySelectorAll(
                     ".seller-category-cards"
                 );
