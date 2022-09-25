@@ -10,32 +10,32 @@ $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
 
 // get product name from the user
-$name = $data["name"];
-
+// $name = $data["name"];
+$product_id = $data["product_id"];
 
 //DELETE product from the view products table
-$query = $mysqli->prepare("DELETE  FROM users_view_products WHERE (SELECT product_id FROM products WHERE name = ?) ");
-$query->bind_param("s", $name);
+$query = $mysqli->prepare("DELETE  FROM users_view_products WHERE (SELECT product_id FROM products WHERE product_id = ?) ");
+$query->bind_param("s", $product_id);
 $query->execute();
 
 //DELETE product from the client favorite table
-$query = $mysqli->prepare("DELETE  FROM client_favorite_products  WHERE (SELECT product_id FROM products WHERE name = ?) ");
-$query->bind_param("s",$name);
+$query = $mysqli->prepare("DELETE  FROM client_favorite_products  WHERE (SELECT product_id FROM products WHERE product_id = ?) ");
+$query->bind_param("s",$product_id);
 $query->execute();
 
 //DELETE product from the products wishlist
-$query = $mysqli->prepare("DELETE  FROM client_add_products_to_wishlist  WHERE (SELECT product_id FROM products WHERE name = ?) ");
-$query->bind_param("s",$name);
+$query = $mysqli->prepare("DELETE  FROM client_add_products_to_wishlist  WHERE (SELECT product_id FROM products WHERE product_id = ?) ");
+$query->bind_param("s",$product_id);
 $query->execute();
 
 //DELETE product from the products cart
-$query = $mysqli->prepare("DELETE  FROM carts_has_products  WHERE (SELECT product_id FROM products WHERE name = ?) ");
-$query->bind_param("s",$name);
+$query = $mysqli->prepare("DELETE  FROM carts_has_products  WHERE (SELECT product_id FROM products WHERE product_id = ?) ");
+$query->bind_param("s",$product_id);
 $query->execute();
 
 //DELETE product from the products table
-$query = $mysqli->prepare("DELETE  FROM products WHERE name=?");
-$query->bind_param("s",$name);
+$query = $mysqli->prepare("DELETE  FROM products WHERE product_id=?");
+$query->bind_param("s",$product_id);
 $query->execute();
 
 
