@@ -13,6 +13,9 @@ Utilities
 .admin > title{
     top:0,
 }
+#add {
+    padding: 10px;
+}
 .admin a {
     text-decoration: none;
     color: inherit;
@@ -23,6 +26,12 @@ Utilities
 .admin input,
 .admin textarea {
     color: #000000;
+}
+.sellerHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 40px;
 }
 /*
 Table structure
@@ -84,7 +93,7 @@ Seller card
 }
 .button{
     height: 50px;
-    width: 160px;
+    width: 9vw;
     border-radius: 45.5px;
     border: 0;
 }
