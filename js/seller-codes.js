@@ -64,7 +64,21 @@ window.onload = () => {
 
     const saveNewCode = () => {
         if (newCodeInput.value != "") {
-            // send to database
+            const inputData = {
+                seller_user_id: sellerId,
+                value: newCodeInput.value,
+            };
+            axios
+                .post(
+                    "http://localhost/electrostate/create_discount_code.php",
+                    inputData
+                )
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
             location.reload();
         }
     };
@@ -109,6 +123,9 @@ window.onload = () => {
                         deleteCode(btn.parentElement.parentElement.id);
                     });
                 });
+            })
+            .catch(error => {
+                console.log(error);
             });
     };
 
