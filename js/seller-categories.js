@@ -60,6 +60,10 @@ window.onload = () => {
     const categoryPageSubtitle = document.getElementById(
         "seller-category-page-header-subtitle"
     );
+    const addNewProductBtn = document.getElementById("add-new-product-btn");
+    const closeCategoryPageBtn = document.getElementById(
+        "close-category-page-btn"
+    );
 
     //
     // Functions
@@ -175,6 +179,14 @@ window.onload = () => {
                 });
                 categoryPage.innerHTML = productCard;
             });
+        closeCategoryPageBtn.addEventListener("click", e => {
+            e.preventDefault();
+            closeCategoryPage();
+        });
+    };
+
+    const closeCategoryPage = () => {
+        categoryPage.classList.add("seller-popup-hidden");
     };
 
     //
