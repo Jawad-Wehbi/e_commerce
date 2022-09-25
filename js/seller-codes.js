@@ -47,6 +47,7 @@ window.onload = () => {
     const saveNewCodeBtn = document.getElementById("save-new-code");
     const discardNewCodeBtn = document.getElementById("discard-new-code");
     const newCodeInput = document.getElementById("new-code-input");
+    const codesTable = document.getElementById("seller-codes-table");
 
     //
     // Functions
@@ -72,6 +73,35 @@ window.onload = () => {
         newCodeInput.value = "";
     };
 
+    const getCodes = () => {
+        const inputData = {
+            seller_user_id: sellerId,
+        };
+        axios
+            .post(
+                "http://localhost/electrostate/getdiscountcodes.php",
+                inputData
+            )
+            .then(response => {
+                console.log(response.data);
+                let rows = `<tr>
+                <th>Value</th>
+                <th>Code</th>
+                <th>Delete</th>
+                </tr>`;
+                response.data.map(values => {
+                    rows += `<tr id="" >
+                    <td>${values.value}</td>
+                    <td>${values.code}</td>
+                    <td>
+                        <a href=""><img src="assets/trash.svg" alt="" /></a>
+                    </td>
+                </tr>`;
+                });
+                codesTable.innerHTML = rows;
+            });
+    };
+
     //
     //
     //
@@ -91,4 +121,7 @@ window.onload = () => {
         e.preventDefault();
         discardNewCode();
     });
+    localStorage.setItem("sellerId", "1");
+    sellerId = localStorage.getItem("sellerId");
+    getCodes();
 };
