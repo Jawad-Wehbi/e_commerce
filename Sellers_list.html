@@ -25,23 +25,18 @@
         <!--
             Header section
         -->
-        <!-- <section class="header">
-            <div class="sellerHeader">
-                <h2>Sellers</h2>
-                <a class="button editbutton" type="button" id="add">Add Seller</a>
-            </div>
-        </section> -->
+
         <!--
             Left Panel
         -->
         <section class="panel">
             <ul>
-                <a class="nav-tab nav-tab-selected" href=""><l>Sellers</l></a>
-                <a class="nav-tab" href=""><l>Clients</l></a>
-                <a class="nav-tab" href=""><l>Statistics</l></a>
+                <button class="nav-tab nav-tab-selected" href=""><l>Sellers</l></button>
+                <button class="nav-tab" href=""><l>Clients</l></button>
+                <button class="nav-tab" href=""><l>Statistics</l></button>
             </ul>
         </section>
-        <div id="sellersTable"> 
+        <div id="sellersTable" class="page"> 
             <!--
                 Header section
             -->
@@ -51,9 +46,12 @@
                     <button class="button editbutton" type="button" id="add">Add Seller</button>
                 </div>
             </section>
-            <div id="myModal" class="modal">
 
-                <!-- Modal content -->
+                <!-- 
+                Adding Seller Modal 
+                -->
+            <div id="addingSeller" class="modal">
+
                 <div class="modal-content">
                   <span class="close">&times;</span>
                   <p>Some text in the Modal..</p>
@@ -172,97 +170,108 @@
 
         -->
 
-        <section class="table display">
-            <table id="table">
-                <tr>
-                    <!--
-                        Client card
-                    -->
-                    <th>
-                        <div class="card">
-                            <img src="assets/logo.png" alt="" class="image">
-                            <div class="name">
-                                <h2><b>Client Name</b></h2> 
+        <div class="clientsTable page display">
+
+            <!--
+            Header section
+            -->
+            <section class="header">
+                <h2>Clients</h2>
+            </section>
+
+            <section class="table">
+                <table id="table">
+                    <tr>
+                        <!--
+                            Client card
+                        -->
+                        <th>
+                            <div class="card">
+                                <img src="assets/logo.png" alt="" class="image">
+                                <div class="name">
+                                    <h2><b>Client Name</b></h2> 
+                                </div>
+                                <div class="cardbutton">
+                                    <button class="button banbutton">Ban</button>
+                                </div> 
                             </div>
-                            <div class="cardbutton">
-                                <button class="button banbutton">Ban</button>
-                            </div> 
-                        </div>
-                    </th>
-                    <!--
-                        Client card
-                    -->
-                    <th>
-                        <div class="card">
-                            <img src="assets/logo.png" alt="" class="image">
-                            <div class="name">
-                                <h2><b>Client Name</b></h2> 
+                        </th>
+                        <!--
+                            Client card
+                        -->
+                        <th>
+                            <div class="card">
+                                <img src="assets/logo.png" alt="" class="image">
+                                <div class="name">
+                                    <h2><b>Client Name</b></h2> 
+                                </div>
+                                <div class="cardbutton">
+                                    <button class="button banbutton">Ban</button>
+                                </div> 
                             </div>
-                            <div class="cardbutton">
-                                <button class="button banbutton">Ban</button>
-                            </div> 
-                        </div>
-                    </th>
-                    <!--
-                        Client card
-                    -->
-                    <th>
-                        <div class="card">
-                            <img src="assets/logo.png" alt="" class="image">
-                            <div class="name">
-                                <h2><b>Client Name</b></h2> 
+                        </th>
+                        <!--
+                            Client card
+                        -->
+                        <th>
+                            <div class="card">
+                                <img src="assets/logo.png" alt="" class="image">
+                                <div class="name">
+                                    <h2><b>Client Name</b></h2> 
+                                </div>
+                                <div class="cardbutton">
+                                    <button class="button banbutton">Ban</button>
+                                </div> 
                             </div>
-                            <div class="cardbutton">
-                                <button class="button banbutton">Ban</button>
-                            </div> 
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <!--
-                        Client card
-                    -->
-                    <th>
-                        <div class="card">
-                            <img src="assets/logo.png" alt="" class="image">
-                            <div class="name">
-                                <h2><b>Client Name</b></h2> 
+                        </th>
+                    </tr>
+                    <tr>
+                        <!--
+                            Client card
+                        -->
+                        <th>
+                            <div class="card">
+                                <img src="assets/logo.png" alt="" class="image">
+                                <div class="name">
+                                    <h2><b>Client Name</b></h2> 
+                                </div>
+                                <div class="cardbutton">
+                                    <button class="button banbutton">Ban</button>
+                                </div> 
                             </div>
-                            <div class="cardbutton">
-                                <button class="button banbutton">Ban</button>
-                            </div> 
-                        </div>
-                    </th>
-                    <!--
-                        Client card
-                    -->
-                    <th>
-                        <div class="card">
-                            <img src="assets/logo.png" alt="" class="image">
-                            <div class="name">
-                                <h2><b>Client Name</b></h2> 
+                        </th>
+                        <!--
+                            Client card
+                        -->
+                        <th>
+                            <div class="card">
+                                <img src="assets/logo.png" alt="" class="image">
+                                <div class="name">
+                                    <h2><b>Client Name</b></h2> 
+                                </div>
+                                <div class="cardbutton">
+                                    <button class="button banbutton">Ban</button>
+                                </div> 
                             </div>
-                            <div class="cardbutton">
-                                <button class="button banbutton">Ban</button>
-                            </div> 
-                        </div>
-                    </th>
-                    <!--
-                        Client card
-                    -->
-                    <th>
-                        <div class="card">
-                            <img src="assets/logo.png" alt="" class="image">
-                            <div class="name">
-                                <h2><b>Client Name</b></h2> 
+                        </th>
+                        <!--
+                            Client card
+                        -->
+                        <th>
+                            <div class="card">
+                                <img src="assets/logo.png" alt="" class="image">
+                                <div class="name">
+                                    <h2><b>Client Name</b></h2> 
+                                </div>
+                                <div class="cardbutton">
+                                    <button class="button banbutton">Ban</button>
+                                </div> 
                             </div>
-                            <div class="cardbutton">
-                                <button class="button banbutton">Ban</button>
-                            </div> 
-                        </div>
-                    </th>
-                </tr>
-        </section>
+                        </th>
+                    </tr>
+            </section>
+        </div>
+        
         <!-- 
 
         Clients Table Start
@@ -273,8 +282,8 @@
         Statistics Start
 
         -->
-        <section id="statistics">
+        <section id="statistics" class="page">
             <div class="container">
-
+                <script src="admin.js" type="text/javascript"></script>
     </body>
 </html>

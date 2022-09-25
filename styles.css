@@ -37,9 +37,9 @@ Utilities
 Table structure
 */
 .modal {
-    /*display: none;  Hidden by default */
+     display: none;/* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -55,7 +55,18 @@ Table structure
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
-
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 .admin {
     width: 99vw;
     margin: 0;
@@ -115,14 +126,12 @@ Seller card
     width: 10vw;
     height: 4.5vw;
 }
-.nav-tab-selected {
-    background-color: #007aff;
-}
 .button{
     height: 4vw;
     width: 9vw;
     border-radius: 45.5px;
     border: 0;
+    cursor: pointer;
 }
 .editbutton{
     background-color: #18A0FB;
