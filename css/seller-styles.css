@@ -94,7 +94,8 @@ Categories
     height: 38vh;
     border: 1px solid #000000;
     border-radius: 20px;
-    margin-top: 10%;
+    margin-top: 8%;
+    margin-bottom: 2%;
 }
 .seller-category:hover {
     width: 40%;
@@ -117,6 +118,7 @@ New categories
 .seller-new-category-page {
     position: fixed;
     z-index: -1;
+    margin-top: 1%;
 }
 .seller-categories-info {
     display: flex;
