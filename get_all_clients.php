@@ -6,10 +6,6 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connection.php");
 
-// $request_body = file_get_contents('php://input');
-// $data = json_decode($request_body, true);
-//
-
 
 //query and get all clients
 $query = $mysqli->prepare("SELECT * FROM  clients " );
@@ -25,7 +21,7 @@ while($a = $array->fetch_assoc())
 }
 
 
-// Display top 5 views
+// Display all clients
 $json = json_encode($response);
 echo $json;
 
