@@ -46,6 +46,7 @@ const viewCategories = document.getElementById('viewCategories');
 const categoryGrid = document.querySelector('.category-grid');
 const newProducts = document.getElementById('newProducts');
 const topProducts = document.getElementById('topProducts');
+const productModalInfo = document.getElementById('productModalInfo');
 
 window.onload = () => {
 	accountName.value = localStorage.user_name;
@@ -257,13 +258,13 @@ viewCategories.addEventListener('click', () => {
 	sections.forEach((element) => element.classList.add('display'));
 	sections[1].classList.remove('display');
 	axios.get('http://localhost/client-backend/view-categories.php').then((res) => {
-		console.log(res.data[0].category_image);
+		console.log(res.data[0]);
 		res.data.forEach((category) => {
 			categoryGrid.innerHTML += `
 		<div class="category-background-container pointer">
 	    	<div class="category-background" style="background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(${category.category_image});">
 	    		<div class="category-cover">
-	    			<h3  class="bold white-font">${category.name}</h3>
+	    			<h3  class="bold white-font">${category.category_name}</h3>
 	    			<div class="shop-now flex white-font">
 	    				<h4>Shop now</h4>
 	    				<span class="material-symbols-outlined md18 pointer">
@@ -283,18 +284,21 @@ axios.get('http://localhost/client-backend/new-products.php').then((res) => {
 	res.data.forEach((product) => {
 		newProducts.innerHTML += `
 			<!-- Product -->
-			<div class="product-container">
+			<div class="product-container" >
 				<div class="product light-navy pointer">
-					<!-- Product image -->
-					<div class="product-image-container flex">
-						<img src="${product.image}" alt="product" class="product-image">
+				    <div  onclick="showProduct(${product.id})">
+					    <!-- Product image -->
+					    <div class="product-image-container flex">
+					    	<img src="${product.image}" alt="product" class="product-image">
+					    </div>
+					    <!-- Product category -->
+					    <h4 class="product-category">${product.category_name}</h4>
+					    <!-- Product name -->
+					    <h3 class="product-name">${product.product_name}</h3>
+					    <!-- Product price -->
+					    <h3 class="price white-font">${product.price}</h3>
 					</div>
-					<!-- Product category -->
-					<h4 class="product-category">${product.category_name}</h4>
-					<!-- Product name -->
-					<h3 class="product-name">${product.product_name}</h3>
-					<!-- Product price -->
-					<h3 class="price white-font">${product.price}</h3>
+					
 					<!-- Product favourites / wishlist icons -->
 					<div class="product-icons flex">
 						<!-- Favourites -->
@@ -400,3 +404,21 @@ axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
 		}
 	});
 });
+
+// Show product info
+function showProduct(id) {
+	let productId = { product_id: id };
+	axios.post('http://localhost/client-backend/view_product.php', productId).then((res) => {
+		console.log(res.data);
+		productModalInfo.innerHTML = `<img src="${res.data[0].image}" alt="product image" class="product-modal-image">
+		<div class="product-details">
+			<p><span class="bold">Name:</span> ${res.data[0].product_name}</p>
+			<p><span class="bold">Category:</span> ${res.data[0].category_name}</p>
+			<p><span class="bold">Price: </span>${res.data[0].price}</p>
+			<p><span class="bold">Description:</span> ${res.data[0].description}</p>
+		</div>`;
+		productModal.showModal();
+		document.body.style.overflow = 'hidden';
+		document.body.style.userSelect = 'none';
+	});
+}

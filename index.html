@@ -532,14 +532,14 @@
         <!-- Quit icon -->
         <span class="material-symbols-outlined modal-quit pointer" id="productQuit">close</span>
         <!-- Product info -->
-        <div class="modal-info flex">
-            <img src="./images/a3f039fb-6370-4f7e-9561-49ca878bbef7_rw_600.png" alt="product image" class="product-modal-image">
+        <div class="modal-info flex" id="productModalInfo">
+            <!-- <img src="./images/a3f039fb-6370-4f7e-9561-49ca878bbef7_rw_600.png" alt="product image" class="product-modal-image">
             <div class="product-details">
                 <p><span class="bold">Name:</span> HP Pavillion</p>
                 <p><span class="bold">Category:</span> Laptop</p>
                 <p><span class="bold">Price: </span>899$</p>
                 <p><span class="bold">Description:</span> product description product description product description product description product description product description product description product description product description product description product description</p>
-            </div>
+            </div> -->
         </div>
         <!-- Product action buttons -->
         <div class="product-modal-buttons flex">
@@ -562,10 +562,9 @@
                 <label for="">User Email</label>
                 <input type="email" class="voucher-email input">
             </div>
-            <!-- Sign in password -->
             <div class="flex column">
-                <label for="">Value ($)</label>
-                <input type="number" class="voucher-value input">
+                <label for="">Code</label>
+                <input type="text" class="voucher-value input">
             </div> 
             <button class="voucher-send-button button">Send</button>
         </div>
