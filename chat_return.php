@@ -7,17 +7,14 @@ include("connections.php");
 
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
-
-
+// prepare client and seller id's
 $client = $data["client_id"];
 $seller = $data["seller_id"];
-// $text = $data["text"];
-
+// selecting from the chat
 $query = $mysqli->prepare("SELECT text ,FROM clients_sellers_chat WHERE client_user_id = ?, seller_user_id = ?");
 $query->bind_param("ii",$client , $seller);
 $query->execute();
-
-
+// getting the results
 $array = $product->get_result();
 
 $response = [];

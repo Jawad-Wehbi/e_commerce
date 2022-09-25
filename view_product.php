@@ -16,10 +16,14 @@ $query = $mysqli->prepare("SELECT name, image, price, nb_of_views, rating, categ
 $query->bind_param("ss", $client , $product);
 $query->execute();
 
-$return = $query -> get_result();
-$result = $return -> fetch_assoc();
+$array = $query->get_result();
 
 $response = [];
-$response["success"] = true;
-echo json_encode($result);
+
+while($a = $array->fetch_assoc()){
+    $response[] = $a;
+}
+
+$json = json_encode($response);
+echo $json;
 ?>

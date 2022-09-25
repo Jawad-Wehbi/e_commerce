@@ -7,15 +7,14 @@ include("connections.php");
 
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
-
+// prepare needed variables
 $email = $data["email"];
-// $password = hash("sha256", $_POST["password"]);
 $password = $data["password"];
-
+// selecting from the users table 
 $query = $mysqli->prepare("SELECT * FROM users WHERE email = ? and password = ? LIMIT 1");
 $query->bind_param("ss", $email, $password);
 $query->execute();
-
+// returning the results
 $array = $query->get_result();
 
 $response = [];

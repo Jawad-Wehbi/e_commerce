@@ -8,10 +8,10 @@ $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
 
 
-
+// imcrementing the cart ID
 $query = $mysqli->prepare("INSERT INTO `carts` (`id`) VALUES (NULL);");
 $query->execute();
-
+// returning a true responce
 $response = [];
 $response["success"] = true;
 

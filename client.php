@@ -7,13 +7,13 @@ include("connections.php");
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
 
-
+// prepare client id
 $id = $data["user_id"];
-
+// selecting from the client's table
 $query = $mysqli->prepare("SELECT * FROM clients WHERE user_id = ?");
 $query->bind_param("i", $id);
 $query->execute();
-
+// returning the results
 $array = $query->get_result();
 
 $response = [];

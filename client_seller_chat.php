@@ -6,17 +6,16 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 include("connections.php");
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
-
-
+// prepare the needed variables
 $client_user_id = $data["client_user_id"];
 $seller_user_id = $data["seller_user_id"];
 $text = $data["text"];
-
+// inserting into the chat table
 $query = $mysqli->prepare("INSERT INTO clients_sellers_chat(client_user_id,seller_user_id,text) VALUE (?,?,?) ");
 $query->bind_param("iis", $client_user_id , $seller_user_id,$text);
 $query->execute();
 
-
+// displaying a success message
 $response = [];
 $response["success"] = true;
 

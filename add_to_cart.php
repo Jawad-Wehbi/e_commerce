@@ -5,15 +5,14 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 include("connections.php");
 
-
-$client = $data["client_id"];
+// prepare client cart and product id's
 $cart = $data["cart_id"];
 $product = $data["product_id"];
-
-$query = $mysqli->prepare("INSERT INTO carts_has_products ( cart_id, client_id, product_id) VALUES(?,?,?)");
-$query->bind_param("sss", $cart, $client, $product);
+// inserting into the carts table
+$query = $mysqli->prepare("INSERT INTO carts_has_products ( cart_id, product_id) VALUES(?,?)");
+$query->bind_param("ss", $cart, $product);
 $query->execute();
-
+// displaying a success message
 $response = [];
 $response["success"] = true;
 
