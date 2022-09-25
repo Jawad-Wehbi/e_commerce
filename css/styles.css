@@ -1191,6 +1191,9 @@ ul {
 	.product-image-container img {
 		object-fit: contain;
 	}
+	.wishlist-items {
+		grid-template-columns: auto auto auto;
+	}
 }
 
 @media screen and (max-width: 860px) {
@@ -1218,6 +1221,10 @@ ul {
 		grid-template-columns: auto auto;
 	}
 	.category-grid {
+		grid-template-columns: auto auto;
+	}
+
+	.wishlist-items {
 		grid-template-columns: auto auto;
 	}
 
@@ -1378,6 +1385,10 @@ ul {
 	.save-button,
 	.logout-button {
 		margin: 10px auto;
+	}
+	.wishlist-items {
+		grid-template-columns: auto;
+		justify-content: center;
 	}
 }
 
