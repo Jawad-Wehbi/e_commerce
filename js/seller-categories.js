@@ -65,6 +65,7 @@ window.onload = () => {
         "close-category-page-btn"
     );
     const newProductPage = document.getElementById("seller-new-product-page");
+    const closeNewProductBtn = document.getElementById("close-new-product-btn");
 
     //
     // Functions
@@ -196,6 +197,14 @@ window.onload = () => {
 
     const openNewProductPage = () => {
         newProductPage.classList.remove("seller-popup-hidden");
+        closeNewProductBtn.addEventListener("click", e => {
+            e.preventDefault();
+            closeNewProductPage();
+        });
+    };
+
+    const closeNewProductPage = () => {
+        newProductPage.classList.add("seller-popup-hidden");
     };
     //
     //
