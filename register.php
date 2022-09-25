@@ -7,49 +7,67 @@ include("connections.php");
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body, true);
 
+//prepare seller inputs and insert their values
+$name=$data["name"];
+$email = $data["email"];
+$password = $data["password"];
+$user_type = $data["user_type"];
+$img = $data["img"];
 
-$name = $data["client_name"];
-$email = $data["client_email"];
-// $id = $data["client_id"];
-$pass = hash("sha256" ,$data["client_password"]);
-// $img = $data["img"];
-// $cart = $data["cart_id"];
-$type = "client";
-
-// $query = $mysqli->prepare("INSERT INTO `carts` (`id`) VALUES (NULL);");
-// $cart_id=  $mysqli->prepare("SELECT * FROM carts ORDER BY id DESC LIMIT 1");
-// echo json_encode($cart_id) ;
-
-
-
-
-
-
-// creating user
-$query = $mysqli->prepare("INSERT INTO users (email, password , user_type) 
-VALUES (?, ? ,?)");
-$query->bind_param("sss", $email, $pass, $type);
+//insert user into the users table
+$query = $mysqli->prepare("INSERT INTO users(email,password,user_type) VALUE (?,?,?)");
+$query->bind_param("sss", $email , $password,$user_type);
 $query->execute();
 
-// Creating client
 
-$query= $mysqli->prepare("INSERT INTO clients (user_id, client_email,client_password)  (SELECT id,email,password from users where (email= $email))"); 
-// $query2->bind_param("sssss",$returned_id,$cart,$name , $email, $pass);
-$query->execute();
 
-// $query2= $mysqli->prepare("INSERT INTO clients (user_id,cart_id, client_name, client_email,client_password)  VALUE(?,?,?,?,?)"); 
-// $query2->bind_param("sssss",$returned_id,$cart,$name , $email, $pass);
-// $query2->execute();
+//get user id to set the same for the seller
+$query2=$mysqli->prepare("SELECT id FROM users WHERE email = ?" );
+$query2->bind_param("s",$email);
+$query2->execute();
+$array2 = $query2->get_result();
 
-// $response = [];
-// $response["success"] = true;
+$response2 = [];
 
-// echo json_encode($response)
+while($a2 = $array2->fetch_assoc()){
+    $response2[] = $a2;
+}
 
-// $query2 = $mysqli->prepare("INSERT INTO clients (user_id , cart_id, client_name, client_email , client_password , img ) 
-// VALUES (?, ?, ?, ?) FROM users INNER JOIN clients ON users.id = clients.user_id ");
-// $query2->bind_param("ssss", $cart, $name, $email, $pass, $image);
-// $query2->execute();
+//get user id
+$client_user_id=$response2[0]['id'];
+
+
+
+//query to create a cart for the user
+$query3 = $mysqli->prepare("INSERT INTO `carts` (`id`) VALUES (NULL);");
+$query3->execute();
+$response3 = [];
+
+while($a3 = $array3->fetch_assoc()){
+    $response3[] = $a3;
+}
+
+$cart_user_id=$response3[0]['id'];
+
+
+
+
+
+
+//query to create client
+$query4= $mysqli->prepare("INSERT INTO clients(user_id,cart_id,client_name,client_email,client_password) VALUE (?,?,?,?,?,?)");
+$query4->bind_param("ssss",$client_user_id,$cart_user_id,$name, $email , $password,$img);
+$query4->execute();
+
+
+
+
+
+//display success output in case the category was added
+$response = [];
+$response["success"] = true;
+
+echo json_encode($response);
 
 ?>
 
