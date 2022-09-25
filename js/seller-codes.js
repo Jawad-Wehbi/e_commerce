@@ -94,11 +94,39 @@ window.onload = () => {
                     <td>${values.value}</td>
                     <td>${values.code}</td>
                     <td>
-                        <a href=""><img src="assets/trash.svg" alt="" /></a>
+                        <a class="seller-delete-code-btn" href=""><img src="assets/trash.svg" alt="" /></a>
                     </td>
                 </tr>`;
                 });
                 codesTable.innerHTML = rows;
+
+                const deleteCodeBtn = document.querySelectorAll(
+                    ".seller-delete-code-btn"
+                );
+                deleteCodeBtn.forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.preventDefault();
+                        deleteCode(btn.parentElement.parentElement.id);
+                    });
+                });
+            });
+    };
+
+    const deleteCode = codeId => {
+        const inputData = {
+            code_id: codeId,
+        };
+        axios
+            .post(
+                "http://localhost/electrostate/delete_discountcode.php",
+                inputData
+            )
+            .then(response => {
+                console.log(response.data);
+                getCodes();
+            })
+            .catch(error => {
+                console.log(error);
             });
     };
 
