@@ -54,7 +54,6 @@ window.onload = () => {
         axios
             .post("http://localhost/electrostate/top5_products.php", inputData)
             .then(response => {
-                console.log(response.data);
                 let productCard = ``;
                 response.data.map(values => {
                     productCard += `<div id="${values.product_id}" class="seller-categories-product">
@@ -97,6 +96,15 @@ window.onload = () => {
                         openEditProduct(btn.parentElement.parentElement.id);
                     });
                 });
+
+                const deleteProductBtns =
+                    document.querySelectorAll(".seller-delete-btn");
+                deleteProductBtns.forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.preventDefault();
+                        deleteProduct(btn.parentElement.parentElement.id);
+                    });
+                });
             })
             .catch(error => {
                 console.log(error);
@@ -107,6 +115,21 @@ window.onload = () => {
         sellerEditProductPage.classList.remove("seller-popup-hidden");
         localStorage.setItem("productId", "productId");
         console.log(productId);
+    };
+
+    const deleteProduct = productId => {
+        const inputData = {
+            product_id: productId,
+        };
+        axios
+            .post("http://localhost/electrostate/delete_product.php", inputData)
+            .then(response => {
+                console.log(response.data);
+                getTop5Products();
+            })
+            .catch(error => {
+                console.log(error);
+            });
     };
 
     //
