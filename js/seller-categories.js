@@ -72,14 +72,28 @@ window.onload = () => {
     const newProductPagCategName = document.getElementById(
         "seller-category-new-product-categ-name"
     );
+    const discardEditProductBtn = document.getElementById(
+        "seller-discard-edit-product"
+    );
+    const productNameInput = document.getElementById(
+        "seller-product-name-input"
+    );
+    const productPriceInput = document.getElementById(
+        "seller-product-price-input"
+    );
+    const productDescriptionInput = document.getElementById(
+        "seller-product-description-input"
+    );
     //
     // Functions
     //
+    //  open new category popup
     const openNewCategoryPage = () => {
         categoriesPage.classList.add("seller-popup-hidden");
         newCategoryPage.classList.remove("seller-popup-hidden");
     };
 
+    // close new category popup
     const closeNewCategoryPage = () => {
         newCategoryNameInput.value = "";
         newCategoryDescriptionInput.value = "";
@@ -87,6 +101,7 @@ window.onload = () => {
         newCategoryPage.classList.add("seller-popup-hidden");
     };
 
+    // Save new category
     const saveNewCategory = () => {
         if (
             newCategoryNameInput.value != "" &&
@@ -112,11 +127,13 @@ window.onload = () => {
         }
     };
 
+    // discard new category modifications
     const discardNewCategory = () => {
         newCategoryNameInput.value = "";
         newCategoryDescriptionInput.value = "";
     };
 
+    //  get all categories for this user
     const getCategories = () => {
         const inputData = {
             seller_user_id: sellerId,
@@ -150,15 +167,19 @@ window.onload = () => {
             });
     };
 
+    // open category popup
     const openCategory = categoryId => {
         categoryPage.classList.remove("seller-popup-hidden");
         addNewCategoryBtn.classList.add("seller-popup-hidden");
-        const categoryIdCard = document.getElementById(`${categoryId}`);
-        localStorage.setItem(
-            "categoryName",
-            categoryIdCard.childNodes[1].innerText
-        );
-        categoryPageSubtitle.innerText = localStorage.getItem("categoryName");
+        categoriesPage.classList.add("seller-popup-hidden");
+        // const categoryIdCard = document.getElementById(`${categoryId}`);
+        // localStorage.setItem(
+        //     "categoryName",
+        //     categoryIdCard.childNodes[1].innerText
+        // );
+        // categoryPageSubtitle.innerText = localStorage.getItem("categoryName");
+        categoryPageSubtitle.innerText = `Category 1`;
+
         const inputData = {
             categories_id: categoryId,
             // seller_user_id: sellerId,
@@ -203,6 +224,24 @@ window.onload = () => {
                 categoryPageContent.innerHTML = productCard;
             });
 
+        const editProductBtn = document.querySelectorAll(".seller-edit-btn");
+        editProductBtn.forEach(btn => {
+            btn.addEventListener("click", e => {
+                e.preventDefault();
+                openEditProduct(btn.id);
+            });
+        });
+
+        const openEditProduct = productId => {
+            sellerEditProductPage.classList.remove("seller-popup-hidden");
+            localStorage.setItem("productId", productId);
+
+            discardEditProductBtn.addEventListener("click", e => {
+                e.preventDefault();
+                discardEditProduct();
+            });
+        };
+
         closeCategoryPageBtn.addEventListener("click", e => {
             e.preventDefault();
             closeCategoryPage();
@@ -213,43 +252,62 @@ window.onload = () => {
         });
     };
 
+    // discard modifications in edit product
+    const discardEditProduct = () => {
+        productNameInput.value = "";
+        productPriceInput.value = "";
+        productDescriptionInput.value = "";
+    };
+
+    // close category popup
     const closeCategoryPage = () => {
         categoryPage.classList.add("seller-popup-hidden");
         addNewCategoryBtn.classList.remove("seller-popup-hidden");
+        categoriesPage.classList.remove("seller-popup-hidden");
     };
 
+    // open new product popup in this category
     const openNewProductPage = () => {
         newProductPagCategName.value = localStorage.getItem("categoryName");
         newProductPage.classList.remove("seller-popup-hidden");
+        categoryPage.classList.add("seller-popup-hidden");
         closeNewProductBtn.addEventListener("click", e => {
             e.preventDefault();
             closeNewProductPage();
         });
     };
 
+    // close new product popup
     const closeNewProductPage = () => {
         newProductPage.classList.add("seller-popup-hidden");
+        categoryPage.classList.remove("seller-popup-hidden");
     };
+
     //
     //
     //
     localStorage.setItem("sellerId", "1");
     const sellerId = localStorage.getItem("sellerId");
+
     getCategories();
 
     categoriesPage.classList.remove("seller-popup-hidden");
+
     addNewCategoryBtn.addEventListener("click", e => {
         e.preventDefault();
         openNewCategoryPage();
     });
+
     closeNewCategoryBtn.addEventListener("click", e => {
         e.preventDefault();
         closeNewCategoryPage();
     });
+
     saveNewCategoryBtn.addEventListener("click", e => {
         e.preventDefault();
         saveNewCategory();
     });
+
     discardNewCategoryBtn.addEventListener("click", e => {
         e.preventDefault();
         discardNewCategory();

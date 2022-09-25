@@ -62,6 +62,7 @@ window.onload = () => {
     //
     // Functions
     //
+    // get top 5 products viewed
     const getTop5Products = () => {
         const inputData = {
             seller_user_id: sellerId,
@@ -124,16 +125,18 @@ window.onload = () => {
             });
     };
 
+    // open edit product popup
     const openEditProduct = productId => {
         sellerEditProductPage.classList.remove("seller-popup-hidden");
-        localStorage.setItem("productId", "productId");
-        console.log(productId);
+        localStorage.setItem("productId", productId);
+
         discardEditProductBtn.addEventListener("click", e => {
             e.preventDefault();
             discardEditProduct();
         });
     };
 
+    // delete product
     const deleteProduct = productId => {
         const inputData = {
             product_id: productId,
@@ -149,6 +152,7 @@ window.onload = () => {
             });
     };
 
+    // discard modifications for edit product popup
     const discardEditProduct = () => {
         productNameInput.value = "";
         productPriceInput.value = "";

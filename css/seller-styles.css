@@ -45,7 +45,7 @@ Utilities
 }
 .seller-btn {
     width: 150px;
-    height: 110px;
+    height: 70px;
     border-radius: 20px;
     background-color: #007aff;
     text-align: center;
@@ -231,6 +231,7 @@ Add new product Popup / Edit product
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-top: 1%;
 }
 .seller-products-info {
     display: flex;

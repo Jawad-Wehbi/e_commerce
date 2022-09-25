@@ -57,6 +57,7 @@ window.onload = () => {
     //
     // functions
     //
+    // get last week total sales
     const getRevenueLastWeek = () => {
         const inputData = {
             seller_user_id: sellerId,
@@ -74,6 +75,7 @@ window.onload = () => {
             });
     };
 
+    // get last month total sales
     const getRevenueLastMonth = () => {
         const inputData = {
             seller_user_id: sellerId,
@@ -91,6 +93,7 @@ window.onload = () => {
             });
     };
 
+    // get last year total sales
     const getRevenueLastYear = () => {
         const inputData = {
             seller_user_id: sellerId,
@@ -108,6 +111,7 @@ window.onload = () => {
             });
     };
 
+    // function to create a bar chart using d3.js
     const d3Graph = () => {
         dataset = [
             totalSalesLastYear.innerText,
@@ -155,6 +159,7 @@ window.onload = () => {
             .attr("x", (d, i) => barWidth * i)
             .attr("fill", "red");
 
+        // the next commented code was for display labels but didn't work and no time to fix it
         // let labelDataset = ["week", "month", "year"];
         // const label = svg
         //     .selectAll("text")

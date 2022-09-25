@@ -53,16 +53,19 @@ window.onload = () => {
     //
     // Functions
     //
+    // open new discount code popup
     const openNewCodePage = () => {
         codesPage.classList.add("seller-popup-hidden");
         newCodePage.classList.remove("seller-popup-hidden");
     };
 
+    // close new discount code popup
     const closeNewCodePage = () => {
         codesPage.classList.remove("seller-popup-hidden");
         newCodePage.classList.add("seller-popup-hidden");
     };
 
+    // save new discount code
     const saveNewCode = () => {
         if (newCodeInputValue.value != "") {
             const inputData = {
@@ -85,11 +88,13 @@ window.onload = () => {
         }
     };
 
+    // discard changes in new code popup
     const discardNewCode = () => {
         newCodeInputValue.value = "";
         newCodeInput.value = "";
     };
 
+    // get all codes for this user
     const getCodes = () => {
         const inputData = {
             seller_user_id: sellerId,
@@ -132,6 +137,7 @@ window.onload = () => {
             });
     };
 
+    // delete discount code
     const deleteCode = codeId => {
         const inputData = {
             id: codeId,
@@ -155,23 +161,28 @@ window.onload = () => {
     //
     //
     //
+    localStorage.setItem("sellerId", "1");
+    const sellerId = localStorage.getItem("sellerId");
+
+    getCodes();
+
     newCodeBtn.addEventListener("click", e => {
         e.preventDefault();
         openNewCodePage();
     });
+
     closeNewCodeBtn.addEventListener("click", e => {
         e.preventDefault();
         closeNewCodePage();
     });
+
     saveNewCodeBtn.addEventListener("click", e => {
         e.preventDefault();
         saveNewCode();
     });
+
     discardNewCodeBtn.addEventListener("click", e => {
         e.preventDefault();
         discardNewCode();
     });
-    localStorage.setItem("sellerId", "1");
-    sellerId = localStorage.getItem("sellerId");
-    getCodes();
 };
