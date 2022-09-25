@@ -57,6 +57,9 @@ window.onload = () => {
         "discard-new-category-btn"
     );
     const categoryPage = document.getElementById("seller-category-page");
+    const categoryPageContent = document.getElementById(
+        "seller-category-page-content"
+    );
     const categoryPageSubtitle = document.getElementById(
         "seller-category-page-header-subtitle"
     );
@@ -66,7 +69,9 @@ window.onload = () => {
     );
     const newProductPage = document.getElementById("seller-new-product-page");
     const closeNewProductBtn = document.getElementById("close-new-product-btn");
-
+    const newProductPagCategName = document.getElementById(
+        "seller-category-new-product-categ-name"
+    );
     //
     // Functions
     //
@@ -124,7 +129,6 @@ window.onload = () => {
             .then(response => {
                 let categoryCard = ``;
                 response.data.map(values => {
-                    localStorage.setItem("categoryName", values.name);
                     categoryCard += `<a id="${values.category_id}" href="" class="seller-category seller-category-cards">
                     <p class="seller-category-name">${values.name}</p>
                     <img src="assets/Laptop-collection.webp" alt="" />
@@ -148,6 +152,12 @@ window.onload = () => {
 
     const openCategory = categoryId => {
         categoryPage.classList.remove("seller-popup-hidden");
+        addNewCategoryBtn.classList.add("seller-popup-hidden");
+        const categoryIdCard = document.getElementById(`${categoryId}`);
+        localStorage.setItem(
+            "categoryName",
+            categoryIdCard.childNodes[1].innerText
+        );
         categoryPageSubtitle.innerText = localStorage.getItem("categoryName");
         const inputData = {
             categories_id: categoryId,
@@ -168,21 +178,19 @@ window.onload = () => {
                             class="seller-product-img"
                             src="assets/Laptop-collection.webp"
                             alt="" />
-                        <p>${values.category_name}</p>
+                        <p>Category Name</p>
                         <p>${values.name}</p>
                         <p>${values.price}</p>
                         <p>
                             Quantity sold:
-                            <span>${values.quantity_sold}</span>
+                            <span></span>
                         </p>
                         <p>
                             Quantity left:
-                            <span>${values.quantity_left}</span>
+                            <span></span>
                         </p>
                     </div>
                     <div class="seller-categories-product-views">
-                        <p>10</p>
-                        <img src="assets/heart.svg" alt="" />
                         <p>${values.nb_of_views}</p>
                         <img src="assets/eye.svg" alt="" />
                     </div>
@@ -192,8 +200,9 @@ window.onload = () => {
                     </div>
                 </div>`;
                 });
-                categoryPage.innerHTML = productCard;
+                categoryPageContent.innerHTML = productCard;
             });
+
         closeCategoryPageBtn.addEventListener("click", e => {
             e.preventDefault();
             closeCategoryPage();
@@ -206,9 +215,11 @@ window.onload = () => {
 
     const closeCategoryPage = () => {
         categoryPage.classList.add("seller-popup-hidden");
+        addNewCategoryBtn.classList.remove("seller-popup-hidden");
     };
 
     const openNewProductPage = () => {
+        newProductPagCategName.value = localStorage.getItem("categoryName");
         newProductPage.classList.remove("seller-popup-hidden");
         closeNewProductBtn.addEventListener("click", e => {
             e.preventDefault();
