@@ -64,6 +64,7 @@ window.onload = () => {
     const closeCategoryPageBtn = document.getElementById(
         "close-category-page-btn"
     );
+    const newProductPage = document.getElementById("seller-new-product-page");
 
     //
     // Functions
@@ -183,12 +184,19 @@ window.onload = () => {
             e.preventDefault();
             closeCategoryPage();
         });
+        addNewProductBtn.addEventListener("click", e => {
+            e.preventDefault();
+            openNewProductPage();
+        });
     };
 
     const closeCategoryPage = () => {
         categoryPage.classList.add("seller-popup-hidden");
     };
 
+    const openNewProductPage = () => {
+        newProductPage.classList.remove("seller-popup-hidden");
+    };
     //
     //
     //
