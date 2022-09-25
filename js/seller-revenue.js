@@ -38,14 +38,79 @@ window.onload = () => {
     });
 
     //
+    // functions
+    //
+    const getRevenueLastWeek = () => {
+        const inputData = {
+            seller_user_id: sellerId,
+        };
+        axios
+            .post(
+                "http://localhost/electrostate/seller_revenue_week.php",
+                inputData
+            )
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
+    const getRevenueLastMonth = () => {
+        const inputData = {
+            seller_user_id: sellerId,
+        };
+        axios
+            .post(
+                "http://localhost/electrostate/seller_revenue_month.php",
+                inputData
+            )
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
+    const getRevenueLastYear = () => {
+        const inputData = {
+            seller_user_id: sellerId,
+        };
+        axios
+            .post(
+                "http://localhost/electrostate/seller_revenue_year.php",
+                inputData
+            )
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
+    //
     // Variables
     //
-    const dataset = [70, 450, 2300];
+    localStorage.setItem("sellerId", "1");
+    const sellerId = localStorage.getItem("sellerId");
+    const dataset = [
+        getRevenueLastWeek(),
+        getRevenueLastMonth(),
+        getRevenueLastYear(),
+    ];
+    console.log(dataset);
     // let labelDataset = ["week", "month", "year"];
     const svgWidth = 300;
     const svgHeight = 300;
     const barPadding = 20;
     const barWidth = svgWidth / dataset.length;
+
+    //
+    // d3 graph
+    //
     const svg = d3
         .select("svg")
         .attr("width", svgWidth)
