@@ -42,6 +42,8 @@ const mainChat = document.querySelector('.main-chat');
 const accountName = document.getElementById('accountName');
 const accountEmail = document.getElementById('accountEmail');
 const adsContainer = document.getElementById('adsContainer');
+const viewCategories = document.getElementById('viewCategories');
+const categoryGrid = document.querySelector('.category-grid');
 
 window.onload = () => {
 	accountName.value = localStorage.user_name;
@@ -302,4 +304,31 @@ axios.get('http://localhost/client-backend/ads.php').then((res) => {
 		}
 		slides[currentIndex - 1].style.display = 'block';
 	}
+});
+
+// View all categories
+viewCategories.addEventListener('click', () => {
+	navItems.forEach((element) => element.classList.remove('current'));
+	navItems[1].classList.add('current');
+	sections.forEach((element) => element.classList.add('display'));
+	sections[1].classList.remove('display');
+	axios.get('http://localhost/client-backend/view-categories.php').then((res) => {
+		console.log(res.data[0].category_image);
+		res.data.forEach((category) => {
+			categoryGrid.innerHTML += `
+		<div class="category-background-container pointer">
+	    	<div class="category-background" style="background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(${category.category_image});">
+	    		<div class="category-cover">
+	    			<h3  class="bold white-font">${category.name}</h3>
+	    			<div class="shop-now flex white-font">
+	    				<h4>Shop now</h4>
+	    				<span class="material-symbols-outlined md18 pointer">
+	    					arrow_circle_right
+	    				</span>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div> `;
+		});
+	});
 });
