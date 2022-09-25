@@ -3,9 +3,11 @@ const path = require('path')
 
 function createWindow () {
     const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1440,
+    height: 1024,
     })
+
+    mainWindow.loadFile("sellers_list.html")
 }
 app.whenReady().then(()=> {
     createWindow();
@@ -14,3 +16,5 @@ app.whenReady().then(()=> {
 app.on('window-all-closed', ()=> {
     if (process.platform !== 'darwin') app.quit()
     })
+
+    

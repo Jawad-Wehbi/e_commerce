@@ -9,6 +9,10 @@ Utilities
     font-family: "Roboto", sans-serif;
     font-size: 22px;
 }
+.admin > header ,
+.admin > title{
+    top:0,
+}
 .admin a {
     text-decoration: none;
     color: inherit;
@@ -24,24 +28,24 @@ Utilities
 Table structure
 */
 .admin {
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-#sellers {
+#table {
     width: 72vw;
     height: 85vh;
     padding-top: 15vh;
     margin-left: 28vw;
     
 }
-#sellers th {
+#table th {
     border: 1px solid #ddd;
     padding: 8px;
     border-radius: 20px;
 }
-#sellers th {
+#table th {
     width: 24vh;
     height: fit-content;
     padding-inline: 5px;
@@ -68,13 +72,13 @@ Seller card
     grid-column: 1/ span 2;
     grid-row: 2;
 }
-.sellerimage{
+.image{
     width: 60%;
     margin-inline: 25px;
     margin-bottom: 20px;
     border-radius: 45.5px;
 }
-.sellername{
+.name{
     align-self: center;
     margin-inline: 40px;
 }
@@ -90,8 +94,19 @@ Seller card
 .deletebutton{
     background-color: #FB1818;
 }
-
-@media screen and (max-width: 1280px) {
+.display{
+    display:none;
+}
+.banbutton{
+    background-color: #FB1818;
+}
+.cardbutton{
+    display: flex;
+    justify-content: space-around;
+    grid-column: 1/ span 2;
+    grid-row: 2;
+}
+@media screen and (max-width: 1350px) {
     .title h1 {
         font-size: 30px;
         font-weight: 700;
