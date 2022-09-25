@@ -465,7 +465,7 @@ ul {
 /* Product image */
 .product-image {
 	width: 80%;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 /* Product category */
