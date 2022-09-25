@@ -13,15 +13,6 @@ const navItems = document.querySelectorAll('.nav-items-element');
 const sections = document.querySelectorAll('.section');
 const footer = document.querySelector('.footer');
 const nav = document.querySelector('.nav-items');
-/* const home = document.getElementById('home');
-const categories = document.getElementById('categories');
-const favourites = document.getElementById('favourites');
-const wishlist = document.getElementById('wishlist');
-const cart = document.getElementById('cart');
-const chatPage = document.getElementById('chatPage');
-const account = document.getElementById('accout');
-const wishlistIcon = document.getElementById('wishlistIcon');
-const cartIcon = document.getElementById('cartIcon'); */
 
 // Buttons and inputs
 const chatContainer = document.querySelector('.chat-container');
@@ -50,6 +41,10 @@ const productModalInfo = document.getElementById('productModalInfo');
 const productModalButtons = document.querySelector('.product-modal-buttons');
 const wishlistItems = document.querySelector('.wishlist-items');
 const favouriteItems = document.querySelector('.favourites-items');
+const categoryItems = document.querySelector('.category-items-grid');
+const categoryElement = document.querySelectorAll('.category-background-container');
+
+let viewCategoryDone = false;
 
 window.onload = () => {
 	accountName.value = localStorage.user_name;
@@ -255,35 +250,34 @@ axios.get('http://localhost/client-backend/ads.php').then((res) => {
 });
 
 // View all categories
+axios.get('http://localhost/client-backend/view-categories.php').then((res) => {
+	res.data.forEach((category) => {
+		categoryGrid.innerHTML += `
+			<div class="category-background-container pointer" onclick="viewCategory(${category.id})">
+				<div class="category-background" style="background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(${category.category_image});">
+					<div class="category-cover">
+						<h3  class="bold white-font">${category.category_name}</h3>
+						<div class="shop-now flex white-font">
+							<h4>Shop now</h4>
+							<span class="material-symbols-outlined md18 pointer">
+								arrow_circle_right
+							</span>
+						</div>
+					</div>
+				</div>
+			</div> `;
+	});
+});
+
 viewCategories.addEventListener('click', () => {
 	navItems.forEach((element) => element.classList.remove('current'));
 	navItems[1].classList.add('current');
 	sections.forEach((element) => element.classList.add('display'));
 	sections[1].classList.remove('display');
-	axios.get('http://localhost/client-backend/view-categories.php').then((res) => {
-		console.log(res.data[0]);
-		res.data.forEach((category) => {
-			categoryGrid.innerHTML += `
-		<div class="category-background-container pointer">
-	    	<div class="category-background" style="background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(${category.category_image});">
-	    		<div class="category-cover">
-	    			<h3  class="bold white-font">${category.category_name}</h3>
-	    			<div class="shop-now flex white-font">
-	    				<h4>Shop now</h4>
-	    				<span class="material-symbols-outlined md18 pointer">
-	    					arrow_circle_right
-	    				</span>
-	    			</div>
-	    		</div>
-	    	</div>
-	    </div> `;
-		});
-	});
 });
 
 // Fetch new products
 axios.get('http://localhost/client-backend/new-products.php').then((res) => {
-	console.log(res.data);
 	res.data.forEach((product) => {
 		newProducts.innerHTML += `
 			<!-- Product -->
@@ -316,7 +310,7 @@ axios.get('http://localhost/client-backend/new-products.php').then((res) => {
 					</div>
 					<!-- Product add to cart action -->
 					<div class="product-cart navy">
-						<button type="button" class="button add-to-cart">Add To Cart</button> 
+						<button type="button" class="button add-to-cart" onclick="addToCart(${product.id})">Add To Cart</button> 
 					</div>
 				</div>
 			</div>`;
@@ -353,7 +347,6 @@ axios.get('http://localhost/client-backend/new-products.php').then((res) => {
 
 // Fetch top selling products
 axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
-	console.log(res.data);
 	res.data.forEach((product) => {
 		topProducts.innerHTML += `
 		<!-- Product -->
@@ -386,7 +379,7 @@ axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
 				</div>
 				<!-- Product add to cart action -->
 				<div class="product-cart navy">
-					<button type="button" class="button add-to-cart">Add To Cart</button> 
+					<button type="button" class="button add-to-cart" onclick="addToCart(${product.id})">Add To Cart</button> 
 				</div>
 			</div>
 		</div>`;
@@ -425,7 +418,6 @@ axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
 function showProduct(id) {
 	let productId = { product_id: id };
 	axios.post('http://localhost/client-backend/view_product.php', productId).then((res) => {
-		console.log(res.data);
 		productModalInfo.innerHTML = `<img src="${res.data[0].image}" alt="product image" class="product-modal-image">
 		<div class="product-details">
 			<p><span class="bold">Name:</span> ${res.data[0].product_name}</p>
@@ -434,7 +426,7 @@ function showProduct(id) {
 			<p><span class="bold">Description:</span> ${res.data[0].description}</p>
 		</div>`;
 		productModalButtons.innerHTML = `
-		    <button type="button" class="cart-modal-button button">Add to cart</button>
+		    <button type="button" class="cart-modal-button button" onclick="addToCart(${id})">Add to cart</button>
             <button type="button" class="wishlist-modal-button button" onclick="addWishlist(${id})">Add to wishlist</button>
             <button type="button" class="contact-modal-button button">
                 Contact seller
@@ -447,7 +439,6 @@ function showProduct(id) {
 
 // Add wishlist from product
 function addWishlist(id) {
-	console.log(localStorage.userId);
 	let user = localStorage.userId;
 	let productId = { products_id: id, client_user_id: user };
 	axios.post('http://localhost/client-backend/add_to_wishlist.php', productId).then((res) => {
@@ -460,12 +451,14 @@ axios.post('http://localhost/client-backend/view-wishlist.php', { client_user_id
 	console.log(res.data);
 	res.data.forEach((product) => {
 		let id = { product_id: product.products_id };
+		let id2 = product.products_id;
 		axios.post('http://localhost/client-backend/view_product.php', id).then((res2) => {
+			console.log(res2.data);
 			wishlistItems.innerHTML += `
 		<!-- Product -->
 		<div class="product-container" >
 			<div class="wishlist-body-product light-navy pointer">
-				<div  onclick="showProduct(${res2.data[0].id})">
+				<div  onclick="showProduct(${id2})">
 					<!-- Product image -->
 					<div class="product-image-container flex">
 						<img src="${res2.data[0].image}" alt="product" class="product-image">
@@ -481,18 +474,18 @@ axios.post('http://localhost/client-backend/view-wishlist.php', { client_user_id
 				<!-- Product favourites / wishlist icons -->
 				<div class="product-icons flex">
 					<!-- Favourites -->
-					<div onclick="addFavourite(${res2.data[0].id})">
+					<div onclick="addFavourite(${id2})">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="favourites pointer"><path fill="#001743" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
 					</div>
 					
 					<!-- Wishlist -->
-					<div onclick="addWishlist(${res2.data[0].id})">
+					<div onclick="addWishlist(${id2})">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="wishlist-product" ><path fill="#001743" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
 					</div>
 				</div>
 				<!-- Product add to cart action -->
 				<div class="product-cart navy">
-					<button type="button" class="button add-to-cart">Add To Cart</button> 
+					<button type="button" class="button add-to-cart" onclick="addToCart(${product.id})">Add To Cart</button> 
 				</div>
 			</div>
 		</div>`;
@@ -507,12 +500,13 @@ axios
 		console.log(res.data);
 		res.data.forEach((product) => {
 			let id = { product_id: product.product_id };
+			let id2 = product.product_id;
 			axios.post('http://localhost/client-backend/view_product.php', id).then((res2) => {
 				favouriteItems.innerHTML += `
 				<!-- Product -->
 				<div class="product-container" >
 					<div class="product light-navy pointer">
-						<div  onclick="showProduct(${res2.data[0].id})">
+						<div  onclick="showProduct(${id2})">
 							<!-- Product image -->
 							<div class="product-image-container flex">
 								<img src="${res2.data[0].image}" alt="product" class="product-image">
@@ -528,18 +522,18 @@ axios
 						<!-- Product favourites / wishlist icons -->
 						<div class="product-icons flex">
 							<!-- Favourites -->
-							<div onclick="addFavourite(${res2.data[0].id})">
+							<div onclick="addFavourite(${id2})">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="favourites pointer"><path fill="#001743" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
 							</div>
 
 							<!-- Wishlist -->
-							<div onclick="addWishlist(${res2.data[0].id})">
+							<div onclick="addWishlist(${id2})">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="wishlist-product" ><path fill="#001743" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
 							</div>
 						</div>
 						<!-- Product add to cart action -->
 						<div class="product-cart navy">
-							<button type="button" class="button add-to-cart">Add To Cart</button> 
+							<button type="button" class="button add-to-cart" onclick="addToCart(${product.id})"> Add To Cart</button> 
 						</div>
 					</div>
 				</div>`;
@@ -549,10 +543,65 @@ axios
 
 // Add favourite
 function addFavourite(id) {
-	console.log(localStorage.userId);
 	let user = localStorage.userId;
 	let productId = { products_id: id, client_user_id: user };
 	axios.post('http://localhost/client-backend/add_favourite.php', productId).then((res) => {
+		console.log(res.data);
+	});
+}
+
+function viewCategory(id) {
+	let categoryId = { categories_id: id };
+	axios.post('http://localhost/client-backend/view-category.php', categoryId).then((res) => {
+		categoryItems.innerHTML = '';
+		res.data.forEach((product) => {
+			categoryItems.innerHTML += `
+		<!-- Product -->
+		<div class="product-container" >
+			<div class="wishlist-body-product light-navy pointer">
+				<div  onclick="showProduct(${product.id})">
+					<!-- Product image -->
+					<div class="product-image-container flex">
+						<img src="${product.image}" alt="product" class="product-image">
+					</div>
+					<!-- Product category -->
+					<h4 class="product-category">${product.category_name}</h4>
+					<!-- Product name -->
+					<h3 class="product-name">${product.product_name}</h3>
+					<!-- Product price -->
+					<h3 class="price white-font">${product.price}</h3>
+				</div>
+				
+				<!-- Product favourites / wishlist icons -->
+				<div class="product-icons flex">
+					<!-- Favourites -->
+					<div onclick="addFavourite(${product.id})">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="favourites pointer"><path fill="#001743" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+					</div>
+					
+					<!-- Wishlist -->
+					<div onclick="addWishlist(${product.id})">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="wishlist-product" ><path fill="#001743" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+					</div>
+				</div>
+				<!-- Product add to cart action -->
+				<div class="product-cart navy">
+					<button type="button" class="button" add-to-cart onclick="addToCart(${product.id})">Add To Cart</button> 
+				</div>
+			</div>
+		</div>`;
+		});
+		navItems.forEach((element) => element.classList.remove('current'));
+		sections.forEach((element) => element.classList.add('display'));
+		sections[8].classList.remove('display');
+	});
+}
+
+// Add to cart
+function addToCart(id) {
+	let cart = { cart_id: localStorage.carts, product_id: id };
+	axios.post('http://localhost/client-backend/add_to_cart.php', cart).then((res) => {
+		console.log(localStorage.carts);
 		console.log(res.data);
 	});
 }

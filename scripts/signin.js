@@ -36,6 +36,16 @@ signinPageButton.addEventListener('click', () => {
 					window.location.href = 'index.html';
 				});
 			}
+			/* else if(res.data[0].user_type == 'seller') {
+				axios.post('http://localhost/client-backend/client.php', { user_id: res.data[0].id }).then((result) => {
+					localStorage.setItem('userId', result.data[0].user_id);
+					localStorage.setItem('user_name', result.data[0].client_name);
+					localStorage.setItem('user_email', result.data[0].client_email);
+					localStorage.setItem('user_picture', result.data[0].img);
+					localStorage.setItem('carts', result.data[0].carts_id);
+					window.location.href = 'revenue.html';
+				});
+			} */
 		})
 		.catch((err) => console.log(err));
 });
