@@ -25,6 +25,9 @@ const client = document.querySelectorAll(".client");
 const statistics = document.getElementById("statistics");
 const clientTable = document.getElementById("clientsTable");
 const table = document.getElementById("table");
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
 /* navTab.forEach((element) => {
     element.addEventListener('click', () => {
     sections.forEach((element) => element.classList.add('display'));
@@ -50,6 +53,9 @@ navTab[0].addEventListener('click', () => {
     clientTable.classList.add('display');
     table.classList.add('display');
     statistics.classList.add('display');
+    btn1.classList.add('nav-tab-selected');
+    btn2.classList.remove('nav-tab-selected');
+    btn3.classList.remove('nav-tab-selected');
 });
 
 navTab[1].addEventListener('click', () => {
@@ -57,6 +63,9 @@ navTab[1].addEventListener('click', () => {
     clientTable.classList.remove('display');
     table.classList.remove('display');
     statistics.classList.add('display');
+    btn1.classList.remove('nav-tab-selected');
+    btn2.classList.add('nav-tab-selected');
+    btn3.classList.remove('nav-tab-selected');
 });
 
 navTab[2].addEventListener('click', () => {
@@ -64,6 +73,9 @@ navTab[2].addEventListener('click', () => {
     clientTable.classList.add('display');
     table.classList.add('display');
     statistics.classList.remove('display');
+    btn1.classList.remove('nav-tab-selected');
+    btn2.classList.remove('nav-tab-selected');
+    btn3.classList.add('nav-tab-selected');
 });
 
 // });
