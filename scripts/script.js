@@ -39,6 +39,15 @@ const chatUser = document.querySelectorAll('.user-chat-element');
 const usersBlock = document.querySelector('.chat-users');
 const mainChat = document.querySelector('.main-chat');
 
+const accountName = document.getElementById('accountName');
+const accountEmail = document.getElementById('accountEmail');
+const adsContainer = document.getElementById('adsContainer');
+
+window.onload = () => {
+	accountName.value = localStorage.user_name;
+	accountEmail.value = localStorage.user_email;
+};
+
 // Show product modal on click
 product[0].addEventListener('click', () => {
 	productModal.showModal();
@@ -126,9 +135,7 @@ let topSellingSlider = tns({
 });
 
 // Ads slider
-let currentIndex = 1;
-displaySlides(currentIndex);
-
+currentIndex = 1;
 function setSlides(num) {
 	displaySlides((currentIndex += num));
 }
@@ -147,8 +154,6 @@ function displaySlides(num) {
 	}
 	slides[currentIndex - 1].style.display = 'block';
 }
-
-// Client Page Buttons Functionality
 
 // Home
 navItems[0].addEventListener('click', () => {
@@ -270,4 +275,31 @@ chatHamburger.addEventListener('click', () => {
 	chatUser.forEach((user) => user.classList.toggle('active'));
 	usersBlock.classList.toggle('active');
 	mainChat.classList.toggle('active');
+});
+
+// Fetch ads
+axios.get('http://localhost/client-backend/ads.php').then((res) => {
+	res.data.forEach((ad) => {
+		adsContainer.innerHTML += `
+			<div class="ad-slides fade">
+				<img src="${ad.ad_image}" class="ad">
+			</div>`;
+	});
+	let currentIndex = 1;
+	displaySlides(currentIndex);
+
+	function displaySlides(num) {
+		let x;
+		const slides = document.getElementsByClassName('ad-slides');
+		if (num > slides.length) {
+			currentIndex = 1;
+		}
+		if (num < 1) {
+			currentIndex = slides.length;
+		}
+		for (x = 0; x < slides.length; x++) {
+			slides[x].style.display = 'none';
+		}
+		slides[currentIndex - 1].style.display = 'block';
+	}
 });

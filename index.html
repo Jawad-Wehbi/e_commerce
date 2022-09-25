@@ -72,20 +72,13 @@
     <section class="section body">
 
         <!-- Ads slider container -->
-        <div class="ads-container padding">
-            <!-- Ads -->
-            <div class="ad-slides fade">
-                <img src="./images/fb0f1404-1710-4c3e-90d0-c0b6559fb7de_rw_1200.png" class="ad">
-            </div>
-            <div class="ad-slides fade">
-                <img src="./images/Main-Bannre-1-915x420.jpg" class="ad">
-            </div>
-            <div class="ad-slides fade">
-                <img src="./images/YMUet27111.jpg" class="ad">
-            </div>
+        <div class="ads-container padding" id="adsContainer">
             <!-- Previous & Next buttons -->
-            <a class="slider-btn previous" onclick="setSlides(-1)">❮</a>
-            <a class="slider-btn next" onclick="setSlides(1)">❯</a>
+            <div id="adsControls">
+                <a class="slider-btn previous" onclick="setSlides(-1)">❮</a>
+                <a class="slider-btn next" onclick="setSlides(1)">❯</a>
+            </div>
+            
         </div>
 
         <!-- Categories -->
@@ -735,9 +728,9 @@
             <div class="account-input flex">
                 <h2 class="body-header">Account Settings</h2>
                 <label for="">Username</label>
-                <input type="text" class="input round account-input-tab">
+                <input type="text" class="input round account-input-tab" id="accountName">
                 <label for="">Email</label>
-                <input type="email" class="input round account-input-tab">
+                <input type="email" class="input round account-input-tab" id="accountEmail">
                 <label for="">Password</label>
                 <input type="password" class="input round account-input-tab">
                 <button type="button" class="save-button button">Save</button>

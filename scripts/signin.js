@@ -24,20 +24,17 @@ signinPageButton.addEventListener('click', () => {
 	let signinInput = { email: signinEmailInput.value, password: signinPasswordInput.value };
 
 	axios
-		.post('http://localhost/e_commerce/client-backend/login.php', signinInput)
+		.post('http://localhost/client-backend/login.php', signinInput)
 		.then((res) => {
-			if (res.data.user_type == 'client') {
-				axios
-					.post('http://localhost/e_commerce/client-backend/client.php', { user_id: res.data.id })
-					.then((result) => {
-						localStorage.setItem('userId', result.data.id);
-						localStorage.setItem('user_name', result.data.client_name);
-						localStorage.setItem('user_email', result.data.client_email);
-						localStorage.setItem('user_password', result.data.client_password);
-						localStorage.setItem('user_picture', result.data.img);
-						localStorage.setItem('carts', result.data.carts_id);
-					})
-					.catch((err) => console.log(err));
+			if (res.data[0].user_type == 'client') {
+				axios.post('http://localhost/client-backend/client.php', { user_id: res.data[0].id }).then((result) => {
+					localStorage.setItem('userId', result.data[0].id);
+					localStorage.setItem('user_name', result.data[0].client_name);
+					localStorage.setItem('user_email', result.data[0].client_email);
+					localStorage.setItem('user_picture', result.data[0].img);
+					localStorage.setItem('carts', result.data[0].carts_id);
+					window.location.href = 'index.html';
+				});
 			}
 		})
 		.catch((err) => console.log(err));
