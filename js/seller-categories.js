@@ -84,12 +84,51 @@ window.onload = () => {
 
     const discardNewCategory = () => {
         newCategoryNameInput.value = "";
-        newCategoryDescriptionInput = "";
+        newCategoryDescriptionInput.value = "";
+    };
+
+    const getCategories = () => {
+        const inputData = {
+            seller_user_id: sellerId,
+        };
+        axios
+            .post(
+                "http://localhost/electrostate/getallcategories.php",
+                inputData
+            )
+            .then(response => {
+                console.log(response.data);
+                let categoryCard = ``;
+                response.data.map(values => {
+                    categoryCard += `<a id="${values.category_id}" href="" class="seller-category seller-category-cards">
+                    <p class="seller-category-name">${values.name}</p>
+                    <img src="assets/Laptop-collection.webp" alt="" />
+                </a>`;
+                });
+                sellerTop5Page.innerHTML = categoryCard;
+
+                const openCategoryBtn = document.querySelectorAll(
+                    ".seller-category-cards"
+                );
+                openCategoryBtn.forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.preventDefault();
+                        openCategory(btn.id);
+                    });
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     };
 
     //
     //
     //
+    localStorage.setItem("sellerId", "1");
+    const sellerId = localStorage.getItem("sellerId");
+    getCategories();
+
     categoriesPage.classList.remove("seller-popup-hidden");
     addNewCategoryBtn.addEventListener("click", e => {
         e.preventDefault();
