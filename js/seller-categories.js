@@ -222,6 +222,9 @@ window.onload = () => {
                 </div>`;
                 });
                 categoryPageContent.innerHTML = productCard;
+            })
+            .catch(error => {
+                console.log(error);
             });
 
         const editProductBtn = document.querySelectorAll(".seller-edit-btn");
