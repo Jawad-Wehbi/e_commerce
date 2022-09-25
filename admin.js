@@ -17,13 +17,13 @@ window.onclick = function(event) {
     }
 }
 
-
-
-    nav-tab[0].addEventListener('click', () => {
-    nav-tab.forEach((element) => element.classList.remove('current'));
-    nav-tab[0].classList.add('current');
+const navTab=document.querySelectorall(".nav-tab");
+const sections=document.querySelectorall(".page");
+navTab.forEach((element) => {
+    element.addEventListener('click', () => {
     sections.forEach((element) => element.classList.add('display'));
     sections[0].classList.remove('display');
-    footer.classList.remove('display');
+
 });
-nav-tab.forEach((element) => element.classList.remove('current'));
+
+});
