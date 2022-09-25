@@ -14,19 +14,23 @@ $data = json_decode($request_body, true);
 $checkout_date = date('y:m:d',strtotime('-1 year'));
 
 //Sum product of products prices for 1 year for the seller
-$query = $mysqli->prepare("SELECT  SUM(checheckout_history.quantity_sold) as most_products_sold , products.seller_user_id  FROM checkout_history,products  WHERE (checkout_history.product_id= products.product_id and checkout_history.checkout_date >= ?) GROUP BY products.seller_user_id");
-$query->bind_param("s", ,$checkout_date);
+$query = $mysqli->prepare("SELECT  SUM(checkout_history.quantity_sold) as revenue , products.seller_user_id  FROM checkout_history,products  WHERE (checkout_history.product_id= products.product_id  and checkout_history.checkout_date >= ?) GROUP BY products.seller_user_id ORDER BY checkout_history.quantity_sold DESC LIMIT 1 ");
+$query->bind_param("s",$checkout_date);
 $query->execute();
 
-
-$return = $query -> get_result();
-$result = $return -> fetch_assoc();
-
-
+$array = $query->get_result();
 
 $response = [];
-$response["success"] = true;
-echo json_encode($result);
+// Get the result
+while($a = $array->fetch_assoc())
+{
+    $response[] = $a;
+}
+
+
+// Display all clients
+$json = json_encode($response);
+echo $json;
 
 
 
