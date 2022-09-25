@@ -88,10 +88,25 @@ window.onload = () => {
                 </div>`;
                 });
                 sellerTop5Page.innerHTML = productCard;
+
+                const editProductBtns =
+                    document.querySelectorAll(".seller-edit-btn");
+                editProductBtns.forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.preventDefault();
+                        openEditProduct(btn.parentElement.parentElement.id);
+                    });
+                });
             })
             .catch(error => {
                 console.log(error);
             });
+    };
+
+    const openEditProduct = productId => {
+        sellerEditProductPage.classList.remove("seller-popup-hidden");
+        localStorage.setItem("productId", "productId");
+        console.log(productId);
     };
 
     //
