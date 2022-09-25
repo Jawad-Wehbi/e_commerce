@@ -16,7 +16,7 @@ $user_id = $data["user_id"];
 
 //Update the sellers name in the database
 $query = $mysqli->prepare("DELETE  FROM sellers WHERE user_id=?");
-$query->bind_param("ss",$user_id );
+$query->bind_param("s",$user_id );
 $query->execute();
 
 $query = $mysqli->prepare("DELETE  FROM users WHERE id=?");
