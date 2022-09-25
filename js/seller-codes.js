@@ -46,6 +46,7 @@ window.onload = () => {
     const closeNewCodeBtn = document.getElementById("close-new-code-page");
     const saveNewCodeBtn = document.getElementById("save-new-code");
     const discardNewCodeBtn = document.getElementById("discard-new-code");
+    const newCodeInputValue = document.getElementById("new-code-input-value");
     const newCodeInput = document.getElementById("new-code-input");
     const codesTable = document.getElementById("seller-codes-table");
 
@@ -63,10 +64,11 @@ window.onload = () => {
     };
 
     const saveNewCode = () => {
-        if (newCodeInput.value != "") {
+        if (newCodeInputValue.value != "") {
             const inputData = {
+                value: newCodeInputValue.value,
+                code: newCodeInput.value,
                 seller_user_id: sellerId,
-                value: newCodeInput.value,
             };
             axios
                 .post(
@@ -84,6 +86,7 @@ window.onload = () => {
     };
 
     const discardNewCode = () => {
+        newCodeInputValue.value = "";
         newCodeInput.value = "";
     };
 
