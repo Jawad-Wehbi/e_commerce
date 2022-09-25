@@ -79,19 +79,17 @@ window.onload = () => {
                             alt="" />
                         <p>Category Name</p>
                         <p>${values.name}</p>
-                        <p>Price</p>
+                        <p>${values.price}$</p>
                         <p>
                             Quantity sold:
-                            <span>56</span>
+                            <span></span>
                         </p>
                         <p>
                             Quantity left:
-                            <span>95</span>
+                            <span></span>
                         </p>
                     </div>
                     <div class="seller-categories-product-views">
-                        <p>10</p>
-                        <img src="assets/heart.svg" alt="" />
                         <p>${values.nb_of_views}</p>
                         <img src="assets/eye.svg" alt="" />
                     </div>
