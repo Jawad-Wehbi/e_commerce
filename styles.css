@@ -36,8 +36,28 @@ Utilities
 /*
 Table structure
 */
+.modal {
+    /*display: none;  Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
 .admin {
-    width: 100vw;
+    width: 99vw;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -46,7 +66,7 @@ Table structure
     width: 72vw;
     height: 85vh;
     padding-top: 15vh;
-    margin-left: 28vw;
+    margin-left: 27vw;
     
 }
 #table th {
@@ -55,7 +75,7 @@ Table structure
     border-radius: 20px;
 }
 #table th {
-    width: 24vh;
+    width: 24vw;
     height: fit-content;
     padding-inline: 5px;
     padding-top: 5px;
@@ -91,8 +111,15 @@ Seller card
     align-self: center;
     margin-inline: 40px;
 }
+.button:hover {
+    width: 10vw;
+    height: 4.5vw;
+}
+.nav-tab-selected {
+    background-color: #007aff;
+}
 .button{
-    height: 50px;
+    height: 4vw;
     width: 9vw;
     border-radius: 45.5px;
     border: 0;

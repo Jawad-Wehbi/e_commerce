@@ -5,11 +5,11 @@
 
 /* Header */
 .header {
-    width: 72.5vw;
+    width: 72vw;
     height: 15vh;
     background-color: #001743;
     position: fixed;
-    left: 28%;
+    left: 27vw;
     font-size: 36px;
 }
 .header h2 {
@@ -52,7 +52,7 @@
 
 /* Left Panel */
 .panel {
-    width: 27.5vw;
+    width: 27vw;
     height: 100%;
     background-color: #767687;
     position: fixed;
