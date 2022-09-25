@@ -44,6 +44,21 @@ window.onload = () => {
     const sellerEditProductPage = document.getElementById(
         "seller-edit-product-page"
     );
+    const productNameInput = document.getElementById(
+        "seller-product-name-input"
+    );
+    const productPriceInput = document.getElementById(
+        "seller-product-price-input"
+    );
+    const productDescriptionInput = document.getElementById(
+        "seller-product-description-input"
+    );
+    const saveEditProductBtn = document.getElementById(
+        "seller-save-edit-product"
+    );
+    const discardEditProductBtn = document.getElementById(
+        "seller-discard-edit-product"
+    );
     //
     // Functions
     //
@@ -115,6 +130,10 @@ window.onload = () => {
         sellerEditProductPage.classList.remove("seller-popup-hidden");
         localStorage.setItem("productId", "productId");
         console.log(productId);
+        discardEditProductBtn.addEventListener("click", e => {
+            e.preventDefault();
+            discardEditProduct();
+        });
     };
 
     const deleteProduct = productId => {
@@ -130,6 +149,12 @@ window.onload = () => {
             .catch(error => {
                 console.log(error);
             });
+    };
+
+    const discardEditProduct = () => {
+        productNameInput.value = "";
+        productPriceInput.value = "";
+        productDescriptionInput.value = "";
     };
 
     //
