@@ -8,6 +8,7 @@ window.onload = () => {
     const messagesTab = document.getElementById("messages-tab");
     const top5Tab = document.getElementById("top5-tab");
     const addAdsTab = document.getElementById("add-ads-tab");
+    const sellerName = document.getElementById("seller-name");
 
     //
     // Navigation
@@ -47,6 +48,8 @@ window.onload = () => {
     //
     //
     //
+    sellerName.innerText = localStorage.getItem("sellerName");
+
     adsInput.addEventListener("change", () => {
         const reader = new FileReader();
         reader.addEventListener("load", () => {

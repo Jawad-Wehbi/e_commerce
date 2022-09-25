@@ -1,4 +1,5 @@
-/*  */
+/* This file was created to be used in both the seller and the admin page since they have similar sections
+like the header and the left panel */
 * {
     color: #ffffff;
 }

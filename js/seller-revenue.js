@@ -8,6 +8,7 @@ window.onload = () => {
     const messagesTab = document.getElementById("messages-tab");
     const top5Tab = document.getElementById("top5-tab");
     const addAdsTab = document.getElementById("add-ads-tab");
+    const sellerName = document.getElementById("seller-name");
 
     //
     // Navigation
@@ -50,9 +51,6 @@ window.onload = () => {
         "seller-total-sales-last-week"
     );
     const displayStats = document.getElementById("seller-display-stats");
-
-    localStorage.setItem("sellerId", "1");
-    sellerId = localStorage.getItem("sellerId");
 
     //
     // functions
@@ -172,6 +170,10 @@ window.onload = () => {
         //     .attr("fill", "green");
     };
 
+    localStorage.setItem("sellerId", "1"); // should be the id we got from the login
+    localStorage.setItem("sellerName", "Seller Name"); // should be the name we got from the login
+    sellerName.innerText = localStorage.getItem("sellerName");
+    sellerId = localStorage.getItem("sellerId");
     let dataset;
     getRevenueLastWeek();
     getRevenueLastMonth();

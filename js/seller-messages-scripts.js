@@ -8,6 +8,7 @@ window.onload = () => {
     const messagesTab = document.getElementById("messages-tab");
     const top5Tab = document.getElementById("top5-tab");
     const addAdsTab = document.getElementById("add-ads-tab");
+    const sellerName = document.getElementById("seller-name");
 
     //
     // Navigation
@@ -36,4 +37,9 @@ window.onload = () => {
         e.preventDefault();
         location.replace("./add-ads.html");
     });
+
+    //
+    //
+    //
+    sellerName.innerText = localStorage.getItem("sellerName");
 };
