@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Electro Estate, Signin</title>
+</head>
+<body>
+    <!-- Sign in / Sign up Section -->
+    <section class="signin-page flex">
+        <!-- Sign in block -->
+        <div class="signin-block padding">
+            <h1 class="signin-header">Electro Estate</h1>
+            <h2 class="signin-subheader">Sign in</h2>
+            <!-- Sign in email -->
+            <div class="flex column">
+                <label for="">Email</label>
+                <input type="email" class="signin-email input">
+            </div>
+            <!-- Sign in password -->
+            <div class="flex column">
+                <label for="">Password</label>
+                <input type="password" class="signin-password input">
+            </div>  
+            <!-- Sign in button -->
+            <button class="signin-page-button button" id="signinPageButton">Sign in</button>
+            <p>New to Electro Estate? <span class="signup-link pointer">Signup</span></p>
+        </div>
+
+        <!-- Sign up block -->
+        <div class="signup-block padding display">
+            <span class="material-symbols-outlined signup-back">
+                arrow_back
+            </span>
+            <h1 class="signup-header">Electro Estate</h1>
+            <h2 class="signup-subheader">Create new Electro State account</h2>
+            <!-- Sign up username -->
+            <div class="flex column">
+                <label for="">Username</label>
+                <input type="text" class="signup-username input">
+            </div>
+            <!-- Sign in email -->
+            <div class="flex column">
+                <label for="">Email</label>
+                <input type="email" class="signup-email input">
+            </div>
+            <!-- Sign in password -->
+            <div class="flex column">
+                <label for="">Password</label>
+                <input type="password" class="signup-password input">
+            </div>  
+            <!-- Sign in button -->
+            <button class="signup-page-button button">Sign up</button>
+        </div>
+    </section>
+
+        
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+<script src="./scripts/signin.js"></script>
+</html>
