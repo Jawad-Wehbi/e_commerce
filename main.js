@@ -38,9 +38,5 @@ app.on('window-all-closed', ()=> {
     
 
 
-const page =document.querySelectorAll(".page");
-
-Foreach
-
 
     

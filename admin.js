@@ -19,6 +19,11 @@ window.onclick = function(event) {
 
 
 
-const page =document.querySelectorAll(".page");
-
-Foreach
+    nav-tab[0].addEventListener('click', () => {
+    nav-tab.forEach((element) => element.classList.remove('current'));
+    nav-tab[0].classList.add('current');
+    sections.forEach((element) => element.classList.add('display'));
+    sections[0].classList.remove('display');
+    footer.classList.remove('display');
+});
+nav-tab.forEach((element) => element.classList.remove('current'));
