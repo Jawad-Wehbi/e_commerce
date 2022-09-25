@@ -43,8 +43,7 @@ const wishlistItems = document.querySelector('.wishlist-items');
 const favouriteItems = document.querySelector('.favourites-items');
 const categoryItems = document.querySelector('.category-items-grid');
 const categoryElement = document.querySelectorAll('.category-background-container');
-
-let viewCategoryDone = false;
+const categoriesContainer = document.querySelector('.categories-container');
 
 window.onload = () => {
 	accountName.value = localStorage.user_name;
@@ -250,7 +249,7 @@ axios.get('http://localhost/client-backend/ads.php').then((res) => {
 });
 
 // View all categories
-axios.get('http://localhost/client-backend/view-categories.php').then((res) => {
+axios.get('http://localhost/client-backend/view_categories.php').then((res) => {
 	res.data.forEach((category) => {
 		categoryGrid.innerHTML += `
 			<div class="category-background-container pointer" onclick="viewCategory(${category.id})">
@@ -277,7 +276,7 @@ viewCategories.addEventListener('click', () => {
 });
 
 // Fetch new products
-axios.get('http://localhost/client-backend/new-products.php').then((res) => {
+axios.get('http://localhost/client-backend/new_products.php').then((res) => {
 	res.data.forEach((product) => {
 		newProducts.innerHTML += `
 			<!-- Product -->
@@ -447,7 +446,7 @@ function addWishlist(id) {
 }
 
 // View Wishlist
-axios.post('http://localhost/client-backend/view-wishlist.php', { client_user_id: localStorage.userId }).then((res) => {
+axios.post('http://localhost/client-backend/view_wishlist.php', { client_user_id: localStorage.userId }).then((res) => {
 	console.log(res.data);
 	res.data.forEach((product) => {
 		let id = { product_id: product.products_id };
@@ -552,7 +551,7 @@ function addFavourite(id) {
 
 function viewCategory(id) {
 	let categoryId = { categories_id: id };
-	axios.post('http://localhost/client-backend/view-category.php', categoryId).then((res) => {
+	axios.post('http://localhost/client-backend/view_category.php', categoryId).then((res) => {
 		categoryItems.innerHTML = '';
 		res.data.forEach((product) => {
 			categoryItems.innerHTML += `
@@ -605,3 +604,24 @@ function addToCart(id) {
 		console.log(res.data);
 	});
 }
+
+// Main page categories
+axios.get('http://localhost/client-backend/view_categories.php').then((res) => {
+	for (i = 0; i < 3; i++) {
+		let category = res.data[i];
+		categoriesContainer.innerHTML += `
+			<div class="category-background-container pointer" onclick="viewCategory(${category.id})">
+				<div class="category-background" style="background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(${category.category_image});">
+					<div class="category-cover">
+						<h3  class="bold white-font">${category.category_name}</h3>
+						<div class="shop-now flex white-font">
+							<h4>Shop now</h4>
+							<span class="material-symbols-outlined md18 pointer">
+								arrow_circle_right
+							</span>
+						</div>
+					</div>
+				</div>
+			</div> `;
+	}
+});
