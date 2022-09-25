@@ -85,9 +85,24 @@ window.onload = () => {
     const saveNewCategory = () => {
         if (
             newCategoryNameInput.value != "" &&
-            newCategoryDescriptionInput != ""
+            newCategoryDescriptionInput.value != ""
         ) {
-            // send to database
+            const inputData = {
+                name: newCategoryNameInput.value,
+                description: newCategoryDescriptionInput.value,
+                seller_user_id: sellerId,
+            };
+            axios
+                .post(
+                    "http://localhost/electrostate/add_categories_api.php",
+                    inputData
+                )
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
             location.reload();
         }
     };
