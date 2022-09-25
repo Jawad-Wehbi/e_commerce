@@ -37,23 +37,68 @@ window.onload = () => {
         location.replace("./add-ads.html");
     });
 
-    localStorage.setItem("sellerId", "2");
-    const sellerId = localStorage.getItem("sellerId");
-    const get5Products = () => {
-        let data = {
-            seller_user_id: 1,
+    //
+    // Variables
+    //
+    const sellerTop5Page = document.getElementById("seller-top5-page");
+    const sellerEditProductPage = document.getElementById(
+        "seller-edit-product-page"
+    );
+    //
+    // Functions
+    //
+    const getTop5Products = () => {
+        const inputData = {
+            seller_user_id: sellerId,
         };
         axios
-            .post("http://localhost/electrostate/top5_products.php", {
-                seller_user_id: 1,
-            })
+            .post("http://localhost/electrostate/top5_products.php", inputData)
             .then(response => {
-                console.log(response);
+                console.log(response.data);
+                let productCard = ``;
+                response.data.map(values => {
+                    productCard += `<div id="${values.product_id}" class="seller-categories-product">
+                    <div class="seller-categories-product-info">
+                        <img
+                            class="seller-product-img"
+                            src="assets/Laptop-collection.webp"
+                            alt="" />
+                        <p>Category Name</p>
+                        <p>${values.name}</p>
+                        <p>Price</p>
+                        <p>
+                            Quantity sold:
+                            <span>56</span>
+                        </p>
+                        <p>
+                            Quantity left:
+                            <span>95</span>
+                        </p>
+                    </div>
+                    <div class="seller-categories-product-views">
+                        <p>10</p>
+                        <img src="assets/heart.svg" alt="" />
+                        <p>${values.nb_of_views}</p>
+                        <img src="assets/eye.svg" alt="" />
+                    </div>
+                    <div class="seller-categories-product-btns">
+                        <a class="seller-edit-btn" href="">Edit</a>
+                        <a class="seller-delete-btn" href="">Delete</a>
+                    </div>
+                </div>`;
+                });
+                sellerTop5Page.innerHTML = productCard;
+            })
+            .catch(error => {
+                console.log(error);
             });
-        // .catch(error => {
-        //     console.log(error);
-        // Code for handling the error
-        // });
     };
-    get5Products();
+
+    //
+    //
+    //
+    localStorage.setItem("sellerId", "1");
+    const sellerId = localStorage.getItem("sellerId");
+
+    getTop5Products();
 };
