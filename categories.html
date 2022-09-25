@@ -119,13 +119,15 @@
         <!-- 
             Category page popup
          -->
-        <section class="seller-popup seller-popup-hidden">
+        <section
+            id="seller-category-page"
+            class="seller-popup seller-popup-hidden">
             <div class="seller-categories-subheader">
-                <h3>Category 1</h3>
+                <h3 id="seller-category-page-header-subtitle">Category 1</h3>
                 <a id="" class="seller-add-new-btn" href="">Add new product</a>
                 <a href=""><img src="assets/x.svg" alt="" /></a>
             </div>
-            <div class="seller-category-page">
+            <div id="seller-category-page" class="seller-category-page">
                 <div class="seller-categories-product">
                     <div class="seller-categories-product-info">
                         <img
@@ -258,7 +260,7 @@
         <!-- 
             Scripts
          -->
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
         <script src="js/seller-categories.js" type="text/javascript"></script>
     </body>
 </html>

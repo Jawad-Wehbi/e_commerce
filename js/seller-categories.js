@@ -56,6 +56,10 @@ window.onload = () => {
     const discardNewCategoryBtn = document.getElementById(
         "discard-new-category-btn"
     );
+    const categoryPage = document.getElementById("seller-category-page");
+    const categoryPageSubtitle = document.getElementById(
+        "seller-category-page-header-subtitle"
+    );
 
     //
     // Functions
@@ -100,6 +104,7 @@ window.onload = () => {
                 console.log(response.data);
                 let categoryCard = ``;
                 response.data.map(values => {
+                    localStorage.setItem("categoryName", values.name);
                     categoryCard += `<a id="${values.category_id}" href="" class="seller-category seller-category-cards">
                     <p class="seller-category-name">${values.name}</p>
                     <img src="assets/Laptop-collection.webp" alt="" />
@@ -119,6 +124,56 @@ window.onload = () => {
             })
             .catch(error => {
                 console.log(error);
+            });
+    };
+
+    const openCategory = categoryId => {
+        categoryPage.classList.remove("seller-popup-hidden");
+        categoryPageSubtitle.innerText = localStorage.getItem("categoryName");
+        const inputData = {
+            categories_id: categoryId,
+            seller_user_id: sellerId,
+        };
+        axios
+            .post(
+                "http://localhost/electrostate/getproductsundercategory.php",
+                inputData
+            )
+            .then(response => {
+                console.log(response.data);
+                let productCard = ``;
+                response.data.map(values => {
+                    productCard += `<div id="${values.product_id}" class="seller-categories-product">
+                    <div class="seller-categories-product-info">
+                        <img
+                            class="seller-product-img"
+                            src="assets/Laptop-collection.webp"
+                            alt="" />
+                        <p>${values.category_name}</p>
+                        <p>${values.name}</p>
+                        <p>${values.price}</p>
+                        <p>
+                            Quantity sold:
+                            <span>${values.quantity_sold}</span>
+                        </p>
+                        <p>
+                            Quantity left:
+                            <span>${values.quantity_left}</span>
+                        </p>
+                    </div>
+                    <div class="seller-categories-product-views">
+                        <p>10</p>
+                        <img src="assets/heart.svg" alt="" />
+                        <p>${values.nb_of_views}</p>
+                        <img src="assets/eye.svg" alt="" />
+                    </div>
+                    <div class="seller-categories-product-btns">
+                        <a class="seller-edit-btn" href="">Edit</a>
+                        <a class="seller-delete-btn" href="">Delete</a>
+                    </div>
+                </div>`;
+                });
+                categoryPage.innerHTML = productCard;
             });
     };
 
