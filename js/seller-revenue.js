@@ -40,8 +40,19 @@ window.onload = () => {
     //
     //Variables
     //
-    const totalSales = document.getElementById("seller-total-sales");
-    const totalProducts = document.getElementById("seller-total-products");
+    const totalSalesLastYear = document.getElementById(
+        "seller-total-sales-last-year"
+    );
+    const totalSalesLastMonth = document.getElementById(
+        "seller-total-sales-last-month"
+    );
+    const totalSalesLastWeek = document.getElementById(
+        "seller-total-sales-last-week"
+    );
+    const displayStats = document.getElementById("seller-display-stats");
+
+    localStorage.setItem("sellerId", "1");
+    sellerId = localStorage.getItem("sellerId");
 
     //
     // functions
@@ -56,7 +67,7 @@ window.onload = () => {
                 inputData
             )
             .then(response => {
-                return response.data;
+                totalSalesLastWeek.innerText = `${response.data.revenue}`;
             })
             .catch(error => {
                 console.log(error);
@@ -73,7 +84,7 @@ window.onload = () => {
                 inputData
             )
             .then(response => {
-                return response.data;
+                totalSalesLastMonth.innerText = `${response.data.revenue}`;
             })
             .catch(error => {
                 console.log(error);
@@ -90,68 +101,78 @@ window.onload = () => {
                 inputData
             )
             .then(response => {
-                return response.data;
+                totalSalesLastYear.innerText = `${response.data.revenue}`;
             })
             .catch(error => {
                 console.log(error);
             });
     };
 
-    //
-    // d3 graph
-    //
+    const d3Graph = () => {
+        dataset = [
+            totalSalesLastYear.innerText,
+            totalSalesLastMonth.innerText,
+            totalSalesLastWeek.innerText,
+        ];
 
-    const dataset = [
-        getRevenueLastWeek(),
-        getRevenueLastMonth(),
-        getRevenueLastYear(),
-    ];
-    console.log(dataset);
-    // let labelDataset = ["week", "month", "year"];
-    const svgWidth = 300;
-    const svgHeight = 300;
-    const barPadding = 20;
-    const barWidth = svgWidth / dataset.length;
+        //
+        // d3 graph
+        //
+        const svgWidth = 300;
+        const svgHeight = 300;
+        const barPadding = 20;
+        const barWidth = svgWidth / dataset.length;
 
-    const svg = d3
-        .select("svg")
-        .attr("width", svgWidth)
-        .attr("height", svgHeight);
+        const svg = d3
+            .select("svg")
+            .attr("width", svgWidth)
+            .attr("height", svgHeight);
 
-    const yScale = d3
-        .scaleLinear()
-        .domain([0, d3.max(dataset)])
-        .range([0, svgHeight - 20]);
+        const yScale = d3
+            .scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([0, svgHeight - 20]);
 
-    svg.selectAll("rect")
-        .data(dataset)
-        .enter()
-        .append("rect")
-        .attr("y", (d, i) => svgHeight - yScale(d))
-        .attr("width", barWidth - barPadding)
-        .attr("height", (d, i) => yScale(d))
-        .attr("transform", (d, i) => {
-            let translate = [barWidth * i, 0];
-            return `translate(${translate})`;
-        })
-        .attr("fill", "blue");
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("y", (d, i) => svgHeight - yScale(d))
+            .attr("width", barWidth - barPadding)
+            .attr("height", (d, i) => yScale(d))
+            .attr("transform", (d, i) => {
+                let translate = [barWidth * i, 0];
+                return `translate(${translate})`;
+            })
+            .attr("fill", "blue");
 
-    svg.selectAll("text")
-        .data(dataset)
-        .enter()
-        .append("text")
-        .text(d => d)
-        .attr("y", (d, i) => svgHeight - yScale(d) - 3)
-        .attr("x", (d, i) => barWidth * i)
-        .attr("fill", "red");
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(d => d)
+            .attr("y", (d, i) => svgHeight - yScale(d) - 3)
+            .attr("x", (d, i) => barWidth * i)
+            .attr("fill", "red");
 
-    // const label = svg
-    //     .selectAll("text")
-    //     .data(labelDataset)
-    //     .enter()
-    //     .append("text")
-    //     .text(d => d)
-    //     .attr("y", (d, i) => svgHeight - yScale(d) - 2)
-    //     .attr("x", (d, i) => barWidth * i)
-    //     .attr("fill", "green");
+        // let labelDataset = ["week", "month", "year"];
+        // const label = svg
+        //     .selectAll("text")
+        //     .data(labelDataset)
+        //     .enter()
+        //     .append("text")
+        //     .text(d => d)
+        //     .attr("y", (d, i) => svgHeight - yScale(d) - 2)
+        //     .attr("x", (d, i) => barWidth * i)
+        //     .attr("fill", "green");
+    };
+
+    let dataset;
+    getRevenueLastWeek();
+    getRevenueLastMonth();
+    getRevenueLastYear();
+    displayStats.addEventListener("click", e => {
+        e.preventDefault();
+        d3Graph();
+    });
 };

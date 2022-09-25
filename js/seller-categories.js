@@ -136,7 +136,7 @@ window.onload = () => {
         categoryPageSubtitle.innerText = localStorage.getItem("categoryName");
         const inputData = {
             categories_id: categoryId,
-            seller_user_id: sellerId,
+            // seller_user_id: sellerId,
         };
         axios
             .post(

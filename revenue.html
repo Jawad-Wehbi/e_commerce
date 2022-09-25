@@ -26,8 +26,9 @@
         <!-- 
             Header section
          -->
-        <section class="header">
+        <section class="header header-discount">
             <h2>Revenue</h2>
+            <a id="seller-display-stats" href="">click to see Histogram</a>
         </section>
         <!-- 
             Left Panel
@@ -58,12 +59,16 @@
         <section class="seller-popup seller-revenue">
             <div class="seller-statistics">
                 <div class="seller-statistics-item">
-                    <h3>Total sales</h3>
-                    <p id="seller-total-sales"></p>
+                    <h3>Total sales for last year</h3>
+                    <p id="seller-total-sales-last-year"></p>
                 </div>
                 <div class="seller-statistics-item">
-                    <h3>Total products</h3>
-                    <p id="seller-total-products"></p>
+                    <h3>Total sales for last month</h3>
+                    <p id="seller-total-sales-last-month"></p>
+                </div>
+                <div class="seller-statistics-item">
+                    <h3>Total sales for last week</h3>
+                    <p id="seller-total-sales-last-week"></p>
                 </div>
             </div>
             <svg class="bar-chart"></svg>
