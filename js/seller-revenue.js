@@ -38,6 +38,12 @@ window.onload = () => {
     });
 
     //
+    //Variables
+    //
+    const totalSales = document.getElementById("seller-total-sales");
+    const totalProducts = document.getElementById("seller-total-products");
+
+    //
     // functions
     //
     const getRevenueLastWeek = () => {
@@ -92,10 +98,9 @@ window.onload = () => {
     };
 
     //
-    // Variables
+    // d3 graph
     //
-    localStorage.setItem("sellerId", "1");
-    const sellerId = localStorage.getItem("sellerId");
+
     const dataset = [
         getRevenueLastWeek(),
         getRevenueLastMonth(),
@@ -108,9 +113,6 @@ window.onload = () => {
     const barPadding = 20;
     const barWidth = svgWidth / dataset.length;
 
-    //
-    // d3 graph
-    //
     const svg = d3
         .select("svg")
         .attr("width", svgWidth)

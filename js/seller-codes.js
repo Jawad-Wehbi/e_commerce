@@ -131,7 +131,9 @@ window.onload = () => {
 
     const deleteCode = codeId => {
         const inputData = {
-            code_id: codeId,
+            id: codeId,
+            discount_code_id: codeId,
+            seller_user_id: sellerId,
         };
         axios
             .post(
