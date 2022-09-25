@@ -16,7 +16,7 @@ $seller_name = $data["seller_name"];
 
 //Update the sellers name in the database
 $query = $mysqli->prepare("UPDATE  sellers SET seller_name =? WHERE user_id=?");
-$query->bind_param("ss",$user_id, );
+$query->bind_param("ss",$user_id,$seller_name );
 $query->execute();
 
 
