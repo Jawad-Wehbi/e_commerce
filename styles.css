@@ -43,8 +43,7 @@ Table structure
     left: 0;
     top: 0;
     width: 50vw; 
-    height: 50vh; 
-    overflow: auto; 
+    height: 50vh;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
 }
@@ -73,19 +72,19 @@ Table structure
     padding: 0;
     box-sizing: border-box;
 }
-#table {
+.table {
     width: 72vw;
     height: 85vh;
     padding-top: 15vh;
     margin-left: 27vw;
     
 }
-#table th {
+.table th {
     border: 1px solid #ddd;
     padding: 8px;
     border-radius: 20px;
 }
-#table th {
+.table th {
     width: 24vw;
     height: fit-content;
     padding-inline: 5px;
@@ -140,7 +139,7 @@ Seller card
     background-color: #FB1818;
 }
 .display{
-    display:none;
+    display:none !important;
 }
 .banbutton{
     background-color: #FB1818;
