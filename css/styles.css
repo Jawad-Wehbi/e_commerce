@@ -1194,6 +1194,9 @@ ul {
 	.wishlist-items {
 		grid-template-columns: auto auto auto;
 	}
+	.favourites-items {
+		grid-template-columns: auto auto auto;
+	}
 }
 
 @media screen and (max-width: 860px) {
@@ -1225,6 +1228,10 @@ ul {
 	}
 
 	.wishlist-items {
+		grid-template-columns: auto auto;
+	}
+
+	.favourites-items {
 		grid-template-columns: auto auto;
 	}
 
@@ -1388,6 +1395,10 @@ ul {
 	}
 	.wishlist-items {
 		grid-template-columns: auto;
+		justify-content: center;
+	}
+	.favourites-items {
+		grid-template-columns: auto auto auto;
 		justify-content: center;
 	}
 }
