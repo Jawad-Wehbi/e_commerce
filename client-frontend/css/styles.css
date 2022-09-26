@@ -1024,6 +1024,21 @@ ul {
 	position: relative;
 }
 
+.chat-title {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background-color: #535d77;
+	color: white;
+	height: 30px;
+	z-index: 100;
+}
+
+.chat-title p {
+	margin: auto 0 auto 20px;
+	font-size: 18px;
+}
+
 /* Chat input message and send message icon */
 .chat-input-container {
 	width: 100%;
