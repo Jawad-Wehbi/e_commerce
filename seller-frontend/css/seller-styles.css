@@ -8,7 +8,7 @@ Reset
     box-sizing: border-box;
     font-family: robo;
     font-family: "Roboto", sans-serif;
-    font-size: 22px;
+    font-size: 16px;
 }
 .seller img {
     height: 100%;
@@ -44,8 +44,8 @@ Utilities
     z-index: -1;
 }
 .seller-btn {
-    width: 150px;
-    height: 70px;
+    width: 100px;
+    height: 50px;
     border-radius: 20px;
     background-color: #007aff;
     text-align: center;
@@ -53,10 +53,7 @@ Utilities
     flex-direction: column;
     justify-content: center;
 }
-.seller-btn:hover {
-    width: 155px;
-    height: 75px;
-}
+
 .seller-btn-discard {
     background-color: #ee2222;
 }
@@ -68,7 +65,7 @@ Utilities
     border-radius: 15px;
     background-color: #007aff;
     color: #ffffff !important;
-    font-size: 25px;
+    font-size: 18px;
 }
 .seller-add-new-btn:hover {
     cursor: pointer;
@@ -96,10 +93,6 @@ Categories
     border-radius: 20px;
     margin-top: 8%;
     margin-bottom: 2%;
-}
-.seller-category:hover {
-    width: 40%;
-    height: 40vh;
 }
 .seller-category img {
     width: 100%;
@@ -295,8 +288,7 @@ Seller revenue
     background-color: #adceff;
 }
 .seller-statistics-item * {
-    padding: 4%;
-    padding-left: 20%;
+    padding: 4% 20%;
 }
 
 .seller-revenue svg {
@@ -470,12 +462,11 @@ Seller messages Page
     width: 55vw;
     height: 10vh;
     position: absolute;
-    font-size: 33px;
     top: -20px;
     border-radius: 0;
 }
 .seller-message-header p {
-    font-size: 33px;
+    font-size: 22px;
 }
 
 /* 
@@ -493,7 +484,7 @@ Add Ads
     align-items: center;
 }
 .seller-ads * {
-    font-size: 40px;
+    font-size: 22px;
 }
 .seller-ads-hidden {
     display: none;
@@ -507,5 +498,5 @@ Add Ads
     display: flex;
     flex-direction: row !important;
     justify-content: space-between;
-    width: 30vw;
+    width: 20vw;
 }
