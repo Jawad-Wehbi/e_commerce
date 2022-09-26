@@ -90,16 +90,16 @@ window.onload = () => {
     //
     //  open new category popup
     const openNewCategoryPage = () => {
-        categoriesPage.classList.add("seller-popup-hidden");
-        newCategoryPage.classList.remove("seller-popup-hidden");
+        newCategoryPage.showModal();
+        document.body.style.overflow = "hidden";
+        document.body.style.userSelect = "none";
     };
 
     // close new category popup
     const closeNewCategoryPage = () => {
-        newCategoryNameInput.value = "";
-        newCategoryDescriptionInput.value = "";
-        categoriesPage.classList.remove("seller-popup-hidden");
-        newCategoryPage.classList.add("seller-popup-hidden");
+        newCategoryPage.close();
+        document.body.style.overflow = "auto";
+        document.body.style.userSelect = "auto";
     };
 
     // Save new category

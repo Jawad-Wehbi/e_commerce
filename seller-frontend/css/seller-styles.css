@@ -99,7 +99,7 @@ Categories
     height: 80%;
 }
 .seller-category-name {
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 600;
     color: black;
     text-align: center;
@@ -109,9 +109,9 @@ Categories
 New categories
 */
 .seller-new-category-page {
-    position: fixed;
-    z-index: -1;
-    margin-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 .seller-categories-info {
     display: flex;
@@ -120,13 +120,10 @@ New categories
     margin-top: 10%;
 }
 .seller-categories-add-img {
-    height: 65vh;
+    height: 51vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-.seller-categories-add-img:hover {
-    height: 67vh;
 }
 .seller-categories-info div {
     display: flex;
@@ -155,14 +152,11 @@ Category page
 */
 .seller-categories-subheader {
     color: #000000;
-    padding: 2% 2% 2% 3.5%;
-    background-color: #535d77;
+    padding: 2% 2% 2% 7%;
+    background-color: #001743;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    width: 72%;
-    z-index: 1;
 }
 .seller-category-page {
     display: flex;
@@ -499,4 +493,20 @@ Add Ads
     flex-direction: row !important;
     justify-content: space-between;
     width: 20vw;
+}
+
+/* dialog styles */
+.modal {
+    background-color: white;
+    border-radius: 15px;
+    margin: auto auto;
+    width: 700px;
+    border: transparent;
+}
+/* Background page while product modal is active */
+.modal::backdrop {
+    background: black;
+    opacity: 0.4;
+    overflow: hidden;
+    user-select: none;
 }
