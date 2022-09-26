@@ -261,19 +261,19 @@
     <!-- Start Account Section -->
     <section class="section account-body display">
         <div class="account-page flex">
-            <div class="profile-div">
-                <img src="./images/6340123.jpg" alt="profile picture" class="profile-picture">
-            </div>
             <div class="account-input flex">
                 <h2 class="body-header">Account Settings</h2>
+                <img src="./images/6340123.jpg" alt="profile picture" class="profile-picture">
                 <label for="">Username</label>
                 <input type="text" class="input round account-input-tab" id="accountName">
                 <label for="">Email</label>
                 <input type="email" class="input round account-input-tab" id="accountEmail">
                 <label for="">Password</label>
                 <input type="password" class="input round account-input-tab">
-                <button type="button" class="save-button button">Save</button>
-                <button type="button" class="logout-button button">Logout</button>
+                <div class="flex">
+                    <button type="button" class="logout-button button">Logout</button>
+                    <button type="button" class="save-button button">Save</button>
+                </div>
             </div>
         </div>
     </section>
@@ -313,7 +313,6 @@
 
     <!-- Start Category Items Section -->
     <section class="section category-items-body padding display">
-        <h2 class="body-header">Category:</h2>
         <div class="category-items-grid">
         </div>
     </section>

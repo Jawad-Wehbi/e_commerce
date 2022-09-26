@@ -450,6 +450,7 @@ ul {
 	width: 16vw;
 	min-width: 250px;
 	transition: 300ms;
+	border: rgb(220, 220, 220) 1.5px solid;
 }
 
 .product:hover {
@@ -730,9 +731,25 @@ ul {
 	margin-top: 10px;
 }
 
-.product-details p {
-	margin-bottom: 15px;
-	font-size: 17px;
+.product-modal-name {
+	font-size: 35px;
+	color: #001743;
+	margin-bottom: 8px;
+}
+
+.product-modal-category {
+	font-size: 18px;
+	font-style: italic;
+	margin-bottom: 30px;
+}
+
+.product-modal-price {
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+
+.product-modal-description {
+	font-size: 18px;
 }
 
 /* Product action buttons */
@@ -912,19 +929,13 @@ ul {
 
 .account-page {
 	margin-top: 20px;
-	/* width: 50%; */
-}
-
-.profile-div {
-	/* margin: 0 auto; */
-	width: 30%;
+	justify-content: center;
 }
 
 .profile-picture {
 	display: block;
-	margin: 0 auto;
-	width: 15vw;
-	height: 15vw;
+	width: 100px;
+	height: 100px;
 	border-radius: 50%;
 	object-fit: cover;
 }

@@ -281,7 +281,7 @@ axios.get('http://localhost/client-backend/new_products.php').then((res) => {
 		newProducts.innerHTML += `
 			<!-- Product -->
 			<div class="product-container" >
-				<div class="product light-navy pointer">
+				<div class="product pointer">
 				    <div  onclick="showProduct(${product.id})">
 					    <!-- Product image -->
 					    <div class="product-image-container flex">
@@ -292,7 +292,7 @@ axios.get('http://localhost/client-backend/new_products.php').then((res) => {
 					    <!-- Product name -->
 					    <h3 class="product-name">${product.product_name}</h3>
 					    <!-- Product price -->
-					    <h3 class="price white-font">${product.price}</h3>
+					    <h3 class="price">${product.price}</h3>
 					</div>
 					
 					<!-- Product favourites / wishlist icons -->
@@ -346,7 +346,7 @@ axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
 		topProducts.innerHTML += `
 		<!-- Product -->
 		<div class="product-container" >
-			<div class="product light-navy pointer">
+			<div class="product pointer">
 				<div  onclick="showProduct(${product.id})">
 					<!-- Product image -->
 					<div class="product-image-container flex">
@@ -357,7 +357,7 @@ axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
 					<!-- Product name -->
 					<h3 class="product-name">${product.product_name}</h3>
 					<!-- Product price -->
-					<h3 class="price white-font">${product.price}</h3>
+					<h3 class="price">${product.price}</h3>
 				</div>
 				
 				<!-- Product favourites / wishlist icons -->
@@ -411,17 +411,17 @@ function showProduct(id) {
 	axios.post('http://localhost/client-backend/view_product.php', productId).then((res) => {
 		productModalInfo.innerHTML = `<img src="${res.data[0].image}" alt="product image" class="product-modal-image">
 		<div class="product-details">
-			<p><span class="bold">Name:</span> ${res.data[0].product_name}</p>
-			<p><span class="bold">Category:</span> ${res.data[0].category_name}</p>
-			<p><span class="bold">Price: </span>${res.data[0].price}</p>
-			<p><span class="bold">Description:</span> ${res.data[0].description}</p>
+			<p class="product-modal-name bold">${res.data[0].product_name}</p>
+			<p class="product-modal-category">${res.data[0].category_name}</p>
+			<p class="product-modal-price bold">${res.data[0].price}</p>
+			<p class="product-modal-description">${res.data[0].description}</p>
 		</div>`;
 		productModalButtons.innerHTML = `
-		    <button type="button" class="cart-modal-button button" onclick="addToCart(${id})">Add to cart</button>
             <button type="button" class="wishlist-modal-button button" onclick="addWishlist(${id})">Add to wishlist</button>
             <button type="button" class="contact-modal-button button">
                 Contact seller
-            </button>`;
+            </button>
+			<button type="button" class="cart-modal-button button" onclick="addToCart(${id})">Add to cart</button>`;
 		productModal.showModal();
 		document.body.style.overflow = 'hidden';
 		document.body.style.userSelect = 'none';
@@ -448,7 +448,7 @@ axios.post('http://localhost/client-backend/view_wishlist.php', { client_user_id
 			wishlistItems.innerHTML += `
 		<!-- Product -->
 		<div class="product-container" >
-			<div class="wishlist-body-product light-navy pointer">
+			<div class="wishlist-body-product pointer">
 				<div  onclick="showProduct(${id2})">
 					<!-- Product image -->
 					<div class="product-image-container flex">
@@ -459,7 +459,7 @@ axios.post('http://localhost/client-backend/view_wishlist.php', { client_user_id
 					<!-- Product name -->
 					<h3 class="product-name">${res2.data[0].product_name}</h3>
 					<!-- Product price -->
-					<h3 class="price white-font">${res2.data[0].price}</h3>
+					<h3 class="price">${res2.data[0].price}</h3>
 				</div>
 				
 				<!-- Product favourites / wishlist icons -->
@@ -492,7 +492,7 @@ axios
 				favouriteItems.innerHTML += `
 				<!-- Product -->
 				<div class="product-container" >
-					<div class="product light-navy pointer">
+					<div class="product pointer">
 						<div  onclick="showProduct(${id2})">
 							<!-- Product image -->
 							<div class="product-image-container flex">
@@ -503,7 +503,7 @@ axios
 							<!-- Product name -->
 							<h3 class="product-name">${res2.data[0].product_name}</h3>
 							<!-- Product price -->
-							<h3 class="price white-font">${res2.data[0].price}</h3>
+							<h3 class="price">${res2.data[0].price}</h3>
 						</div>
 
 						<!-- Product favourites / wishlist icons -->
@@ -533,7 +533,8 @@ function addFavourite(id) {
 	});
 }
 
-function viewCategory(id) {
+// View products inside a category
+function viewCategory(id, category1) {
 	let categoryId = { categories_id: id };
 	axios.post('http://localhost/client-backend/view_category.php', categoryId).then((res) => {
 		categoryItems.innerHTML = '';
@@ -541,18 +542,16 @@ function viewCategory(id) {
 			categoryItems.innerHTML += `
 		<!-- Product -->
 		<div class="product-container" >
-			<div class="wishlist-body-product light-navy pointer">
+			<div class="wishlist-body-product pointer">
 				<div  onclick="showProduct(${product.id})">
 					<!-- Product image -->
 					<div class="product-image-container flex">
 						<img src="${product.image}" alt="product" class="product-image">
 					</div>
-					<!-- Product category -->
-					<h4 class="product-category">${product.category_name}</h4>
 					<!-- Product name -->
 					<h3 class="product-name">${product.product_name}</h3>
 					<!-- Product price -->
-					<h3 class="price white-font">${product.price}</h3>
+					<h3 class="price">${product.price}</h3>
 				</div>
 				
 				<!-- Product favourites / wishlist icons -->
