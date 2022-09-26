@@ -84,7 +84,7 @@
         <!-- Categories -->
         <div class="categories padding">
             <!-- Categories Header -->
-            <h2 class="body-header">Categories</h2>
+            <h2 class="body-header">Categories:</h2>
             <!-- Categories container -->
             <div class="categories-container flex">
             </div>
@@ -93,7 +93,7 @@
 
         <!--New Products-->
         <div class="padding">
-            <h2 class="body-header">New Products</h2>
+            <h2 class="body-header">New Products:</h2>
             <!-- Products container -->
             <div class="new-products flex" id="newProducts">
             </div>
@@ -110,7 +110,7 @@
 
        <!--Top Selling Products-->
         <div class="padding">
-            <h2 class="body-header">Top Selling</h2>
+            <h2 class="body-header">Top Selling:</h2>
             <!-- Products container -->
             <div class="top-products flex" id="topProducts">
             </div>
@@ -130,48 +130,6 @@
      <Section class="section category-body padding display">
         <h2 class="body-header">Categories</h2>
         <div class="category-grid">
-            <!-- Laptop Category -->
-            <div class="category-background-container pointer">
-                <div class="category-background-laptop">
-                    <div class="category-cover">
-                        <h3  class="bold white-font">Laptop <br> Collection</h3>
-                        <div class="shop-now flex white-font">
-                            <h4>Shop now</h4>
-                            <span class="material-symbols-outlined md18 pointer">
-                                arrow_circle_right
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>   
-            <!-- Smartphone Category -->
-            <div class="category-background-container pointer">
-                <div class="category-background-smartphone">
-                    <div class="category-cover">
-                        <h3  class="bold white-font">Smartphone <br> Collection</h3>
-                        <div class="shop-now flex white-font">
-                            <h4>Shop now</h4>
-                            <span class="material-symbols-outlined md18 pointer">
-                                arrow_circle_right
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-            <!-- Camera Category -->
-            <div class="category-background-container pointer">
-                <div class="category-background-camera">
-                    <div class="category-cover">
-                        <h3  class="bold white-font">Cameras <br> Collection</h3>
-                        <div class="shop-now flex white-font">
-                            <h4>Shop now</h4>
-                            <span class="material-symbols-outlined md18 pointer">
-                                arrow_circle_right
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div> 
         </div>
     </Section>
     <!-- End Category Section -->
@@ -222,7 +180,8 @@
         </table>
         <div class="add-voucher">
             <input type="text" class="input voucher-input">
-            <button type="button" class="voucher-button button">Add Voucher</button>
+            <label for="addVoucher">Add voucher</label>
+            <button type="button" class="voucher-button button" id="addVoucher">Add</button>
         </div>
         <div class="cart-checkout flex">
             <div class="cash-total flex white-font">
@@ -273,6 +232,7 @@
             </div>
         </div>
         <div class="main-chat">
+            <div class="chat-title"><p>Username</p> </div>
             <div class="chat-input-container flex">
                 <input type="text" class="chat-input flex" placeholder="Message Here...">
                 <span class="material-symbols-outlined send pointer">
@@ -302,19 +262,19 @@
     <!-- Start Account Section -->
     <section class="section account-body display">
         <div class="account-page flex">
-            <div class="profile-div">
-                <img src="./images/6340123.jpg" alt="profile picture" class="profile-picture">
-            </div>
             <div class="account-input flex">
                 <h2 class="body-header">Account Settings</h2>
+                <img src="./images/6340123.jpg" alt="profile picture" class="profile-picture">
                 <label for="">Username</label>
                 <input type="text" class="input round account-input-tab" id="accountName">
                 <label for="">Email</label>
                 <input type="email" class="input round account-input-tab" id="accountEmail">
                 <label for="">Password</label>
                 <input type="password" class="input round account-input-tab">
-                <button type="button" class="save-button button">Save</button>
-                <button type="button" class="logout-button button">Logout</button>
+                <div class="flex">
+                    <button type="button" class="logout-button button">Logout</button>
+                    <button type="button" class="save-button button">Save</button>
+                </div>
             </div>
         </div>
     </section>
@@ -354,7 +314,6 @@
 
     <!-- Start Category Items Section -->
     <section class="section category-items-body padding display">
-        <h2 class="body-header">Category:</h2>
         <div class="category-items-grid">
         </div>
     </section>

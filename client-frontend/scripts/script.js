@@ -281,7 +281,7 @@ axios.get('http://localhost/client-backend/new_products.php').then((res) => {
 		newProducts.innerHTML += `
 			<!-- Product -->
 			<div class="product-container" >
-				<div class="product light-navy pointer">
+				<div class="product pointer">
 				    <div  onclick="showProduct(${product.id})">
 					    <!-- Product image -->
 					    <div class="product-image-container flex">
@@ -292,7 +292,7 @@ axios.get('http://localhost/client-backend/new_products.php').then((res) => {
 					    <!-- Product name -->
 					    <h3 class="product-name">${product.product_name}</h3>
 					    <!-- Product price -->
-					    <h3 class="price white-font">${product.price}</h3>
+					    <h3 class="price">${product.price}</h3>
 					</div>
 					
 					<!-- Product favourites / wishlist icons -->
@@ -306,10 +306,6 @@ axios.get('http://localhost/client-backend/new_products.php').then((res) => {
 						<div onclick="addWishlist(${product.id})">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="wishlist-product" ><path fill="#001743" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
 						</div>
-					</div>
-					<!-- Product add to cart action -->
-					<div class="product-cart navy">
-						<button type="button" class="button add-to-cart" onclick="addToCart(${product.id})">Add To Cart</button> 
 					</div>
 				</div>
 			</div>`;
@@ -350,7 +346,7 @@ axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
 		topProducts.innerHTML += `
 		<!-- Product -->
 		<div class="product-container" >
-			<div class="product light-navy pointer">
+			<div class="product pointer">
 				<div  onclick="showProduct(${product.id})">
 					<!-- Product image -->
 					<div class="product-image-container flex">
@@ -361,7 +357,7 @@ axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
 					<!-- Product name -->
 					<h3 class="product-name">${product.product_name}</h3>
 					<!-- Product price -->
-					<h3 class="price white-font">${product.price}</h3>
+					<h3 class="price">${product.price}</h3>
 				</div>
 				
 				<!-- Product favourites / wishlist icons -->
@@ -375,10 +371,6 @@ axios.get('http://localhost/client-backend/top-selling.php').then((res) => {
 					<div onclick="addWishlist(${product.id})">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="wishlist-product" ><path fill="#001743" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
 					</div>
-				</div>
-				<!-- Product add to cart action -->
-				<div class="product-cart navy">
-					<button type="button" class="button add-to-cart" onclick="addToCart(${product.id})">Add To Cart</button> 
 				</div>
 			</div>
 		</div>`;
@@ -419,17 +411,17 @@ function showProduct(id) {
 	axios.post('http://localhost/client-backend/view_product.php', productId).then((res) => {
 		productModalInfo.innerHTML = `<img src="${res.data[0].image}" alt="product image" class="product-modal-image">
 		<div class="product-details">
-			<p><span class="bold">Name:</span> ${res.data[0].product_name}</p>
-			<p><span class="bold">Category:</span> ${res.data[0].category_name}</p>
-			<p><span class="bold">Price: </span>${res.data[0].price}</p>
-			<p><span class="bold">Description:</span> ${res.data[0].description}</p>
+			<p class="product-modal-name bold">${res.data[0].product_name}</p>
+			<p class="product-modal-category">${res.data[0].category_name}</p>
+			<p class="product-modal-price bold">${res.data[0].price}</p>
+			<p class="product-modal-description">${res.data[0].description}</p>
 		</div>`;
 		productModalButtons.innerHTML = `
-		    <button type="button" class="cart-modal-button button" onclick="addToCart(${id})">Add to cart</button>
             <button type="button" class="wishlist-modal-button button" onclick="addWishlist(${id})">Add to wishlist</button>
             <button type="button" class="contact-modal-button button">
                 Contact seller
-            </button>`;
+            </button>
+			<button type="button" class="cart-modal-button button" onclick="addToCart(${id})">Add to cart</button>`;
 		productModal.showModal();
 		document.body.style.overflow = 'hidden';
 		document.body.style.userSelect = 'none';
@@ -456,7 +448,7 @@ axios.post('http://localhost/client-backend/view_wishlist.php', { client_user_id
 			wishlistItems.innerHTML += `
 		<!-- Product -->
 		<div class="product-container" >
-			<div class="wishlist-body-product light-navy pointer">
+			<div class="wishlist-body-product pointer">
 				<div  onclick="showProduct(${id2})">
 					<!-- Product image -->
 					<div class="product-image-container flex">
@@ -467,7 +459,7 @@ axios.post('http://localhost/client-backend/view_wishlist.php', { client_user_id
 					<!-- Product name -->
 					<h3 class="product-name">${res2.data[0].product_name}</h3>
 					<!-- Product price -->
-					<h3 class="price white-font">${res2.data[0].price}</h3>
+					<h3 class="price">${res2.data[0].price}</h3>
 				</div>
 				
 				<!-- Product favourites / wishlist icons -->
@@ -481,10 +473,6 @@ axios.post('http://localhost/client-backend/view_wishlist.php', { client_user_id
 					<div onclick="addWishlist(${id2})">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="wishlist-product" ><path fill="#001743" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
 					</div>
-				</div>
-				<!-- Product add to cart action -->
-				<div class="product-cart navy">
-					<button type="button" class="button add-to-cart" onclick="addToCart(${product.id})">Add To Cart</button> 
 				</div>
 			</div>
 		</div>`;
@@ -504,7 +492,7 @@ axios
 				favouriteItems.innerHTML += `
 				<!-- Product -->
 				<div class="product-container" >
-					<div class="product light-navy pointer">
+					<div class="product pointer">
 						<div  onclick="showProduct(${id2})">
 							<!-- Product image -->
 							<div class="product-image-container flex">
@@ -515,7 +503,7 @@ axios
 							<!-- Product name -->
 							<h3 class="product-name">${res2.data[0].product_name}</h3>
 							<!-- Product price -->
-							<h3 class="price white-font">${res2.data[0].price}</h3>
+							<h3 class="price">${res2.data[0].price}</h3>
 						</div>
 
 						<!-- Product favourites / wishlist icons -->
@@ -529,10 +517,6 @@ axios
 							<div onclick="addWishlist(${id2})">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="wishlist-product" ><path fill="#001743" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
 							</div>
-						</div>
-						<!-- Product add to cart action -->
-						<div class="product-cart navy">
-							<button type="button" class="button add-to-cart" onclick="addToCart(${product.id})"> Add To Cart</button> 
 						</div>
 					</div>
 				</div>`;
@@ -549,7 +533,8 @@ function addFavourite(id) {
 	});
 }
 
-function viewCategory(id) {
+// View products inside a category
+function viewCategory(id, category1) {
 	let categoryId = { categories_id: id };
 	axios.post('http://localhost/client-backend/view_category.php', categoryId).then((res) => {
 		categoryItems.innerHTML = '';
@@ -557,18 +542,16 @@ function viewCategory(id) {
 			categoryItems.innerHTML += `
 		<!-- Product -->
 		<div class="product-container" >
-			<div class="wishlist-body-product light-navy pointer">
+			<div class="wishlist-body-product pointer">
 				<div  onclick="showProduct(${product.id})">
 					<!-- Product image -->
 					<div class="product-image-container flex">
 						<img src="${product.image}" alt="product" class="product-image">
 					</div>
-					<!-- Product category -->
-					<h4 class="product-category">${product.category_name}</h4>
 					<!-- Product name -->
 					<h3 class="product-name">${product.product_name}</h3>
 					<!-- Product price -->
-					<h3 class="price white-font">${product.price}</h3>
+					<h3 class="price">${product.price}</h3>
 				</div>
 				
 				<!-- Product favourites / wishlist icons -->
@@ -582,10 +565,6 @@ function viewCategory(id) {
 					<div onclick="addWishlist(${product.id})">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="wishlist-product" ><path fill="#001743" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
 					</div>
-				</div>
-				<!-- Product add to cart action -->
-				<div class="product-cart navy">
-					<button type="button" class="button" add-to-cart onclick="addToCart(${product.id})">Add To Cart</button> 
 				</div>
 			</div>
 		</div>`;

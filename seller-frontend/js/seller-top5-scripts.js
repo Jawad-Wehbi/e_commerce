@@ -73,33 +73,34 @@ window.onload = () => {
             .then(response => {
                 let productCard = ``;
                 response.data.map(values => {
-                    productCard += `<div id="${values.product_id}" class="seller-categories-product">
-                    <div class="seller-categories-product-info">
-                        <img
-                            class="seller-product-img"
-                            src="assets/Laptop-collection.webp"
-                            alt="" />
-                        <p>Category Name</p>
-                        <p>${values.name}</p>
-                        <p>${values.price}$</p>
-                        <p>
-                            Quantity sold:
-                            <span></span>
-                        </p>
-                        <p>
-                            Quantity left:
-                            <span></span>
-                        </p>
-                    </div>
-                    <div class="seller-categories-product-views">
-                        <p>${values.nb_of_views}</p>
-                        <img src="assets/eye.svg" alt="" />
-                    </div>
-                    <div class="seller-categories-product-btns">
-                        <a class="seller-edit-btn" href="">Edit</a>
-                        <a class="seller-delete-btn" href="">Delete</a>
-                    </div>
-                </div>`;
+                    productCard += `
+                    <div id="${values.product_id}" class="seller-categories-product">
+                        <div class="seller-categories-product-info">
+                            <img
+                                class="seller-product-img"
+                                src="assets/Laptop-collection.webp"
+                                alt="" />
+                            <p>Category Name</p>
+                            <p>${values.name}</p>
+                            <p>${values.price}$</p>
+                            <p>
+                                Quantity sold:
+                                <span></span>
+                            </p>
+                            <p>
+                                Quantity left:
+                                <span></span>
+                            </p>
+                        </div>
+                        <div class="seller-categories-product-views">
+                            <p>${values.nb_of_views}</p>
+                            <img src="assets/eye.svg" alt="" />
+                        </div>
+                        <div class="seller-categories-product-btns">
+                            <a class="seller-edit-btn" href="">Edit</a>
+                            <a class="seller-delete-btn" href="">Delete</a>
+                        </div>
+                    </div>`;
                 });
                 sellerTop5Page.innerHTML = productCard;
 

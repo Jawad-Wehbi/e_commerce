@@ -15,6 +15,7 @@ like the header and the left panel */
 }
 .header h2 {
     margin: 3.5%;
+    font-size: 22px;
 }
 
 /* Title */
@@ -27,27 +28,29 @@ like the header and the left panel */
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid black;
 }
 .title div {
     width: 100%;
     height: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 2%;
 }
 .title h1 {
-    font-size: 44px;
+    font-size: 30px;
     font-weight: 700;
 }
 .title p {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 400;
     text-align: center;
 }
 .title img {
-    width: 62px;
-    height: 62px;
+    width: 36px;
+    height: 36px;
     border-radius: 60px;
+    margin-right: 2%;
 }
 
 /* Left Panel */
@@ -69,18 +72,13 @@ like the header and the left panel */
     width: 100%;
     height: 12.5%;
     background-color: #2a3143;
-    border-radius: 20px;
-    border: 1px solid #ffffff;
+    border-bottom: 0.25px solid black;
     text-align: center;
     font-size: 36px;
     font-weight: 400;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.nav-tab:hover {
-    width: 102%;
-    height: 13.5%;
 }
 .nav-tab-selected {
     background-color: #007aff;
