@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="utilities\as_utilities.css" />
+        <link rel="stylesheet" href="styles.css" />
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <title>Admin_Electronic Fellow</title>
+    </head>
+
+    <body class="admin">
+    
+        <!--
+            Title section
+        -->
+        <section class="title">
+            <div>
+                <img src="assets/logo.png" alt="" />
+                <h1>Electro Estate</h1>
+            </div>
+            <p>Admin Name</p>
+        </section>
+        <!--
+            Header section
+        -->
+
+        <!--
+            Left Panel
+        -->
+        <section class="panel">
+            <ul>
+                <button id="btn1" class="nav-tab nav-tab-selected" href=""><l>Sellers</l></button>
+                <button id="btn2" class="nav-tab" href=""><l>Clients</l></button>
+                <button id="btn3" class="nav-tab" href=""><l>Statistics</l></button>
+            </ul>
+        </section>
+
+        <div id="sellersPage" class="page"> 
+            <!--
+                Header section
+            -->
+            <section class="header">
+                <div class="sellerHeader">
+                    <h2>Sellers</h2>
+                    <button class="button editbutton" type="button" id="add">Add</button>
+                </div>
+            </section>
+
+                <!-- 
+                Adding Seller Modal 
+                -->
+            <div id="addingSeller" class="modal">
+
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <div class="popUpsignIn dis-none" id="popin" >
+                    <div class="popinContent">
+                      <div class="addsellerHeader">
+                        <h1>Add Seller Information</h1>
+                      </div>
+                      <div class="namein" id="namein">
+                        <input type="text" name="namein" class="sellerName" placeholder="Name">
+                      </div>
+                      <div class="emailin" id="emailin">
+                        <input type="text" name="emailin" class="selleremail" placeholder="Email">
+                      </div>
+                      <div class="Password">
+                        <input type="text" name="Password" class="password-input" placeholder="  Password">
+                      </div>
+                      <div class="addin">
+                        <a href="">
+                          <button id="addbtn" class="addbtn" type="submit">Add</button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+            
+        <!--
+            
+            Table of SellersList
+
+        -->
+            <section class="table ">
+                <table id="sellerTable">
+                    <tr>
+                      <th>Seller Name</th>
+                      <th>Email</th>
+                      <th>Buttons</th>
+                    </tr>
+                    <tr>
+                      <td>Alex</td>
+                      <td>Alex.mail</td>
+                      <td><button class="button editbutton">Edit</button><button class="button deletebutton">Delete</button></td>
+                    </tr>
+                    
+                  </table>
+            </section>
+        </div>
+        <!-- 
+
+        Sellerslist Table End
+
+        -->
+        <!-- 
+
+        Clients Table Start
+
+        -->
+
+        <div id="clientsPage" class="client">
+
+            <!--
+            Header section
+            -->
+            <div class="header ">
+                <h2>Clients</h2>
+            </div>
+
+            <div class="table ">
+                <table id="clientTable">
+                    <tr>
+                        <th>Client Name</th>
+                        <th>Email</th>
+                        <th>Buttons</th>
+                      </tr>
+                      <tr>
+                        <td>Alex</td>
+                        <td>Alex.mail</td>
+                        <td><button class="button deletebutton">Ban</button></td>
+                      </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 
+
+        Clients Table End
+
+        -->
+        <!-- 
+
+        Statistics Start
+
+        -->
+        <div id="statistics" class="page">
+            <h1>Hello</h1>
+        </div>
+
+        <!-- 
+
+        Statistics End
+
+        --> 
+
+                <script src="admin.js" type="text/javascript"></script>
+    </body>
+</html>

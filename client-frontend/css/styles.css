@@ -450,7 +450,6 @@ ul {
 	width: 16vw;
 	min-width: 250px;
 	transition: 300ms;
-	border: rgb(220, 220, 220) 1.5px solid;
 }
 
 .product:hover {
@@ -501,8 +500,6 @@ ul {
 	width: 100%;
 	padding: 10px 0;
 	align-items: center;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
 }
 
 /* Favourites icon */
@@ -534,6 +531,19 @@ ul {
 
 .wishlist-product:hover > path {
 	fill: #18a0fb;
+}
+
+/* Add prodcuct to cart */
+.product-cart {
+	height: 60px;
+	padding: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.add-to-cart {
+	display: block;
+	margin: 0 auto;
 }
 
 /* New products swiping buttons */
@@ -731,25 +741,9 @@ ul {
 	margin-top: 10px;
 }
 
-.product-modal-name {
-	font-size: 35px;
-	color: #001743;
-	margin-bottom: 8px;
-}
-
-.product-modal-category {
-	font-size: 18px;
-	font-style: italic;
-	margin-bottom: 30px;
-}
-
-.product-modal-price {
-	font-size: 30px;
-	margin-bottom: 20px;
-}
-
-.product-modal-description {
-	font-size: 18px;
+.product-details p {
+	margin-bottom: 15px;
+	font-size: 17px;
 }
 
 /* Product action buttons */
@@ -929,13 +923,19 @@ ul {
 
 .account-page {
 	margin-top: 20px;
-	justify-content: center;
+	/* width: 50%; */
+}
+
+.profile-div {
+	/* margin: 0 auto; */
+	width: 30%;
 }
 
 .profile-picture {
 	display: block;
-	width: 100px;
-	height: 100px;
+	margin: 0 auto;
+	width: 15vw;
+	height: 15vw;
 	border-radius: 50%;
 	object-fit: cover;
 }
@@ -1022,21 +1022,6 @@ ul {
 .main-chat {
 	flex-grow: 1;
 	position: relative;
-}
-
-.chat-title {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	background-color: #535d77;
-	color: white;
-	height: 30px;
-	z-index: 100;
-}
-
-.chat-title p {
-	margin: auto 0 auto 20px;
-	font-size: 18px;
 }
 
 /* Chat input message and send message icon */
