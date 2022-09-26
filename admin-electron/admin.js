@@ -20,10 +20,10 @@ window.onclick = function(event) {
 console.log('test');
 
 const navTab = document.querySelectorAll(".nav-tab");
-const sellersTable = document.getElementById('sellersTable');
+const sellersTable = document.getElementById('sellersPage');
 const client = document.querySelectorAll(".client");
 const statistics = document.getElementById("statistics");
-const clientTable = document.getElementById("clientsTable");
+const clientTable = document.getElementById("clientsPage");
 const table = document.getElementById("table");
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
