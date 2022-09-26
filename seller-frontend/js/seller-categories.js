@@ -147,14 +147,18 @@ window.onload = () => {
             .then(response => {
                 let categoryCard = ``;
                 response.data.map(values => {
-                    categoryCard += `<a id="${values.category_id}" href="" class="seller-category seller-category-cards">
-                    <p class="seller-category-name">${values.name}</p>
-                    <img src="assets/Laptop-collection.webp" alt="" />
-                </a>`;
+                    categoryCard += `
+                    <a class="category-background-container seller-category-card" id="${values.category_id}">
+                        <div class="category-background" style="background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(${values.category_image})">
+                            <div class="category-cover">
+                                <h3  class="bold white-font">${values.name}</h3>
+                            </div>
+                        </div>
+                    </a>`;
                 });
                 categoriesPage.innerHTML = categoryCard;
                 const openCategoryBtn = document.querySelectorAll(
-                    ".seller-category-cards"
+                    ".seller-category-card"
                 );
                 openCategoryBtn.forEach(btn => {
                     btn.addEventListener("click", e => {
