@@ -90,16 +90,16 @@ window.onload = () => {
     //
     //  open new category popup
     const openNewCategoryPage = () => {
-        categoriesPage.classList.add("seller-popup-hidden");
-        newCategoryPage.classList.remove("seller-popup-hidden");
+        newCategoryPage.showModal();
+        document.body.style.overflow = "hidden";
+        document.body.style.userSelect = "none";
     };
 
     // close new category popup
     const closeNewCategoryPage = () => {
-        newCategoryNameInput.value = "";
-        newCategoryDescriptionInput.value = "";
-        categoriesPage.classList.remove("seller-popup-hidden");
-        newCategoryPage.classList.add("seller-popup-hidden");
+        newCategoryPage.close();
+        document.body.style.overflow = "auto";
+        document.body.style.userSelect = "auto";
     };
 
     // Save new category
@@ -147,14 +147,18 @@ window.onload = () => {
             .then(response => {
                 let categoryCard = ``;
                 response.data.map(values => {
-                    categoryCard += `<a id="${values.category_id}" href="" class="seller-category seller-category-cards">
-                    <p class="seller-category-name">${values.name}</p>
-                    <img src="assets/Laptop-collection.webp" alt="" />
-                </a>`;
+                    categoryCard += `
+                    <a class="category-background-container seller-category-card" id="${values.category_id}">
+                        <div class="category-background" style="background-image: linear-gradient(rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(${values.category_image})">
+                            <div class="category-cover">
+                                <h3  class="bold white-font">${values.name}</h3>
+                            </div>
+                        </div>
+                    </a>`;
                 });
                 categoriesPage.innerHTML = categoryCard;
                 const openCategoryBtn = document.querySelectorAll(
-                    ".seller-category-cards"
+                    ".seller-category-card"
                 );
                 openCategoryBtn.forEach(btn => {
                     btn.addEventListener("click", e => {
