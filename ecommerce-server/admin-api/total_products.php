@@ -12,7 +12,7 @@ $query->execute();
 
 
 $return = $query -> get_result();
-$result = $return -> fetch_assoc();
+$result = $return -> fetch_assoc(); 
 
 
 $response = [];
